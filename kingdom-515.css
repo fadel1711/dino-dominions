@@ -1,0 +1,40 @@
+/* Dino Dominion Build 5.15 — Rise of the Kingdom. Mobile-first, contained UI. */
+.dd515Economy,.dd515Mail,.dd515WorldMail{box-sizing:border-box;min-width:0;color:#f3e6c8}
+.dd515Economy{border:1px solid #b69358!important;background:linear-gradient(148deg,#263a39,#0c2630 62%)!important;padding:16px!important}
+.dd515Eyebrow{font-size:10px;font-weight:900;letter-spacing:2px;color:#e7c47d;text-transform:uppercase;margin-bottom:9px}
+.dd515Heading{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.dd515Heading h2,.dd515MailTitle h3{font-family:Georgia,serif;color:#ffe2a6;margin:2px 0 9px;font-size:clamp(20px,5vw,26px)}
+.dd515Heading p,.dd515Hint,.dd515Foot{font-size:12px;color:#c3cec5;line-height:1.55;margin:5px 0 12px}
+.dd515Economy button,.dd515Mail button{border:1px solid #e3c28e;border-radius:11px;min-height:40px;padding:10px 13px;background:#d8b675;color:#1b2830;font-weight:800;font-size:12px;max-width:100%;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
+.dd515Economy button:disabled,.dd515Mail button:disabled{cursor:default;opacity:.44;filter:saturate(.5)}
+.dd515Economy button:focus-visible,.dd515Mail button:focus-visible,.dd515Job:focus-visible{outline:3px solid #83ffc4;outline-offset:2px}
+.dd515Start{border:1px dashed #9d956e;padding:16px;border-radius:15px;background:#112b32;margin:12px 0}
+.dd515Start p{font-size:12px;line-height:1.55;color:#c8c9b5}
+.dd515ResourceBar{margin:12px 0;padding:12px;border:1px solid #786f52;border-radius:11px;background:#10272f;font-size:13px;font-weight:700;line-height:2}
+.dd515Outposts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 17px}
+.dd515Outpost{min-width:0;display:flex;flex-direction:column;gap:7px;padding:13px;background:linear-gradient(135deg,#17353b,#11252b);border:1px solid #58716a;border-radius:15px;overflow-wrap:anywhere}
+.dd515OutpostTop{display:flex;align-items:center;gap:8px}.dd515OutpostTop>span{font-size:27px;flex:0 0 auto}.dd515OutpostTop>div{min-width:0}.dd515Outpost b{font-size:13px;line-height:1.25}.dd515Outpost small{display:block;color:#a8c5b9;font-size:11px;margin-top:5px}.dd515Outpost p{margin:5px 0;color:#b7c8c2;font-size:11px;line-height:1.5}.dd515Outpost p strong{color:#e7d196}
+.dd515Outpost button{margin-top:auto;min-width:0;font-size:11px;padding:8px!important}
+.dd515Section{margin:14px 0 0;padding-top:14px;border-top:1px solid #687468}
+.dd515Section h3{margin:5px 0 3px;color:#ffe1a4;font-size:18px}
+.dd515Jobs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.dd515Jobs label{min-width:0;display:flex;flex-direction:column;gap:7px;padding:10px;border:1px solid #55756e;border-radius:12px;background:#122e34;font-size:11px}
+.dd515Jobs label b{color:#84e6b2}.dd515Job{width:100%;min-width:0;background:#08212b;color:#f2e5cb;border:1px solid #8b9e8e;border-radius:9px;padding:10px 6px;font-size:12px}
+.dd515Research{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.dd515Branch{min-width:0;padding:10px;background:#122e34;border:1px solid #637568;border-radius:14px}
+.dd515Branch>strong{display:block;font-size:13px;min-height:27px;color:#f0cc89}
+.dd515Tech{display:flex;flex-direction:column;gap:6px;border-top:1px solid #4c675e;padding:12px 0}
+.dd515Tech b{font-size:12px}.dd515Tech small{font-size:10px;line-height:1.4;color:#c1c9bf}
+.dd515Tech button{font-size:10px;padding:8px;min-height:35px;margin-top:auto}
+.dd515WorldMail{display:flex;gap:9px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:11px 14px!important;border:1px solid #b5a16d!important;background:#173b3f!important;font-size:12px;color:#f6dfb0}
+.dd515WorldMail button{border:1px solid #d4b57a;border-radius:9px;background:#cba65f;color:#172934;padding:8px 12px;font-weight:800}
+.dd515Mail{padding:14px;border:1px solid #c4a16d;border-radius:15px;background:linear-gradient(150deg,#263b3a,#0b2530);margin:12px 0 18px}
+.dd515MailTitle{display:flex;align-items:center;justify-content:space-between;gap:9px;flex-wrap:wrap;margin-bottom:9px}
+.dd515MailTitle h3{margin:0;font-size:21px}.dd515MailTitle h3 small{font-size:12px;color:#bce3be;font-family:system-ui;font-weight:600}
+.dd515Letter{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 8px;border-top:1px solid #486a63;min-width:0}
+.dd515Letter>div{flex:1;min-width:0;overflow-wrap:anywhere}.dd515Letter strong{display:block;font-size:13px;color:#ffe1ac;margin-bottom:5px}.dd515Letter small{display:block;font-size:11px;color:#c3d3cb;line-height:1.5}.dd515Letter .dd515Loot{color:#96e6b0;font-weight:800;margin-top:5px}
+.dd515Letter button{flex:0 0 auto;max-width:90px}.dd515Empty{border-top:1px solid #46665d;padding-top:12px;font-size:12px;color:#bbd2ca}.dd515Warning{padding:10px;background:#5a3920;border-radius:9px;color:#ffe0bb;font-size:12px}
+.dd515Verified{border-top:1px solid #54645d;padding:10px 3px;color:#d5cbb5;font-size:12px}.dd515Verified summary{cursor:pointer;font-weight:800;color:#f5ddb2;padding:7px 0}.dd515Verified p{color:#bbcfc5;line-height:1.5}
+@media(max-width:610px){.dd515Outposts{grid-template-columns:1fr 1fr}.dd515Jobs{grid-template-columns:1fr}.dd515Research{grid-template-columns:1fr}.dd515OutpostTop>span{font-size:22px}.dd515Economy{padding:12px!important}}
+@media(max-width:355px){.dd515Outposts{grid-template-columns:1fr}.dd515Letter{align-items:flex-start;flex-direction:column}.dd515Letter button{max-width:none;width:100%}}
+@media(prefers-reduced-motion:reduce){.dd515Economy *, .dd515Mail *{animation:none!important;transition:none!important}}
