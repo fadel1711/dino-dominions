@@ -1,0 +1,66 @@
+/* Build 5.12 — visually richer connected adventure without new network assets. */
+.dd512Banner,.dd512Quest,.dd512Base{font-family:inherit;color:#f9efdb}
+.dd512Banner{display:grid;grid-template-columns:84px 1fr;align-items:center;gap:15px;margin:12px 0 18px;padding:18px;border:1px solid #c6a260;border-radius:18px;background:radial-gradient(ellipse at 8% 18%,#31625f75,transparent 48%),linear-gradient(135deg,#142d36,#2b3530 65%,#23272f);box-shadow:0 12px 28px #020a1166,inset 0 1px #f3dba735}
+.dd512PulsingOrb{width:80px;height:80px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 45% 30%,#5e8a69,#122a32 68%);font-size:44px;box-shadow:0 0 0 1px #e1c07b8c,0 0 28px #79bb9b55;animation:dd512Orb 5s ease-in-out infinite}
+.dd512Kicker{font-size:10px!important;letter-spacing:1.6px;color:#efd292;font-weight:800;text-transform:uppercase;margin-bottom:6px}
+.dd512Banner h3{font-size:20px;margin:0 0 6px;line-height:1.17;color:#fff0d0}
+.dd512Banner p{font-size:12px;line-height:1.55;color:#c7d6ce;margin:0 0 9px}
+.dd512BannerRow,.dd512Tags,.dd512CombatStats{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}
+.dd512Badge{display:inline-flex;align-items:center;max-width:100%;padding:4px 9px;border-radius:18px;border:1px solid #9a865d8a;background:#ffffff0d;color:#e4d9c0;font-size:11px;overflow-wrap:anywhere}
+.dd512Btn{font:inherit;font-weight:800;line-height:1.3;cursor:pointer;white-space:normal;text-align:center;min-height:42px;padding:10px 14px;border:1px solid #bda176;border-radius:10px;background:linear-gradient(135deg,#264d4f,#142c36);color:#f9edcf;box-shadow:inset 0 1px #ffffff19}
+.dd512Btn.primary{background:linear-gradient(135deg,#e9c58b,#c19a58);color:#182831;border-color:#ffe6ad}
+.dd512Btn.gold{background:linear-gradient(135deg,#685139,#3a3a34)}
+.dd512Btn:disabled{opacity:.48;cursor:not-allowed;filter:grayscale(.35)}
+.dd512Btn:focus-visible,.dd512HeroSelect:focus-visible{outline:3px solid #a3d7ee;outline-offset:2px}
+.dd512Banner .dd512Btn{width:100%;max-width:280px;margin-top:4px}
+.dd512Quest{margin:12px 0 22px;border:1px solid #b7985b;border-radius:19px;overflow:hidden;background:linear-gradient(145deg,#213d41,#111f2e);box-shadow:0 12px 32px #05091199}
+.dd512Quest>header{padding:19px 17px 9px;background:radial-gradient(ellipse at 96% 9%,#70876538,transparent 60%)}
+.dd512Quest>header h2{font-size:24px;margin:0 0 4px;line-height:1.2;color:#ffe6b6}
+.dd512Quest>header p{font-size:12px;line-height:1.5;color:#ccd9d5;margin:0}
+.dd512Progress{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:3px;padding:8px 11px 12px}
+.dd512Progress span{text-align:center;font-size:9px;line-height:1.3;color:#87938e;background:#122b31;padding:9px 2px;border:1px solid #3a4a48;border-radius:7px;overflow-wrap:anywhere}
+.dd512Progress span.done{color:#b5f2ca;border-color:#4b9271;background:#193e38}
+.dd512Progress span.current{color:#ffeec5;border-color:#e2be75;background:#665038}
+.dd512MissionBody{padding:13px 17px 20px;border-top:1px solid #ddc48d29;min-height:220px}
+.dd512MissionBody p{color:#cfddd7;font-size:13px;line-height:1.6}
+.dd512MissionBody h3{font-size:18px;line-height:1.28;color:#ffe6b7;margin:0 0 10px}
+.dd512MissionBody>.dd512Btn{margin:8px 0}
+.dd512Quest>footer{padding:13px 17px 17px;background:#0e2730;border-top:1px solid #c7aa7150}
+.dd512Quest>footer>small{display:block;color:#d0ccc0;line-height:1.55;font-size:11px}
+.dd512MiniTitle{font-size:11px;letter-spacing:.8px;text-transform:uppercase;font-weight:900;color:#f7d797;margin:0 0 8px}
+.dd512Heroes{margin:13px 0 15px}.dd512HeroChoices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.dd512HeroSelect{font:inherit;cursor:pointer;display:grid;gap:3px;justify-items:center;padding:10px 5px;border:1px solid #53736d;border-radius:11px;background:#132c34;color:#f3e8d2;min-width:0}
+.dd512HeroSelect.selected{border-color:#f4cd80;background:linear-gradient(145deg,#585038,#2a4241);box-shadow:inset 0 0 0 1px #dca86266}
+.dd512HeroSelect span{font-size:29px}.dd512HeroSelect b{font-size:10px;line-height:1.25;overflow-wrap:anywhere}.dd512HeroSelect small{font-size:10px;color:#c6d3ca}
+.dd512Routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.dd512Routes>div{display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid #9c8259;border-radius:12px;background:#172f34}
+.dd512Routes strong{color:#f5d9a6;font-size:14px}.dd512Routes p{font-size:12px;margin:0;flex:1}.dd512Routes button{width:100%}
+.dd512Decision{display:flex;gap:14px;align-items:flex-start}.dd512Decision>span{font-size:48px}.dd512Decision>div{min-width:0;flex:1}.dd512Decision .dd512Btn{margin:6px 4px 6px 0}.dd512Supply{padding:9px;background:#233b3b;border-radius:8px;margin:9px 0;color:#dfeacb;font-size:12px;font-weight:800}
+.dd512Base{margin:14px 0;padding:14px;border-color:#c6a260!important;background:linear-gradient(120deg,#253f3c,#142833)!important}.dd512Base h3{font-size:17px;color:#f7dfb0;margin:0 0 6px}.dd512Base p,.dd512Base small{font-size:12px;line-height:1.5;color:#d0ded6;display:block}
+.dd512Combat{overflow:hidden;border-radius:13px;border:1px solid #886d4d;background:#10292d;margin:12px 0}
+.dd512Scene{position:relative;display:grid;grid-template-columns:1fr 36px 1fr;align-items:end;gap:5px;min-height:180px;padding:28px 8px 14px;background:radial-gradient(ellipse at 50% 80%,#65937980 0%,transparent 65%),linear-gradient(170deg,#35595c,#203b43 49%,#423b2e 100%);isolation:isolate}
+.dd512Scene:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(160deg,transparent 65%,#1b382d 67%,#1d382b 78%,#1e2922 80%);opacity:.55}
+.dd512Combat.boss .dd512Scene{background:radial-gradient(ellipse at 50% 85%,#925e4d88,transparent 65%),linear-gradient(170deg,#252c40,#322f40 48%,#53362f)}
+.dd512Fog{position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 60% 75%,#edf5c626,transparent 55%);animation:dd512Glow 4s ease-in-out infinite alternate}
+.dd512Dino{text-align:center;min-width:0}.dd512Dino span{display:block;font-size:62px;line-height:1;filter:drop-shadow(1px 7px 4px #030a158c);animation:dd512Sway 3.2s ease-in-out infinite alternate}
+.dd512Enemy span{animation-delay:1.2s;filter:drop-shadow(0 8px 5px #320b0a9c)}.dd512Dino strong{display:block;font-size:11px;color:#ffedcb;margin-top:10px;overflow-wrap:anywhere;min-height:27px}
+.dd512Dino small{display:block;color:#eee8dc;font-size:10px}.dd512Clash{font-size:25px;align-self:center;text-align:center;color:#ffda82;animation:dd512Glow 2s linear infinite alternate}
+.dd512Hp{margin:5px auto;width:min(100%,132px);height:9px;background:#17272a;border:1px solid #8da390;border-radius:18px;overflow:hidden}.dd512Hp i{display:block;height:100%;background:linear-gradient(90deg,#4ba971,#a8e9a9);transition:width .32s ease}.dd512Hp.enemy i{background:linear-gradient(90deg,#bd6656,#f5a37a)}
+.dd512CombatStats,.dd512CombatControls{padding:8px 10px}.dd512CombatControls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.dd512CombatControls button{padding:10px 5px;font-size:11px}
+.dd512BattleLog{margin:8px 10px 13px;padding:10px;background:#081b237d;border-radius:8px;font-size:11px;line-height:1.45;color:#e6ddd0}.dd512BattleLog div+div{margin-top:5px;border-top:1px solid #6f856641;padding-top:5px}
+.dd512Hint{font-size:11px!important;color:#c0cfca!important}
+.dd512Victory{text-align:center}.dd512Victory>span{font-size:66px;display:block;animation:dd512Orb 3s infinite}.dd512Victory h3{font-size:23px;color:#ffe6ad}.dd512Victory strong{display:block;color:#c0efc8;margin-bottom:12px}.dd512Victory button{margin:auto}
+@keyframes dd512Orb{50%{transform:translateY(-6px);filter:brightness(1.2)}}
+@keyframes dd512Sway{to{transform:translateY(-5px) rotate(2deg)}}
+@keyframes dd512Glow{to{opacity:.5}}
+@media(max-width:420px){.dd512Banner{grid-template-columns:64px 1fr;padding:12px;gap:11px}.dd512PulsingOrb{width:64px;height:64px;font-size:35px}.dd512Banner h3{font-size:17px}.dd512Routes{grid-template-columns:1fr}.dd512CombatControls button{font-size:10px;padding:9px 3px}.dd512Dino span{font-size:48px}.dd512Progress span{font-size:8px}.dd512Quest>header h2{font-size:21px}}
+@media(prefers-reduced-motion:reduce){.dd512PulsingOrb,.dd512Dino span,.dd512Clash,.dd512Fog,.dd512Victory>span{animation:none!important}}
+.dd512AllyAssist{margin:0 10px 9px;border:1px solid #bbab7a70;padding:8px 10px;border-radius:8px;background:linear-gradient(110deg,#605d365e,#22464a);color:#ffedd4;font-size:11px;font-weight:700}
+.dd512Combat.strikeMove .dd512Friendly span{animation:dd512Attack .55s ease-out 1,dd512Sway 3.2s ease-in-out .55s infinite alternate}
+.dd512Combat.skillMove .dd512Friendly span{animation:dd512Skill .7s ease-out 1,dd512Sway 3.2s ease-in-out .7s infinite alternate}
+.dd512Combat.guardMove .dd512Friendly span{animation:dd512Guard .7s ease-out 1,dd512Sway 3.2s ease-in-out .7s infinite alternate}
+.dd512Combat.strikeMove .dd512Enemy span,.dd512Combat.skillMove .dd512Enemy span{animation:dd512Hit .55s ease-out 1,dd512Sway 3.2s ease-in-out .55s infinite alternate}
+@keyframes dd512Attack{35%{transform:translateX(24px) scale(1.07)}65%{transform:translateX(9px) scale(1.02)}}
+@keyframes dd512Skill{25%{filter:drop-shadow(0 0 13px #efc063);transform:scale(1.24)}55%{transform:translateX(32px)}}
+@keyframes dd512Guard{45%{filter:drop-shadow(0 0 15px #5abde3);transform:scale(1.1)}}
+@keyframes dd512Hit{40%{transform:translateX(11px) rotate(-7deg);filter:brightness(1.7)}}
+@media(prefers-reduced-motion:reduce){.dd512Combat .dd512Friendly span,.dd512Combat .dd512Enemy span{animation:none!important}}
