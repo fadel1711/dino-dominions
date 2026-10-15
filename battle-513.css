@@ -1,0 +1,104 @@
+/* Dino Dominion 5.13 — responsive animated 2.5D battlefield, no external image assets. */
+.dd513Battle,.dd513Route{box-sizing:border-box;max-width:100%;overflow:hidden;border:1px solid #997c4b;border-radius:16px;background:linear-gradient(165deg,#102631,#1d3335);color:#efe9d7;box-shadow:0 16px 32px #020c14a6,inset 0 1px #dbb56f45;font:inherit}
+.dd513Battle{margin:10px 0 12px;padding:0 0 12px}
+.dd513BattleHead{padding:14px 13px 5px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px}
+.dd513Eyebrow{font-size:11px;line-height:1.4;letter-spacing:1.2px;font-weight:900;color:#f4d393}
+.dd513Motion{border:1px solid #7b897d;background:#1b363c;color:#ddecd9;border-radius:20px;font-size:11px;font-weight:700;padding:7px 10px;min-height:33px;cursor:pointer}
+.dd513Subtitle{font-size:12px!important;color:#c8d7ca!important;margin:0 14px 14px!important;line-height:1.5!important}
+.dd513DuelLabels{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 12px 11px;min-width:0}
+.dd513Health{min-width:0;display:flex;flex-direction:column;gap:6px}
+.dd513Health>div:first-child{display:flex;flex-direction:column;gap:2px;min-height:37px;justify-content:end}
+.dd513Health b{color:#dfead6;font-size:12px;line-height:1.2;overflow-wrap:anywhere}
+.dd513Health.enemy b{color:#f7c6ad}
+.dd513Health small{color:#a9bcb6;font-size:10px}
+.dd513Health.enemy{text-align:right}
+.dd513Track{width:100%;height:11px;padding:2px;border:1px solid #6f8f80;background:#051c23;border-radius:20px;overflow:hidden}
+.dd513Track i{height:100%;display:block;max-width:100%;border-radius:15px;background:linear-gradient(90deg,#579f72,#c4e09d);box-shadow:0 0 9px #a3e7ab42;transition:width .4s ease}
+.dd513Health.enemy .dd513Track{border-color:#8c6959}
+.dd513Health.enemy .dd513Track i{background:linear-gradient(90deg,#ac6754,#eead7d);box-shadow:0 0 9px #e69c6a42}
+.dd513Arena{position:relative;overflow:hidden;isolation:isolate;width:100%;height:clamp(224px,54vw,290px);background:#233e41;touch-action:pan-y;contain:layout paint}
+.dd513Landscape{position:absolute;inset:0;width:100%;height:100%;z-index:-3}
+.dd513Sunrays{position:absolute;inset:-40% -30% 0;width:110%;height:140%;background:conic-gradient(from 0deg at 73% 34%,transparent 0deg,#e8e6b314 16deg,transparent 34deg,#e8d29c10 57deg,transparent 83deg);mix-blend-mode:screen;opacity:.7;z-index:-2}
+.dd513Mist{position:absolute;z-index:-1;inset:42% -30% 0;background:repeating-linear-gradient(177deg,transparent 0 19px,#cbd5bf0e 23px 34px,transparent 51px);filter:blur(5px);opacity:.75}
+.dd513Ground{position:absolute;inset:auto 0 0;height:18%;z-index:0;background:linear-gradient(#1e372517,#213125c9);border-top:1px solid #a7b17a21}
+.dd513Terrain-ridge .dd513Ground{background:linear-gradient(#693b3822,#322c2aca)}
+.dd513Terrain-boss .dd513Ground{background:linear-gradient(#8a56342a,#292933dd)}
+.dd513Unit{position:absolute;bottom:11%;height:58%;width:52%;z-index:1;pointer-events:none;will-change:transform}
+.dd513HeroUnit{left:-3%;transform-origin:65% 100%}
+.dd513EnemyUnit{right:-3%;transform-origin:35% 100%}
+.dd513UnitShadow{position:absolute;bottom:-4%;left:16%;width:79%;height:15%;border-radius:50%;background:#00131099;filter:blur(7px)}
+.dd513Sprite{position:relative;width:100%;height:100%;transform-origin:55% 88%;filter:drop-shadow(1px 6px 1px #06131099)}
+.dd513EnemyUnit .dd513Sprite{transform:scaleX(-1)}
+.dd513DinoSvg{width:100%;height:100%;overflow:visible;display:block}
+.dd513DinoArt{transform-origin:50% 70%}
+.dd513Impact{position:absolute;z-index:4;left:49%;top:39%;transform:translate(-50%,-50%) scale(.2);opacity:0;color:#ffeea9;font-size:56px;text-shadow:0 0 23px #f4e2b6;pointer-events:none}
+.dd513ArenaOverlay{position:absolute;left:10px;top:9px;font-size:10px;color:#f9e4bb;letter-spacing:1.3px;font-weight:900;text-shadow:0 2px 9px #000;background:#081819a3;border:1px solid #e6bb675c;padding:6px 10px;border-radius:16px}
+.dd513CombatCaption{position:absolute;z-index:5;top:29%;left:50%;transform:translate(-50%,-15%);min-width:60%;text-align:center;font-weight:900;font-size:17px;letter-spacing:.3px;color:#ffe9b3;text-shadow:0 2px 12px #110d0c,0 0 18px #edbb70;opacity:0;pointer-events:none}
+.dd513Momentum{padding:12px 10px 6px;display:flex;flex-wrap:wrap;gap:6px}
+.dd513Chip{border:1px solid #78897b66;background:#0d252bd1;color:#e0e6d4;padding:6px 9px;border-radius:20px;font-size:11px;font-weight:700;white-space:normal}
+.dd513Companion{margin:3px 10px 8px!important;padding:8px 11px;color:#f1deb7!important;background:#73552f40;border:1px solid #bda56a73;border-radius:9px;font-size:11px!important}
+.dd513TargetPanel,.dd513Orders{padding:9px 10px 4px}
+.dd513SectionTitle{display:block;color:#dfcfaa;font-weight:900;font-size:10px;letter-spacing:1.1px;margin:2px 0 8px}
+.dd513SectionTitle small{color:#b8cabb;font-weight:600;letter-spacing:0;text-transform:none;font-size:11px}
+.dd513AimRow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.dd513AimChoice{display:grid;align-content:center;justify-items:center;gap:5px;min-width:0;min-height:61px;padding:8px 4px;border:1px solid #587573;border-radius:9px;background:linear-gradient(160deg,#213940,#102932);color:#e5e6d8;cursor:pointer}
+.dd513AimChoice.selected{border-color:#efd096;background:linear-gradient(150deg,#5f5038,#263d3d);box-shadow:inset 0 0 0 1px #b9975e70}
+.dd513AimChoice b{font-size:12px;color:#f7e4bd}
+.dd513AimChoice small{text-align:center;color:#acbeb5;font-size:9px;line-height:1.35;overflow-wrap:anywhere}
+.dd513AimChoice.selected small{color:#f4dab4}
+.dd513Buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.dd513Act{border:1px solid #bba579;border-radius:12px;min-height:66px;padding:10px 4px;background:linear-gradient(160deg,#28565c,#18303e);color:#fff0d6;font-size:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;line-height:1.1}
+.dd513Act.strike{background:linear-gradient(160deg,#997045,#533a32);border-color:#e7b67a}
+.dd513Act.guard{background:linear-gradient(160deg,#315c5d,#17343b);border-color:#88bcb9}
+.dd513Act.skill{background:linear-gradient(160deg,#765a70,#3b3e56);border-color:#dab0d0}
+.dd513Act strong{font-size:12px;line-height:1.2}
+.dd513Act small{font-size:9px;line-height:1.3;color:#f1e2da;overflow-wrap:anywhere;max-width:100%;text-align:center}
+.dd513Act:disabled{opacity:.44;filter:grayscale(.4);cursor:not-allowed}
+.dd513Act:active:not(:disabled),.dd513AimChoice:active{transform:scale(.965)}
+.dd513Act:focus-visible,.dd513Motion:focus-visible,.dd513AimChoice:focus-visible,.dd513RouteCard button:focus-visible{outline:3px solid #c5f1d7;outline-offset:2px}
+.dd513Help{margin:7px 12px 6px!important;color:#a8c1b9!important;font-size:11px!important;line-height:1.4!important}
+.dd513Log{margin:10px 12px;padding:10px;border-radius:10px;border:1px solid #42616b8c;background:#071b26c4;min-height:62px}
+.dd513Log>b{font-size:10px;letter-spacing:1px;color:#efce96}
+.dd513Log p{margin:6px 0 0!important;padding:5px 0 0;color:#e0d9ca!important;border-top:1px solid #64838338;font-size:11px!important;line-height:1.5!important}
+.dd513Safety{display:block;padding:2px 12px;color:#a7c4bf;font-size:10px;line-height:1.4}
+.dd513MotionEnabled .dd513HeroUnit{animation:dd513HeroPatrol 4s ease-in-out infinite alternate}
+.dd513MotionEnabled .dd513EnemyUnit{animation:dd513EnemyPatrol 3.6s ease-in-out infinite alternate}
+.dd513MotionEnabled .dd513HeroUnit .dd513DinoArt{animation:dd513Breathe 2.1s ease-in-out infinite alternate}
+.dd513MotionEnabled .dd513EnemyUnit .dd513DinoArt{animation:dd513Breathe 2.7s ease-in-out infinite alternate-reverse}
+.dd513MotionEnabled .dd513Mist{animation:dd513MistDrift 15s linear infinite alternate}
+.dd513MotionEnabled .dd513Sunrays{animation:dd513SunDrift 12s ease-in-out infinite alternate}
+.dd513Striking .dd513HeroUnit,.dd513Casting .dd513HeroUnit{animation:dd513Lunge .64s cubic-bezier(.2,.7,.25,1) both!important}
+.dd513Striking .dd513EnemyUnit,.dd513Casting .dd513EnemyUnit{animation:dd513EnemyRecoil .65s ease-out both!important}
+.dd513Striking .dd513Impact,.dd513Casting .dd513Impact{animation:dd513Impact .6s ease-out both}
+.dd513Bracing .dd513HeroUnit{animation:dd513Brace .5s ease-out both!important}
+.dd513Casting .dd513Sunrays{background:radial-gradient(circle at 50% 55%,#ffb86770,transparent 55%)}
+.dd513Striking .dd513CombatCaption,.dd513Casting .dd513CombatCaption,.dd513Bracing .dd513CombatCaption{animation:dd513Caption .72s ease-out both}
+.dd513Battle:has(.dd513Striking) .dd513Act,.dd513Battle:has(.dd513Casting) .dd513Act,.dd513Battle:has(.dd513Bracing) .dd513Act{pointer-events:none}
+.dd513Battle:has(.dd513Striking) .dd513AimChoice,.dd513Battle:has(.dd513Casting) .dd513AimChoice,.dd513Battle:has(.dd513Bracing) .dd513AimChoice{pointer-events:none}
+@keyframes dd513HeroPatrol{0%{transform:translate(0,0)}100%{transform:translate(11px,-3px)}}
+@keyframes dd513EnemyPatrol{0%{transform:translate(0,-3px)}100%{transform:translate(-9px,0)}}
+@keyframes dd513Breathe{to{transform:scale(1.015) translateY(-2px)}}
+@keyframes dd513MistDrift{to{transform:translateX(14%)}}
+@keyframes dd513SunDrift{to{transform:rotate(5deg)}}
+@keyframes dd513Lunge{0%{transform:translate(0,0) scale(1)}40%{transform:translate(47%,0) scale(1.09)}53%{transform:translate(47%,-7px) scale(1.09)}100%{transform:translate(0,0) scale(1)}}
+@keyframes dd513EnemyRecoil{0%,43%{transform:translate(0,0)}54%{transform:translate(17px,-8px) rotate(5deg)}100%{transform:translate(0,0)}}
+@keyframes dd513Brace{40%{transform:translate(-8px,-9px) scale(1.11);filter:drop-shadow(0 0 9px #99ebff)}100%{transform:translate(0,0)}}
+@keyframes dd513Impact{0%,38%{opacity:0;transform:translate(-50%,-50%) scale(.2)}52%{opacity:1;transform:translate(-50%,-50%) scale(1.7)}100%{opacity:0;transform:translate(-50%,-50%) scale(2.5)}}
+@keyframes dd513Caption{0%,15%{opacity:0;transform:translate(-50%,10px)}40%{opacity:1;transform:translate(-50%,-3px)}100%{opacity:0;transform:translate(-50%,-27px)}}
+.dd513Route{margin:9px 0 12px;padding:14px}
+.dd513Route h3{margin:6px 0 6px!important;font-size:19px!important;color:#f5dfb8!important}
+.dd513Route p{font-size:12px!important;color:#ccddcf!important;line-height:1.6!important;margin:5px 0 12px!important}
+.dd513RouteIllustration{width:100%;height:auto;display:block;border-radius:14px;border:1px solid #8b806263;margin:12px auto}
+.dd513RouteCards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.dd513RouteCard{display:flex;min-width:0;flex-direction:column;align-items:flex-start;gap:8px;background:#173930;border:1px solid #719f81;border-radius:12px;padding:11px}
+.dd513RouteCard.ridge{background:#3d2d2e;border-color:#ae8060}
+.dd513RouteCard>span{font-size:27px}
+.dd513RouteCard b{font-size:13px;color:#ffefd5}
+.dd513RouteCard small{font-size:11px;color:#d2d5c7;line-height:1.35;flex:1}
+.dd513RouteCard button{cursor:pointer;width:100%;min-height:48px;border:1px solid #dfc38d;border-radius:9px;background:#e4c78c;color:#232c29;font-weight:900;font-size:11px;line-height:1.3;padding:8px 5px;overflow-wrap:anywhere}
+.dd513Outcome{position:fixed;inset:0;z-index:11000;display:grid;place-items:center;pointer-events:none;background:#07192396;animation:dd513OutcomeFade 1.7s ease-out both}
+.dd513OutcomeInner{display:grid;gap:9px;place-items:center;text-align:center;border:1px solid #e0b772;border-radius:21px;padding:25px;background:linear-gradient(155deg,#1d363d,#39402b);color:#f8e4b8;box-shadow:0 25px 90px #000c;max-width:min(320px,90vw)}
+.dd513OutcomeInner span{font-size:54px}.dd513OutcomeInner strong{font-size:22px}.dd513OutcomeInner small{font-size:12px;color:#d9e7d5}
+@keyframes dd513OutcomeFade{0%,65%{opacity:1}100%{opacity:0}}
+@media(max-width:410px){.dd513Arena{height:230px}.dd513BattleHead{padding:12px 9px 5px}.dd513Subtitle{margin:0 10px 10px!important}.dd513DuelLabels{padding:0 9px 10px}.dd513Health b{font-size:11px}.dd513Health small{font-size:9px}.dd513Unit{width:55%;height:55%;bottom:14%}.dd513HeroUnit{left:-7%}.dd513EnemyUnit{right:-7%}.dd513TargetPanel,.dd513Orders{padding:8px 8px 4px}.dd513AimRow,.dd513Buttons{gap:5px}.dd513Act{min-height:67px}.dd513AimChoice{min-height:66px}.dd513AimChoice b{font-size:11px}.dd513AimChoice small{font-size:8px}.dd513Route{padding:11px}.dd513RouteCard{padding:9px}.dd513RouteCard b{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.dd513MotionEnabled .dd513Unit,.dd513MotionEnabled .dd513DinoArt,.dd513MotionEnabled .dd513Mist,.dd513MotionEnabled .dd513Sunrays,.dd513Arena .dd513Impact,.dd513Arena .dd513CombatCaption{animation:none!important}.dd513Outcome{animation:none}}
