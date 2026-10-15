@@ -1,0 +1,18 @@
+/* Build 5.18 — Royal Messenger curated media: scoped to the messenger */
+.dd517Composer .dd518PickerBtn{min-width:37px;max-width:37px;font-size:19px!important;flex:0 0 37px;padding:5px 3px}
+.dd518Tray[hidden]{display:none!important}
+.dd518Tray{margin-bottom:8px;background:#142b34;border:1px solid #a28b64;border-radius:13px;padding:10px;max-height:min(35dvh,270px);overflow:auto;overscroll-behavior:contain}
+.dd518TrayHeader{display:flex;align-items:center;gap:8px;margin-bottom:8px;color:#e8cf9a}
+.dd518TrayHeader strong{font-size:13px;white-space:nowrap}
+.dd518TrayHeader span{color:#abc1bb;font-size:10px;flex:1;min-width:0}
+.dd518TrayHeader button{padding:3px 8px;min-height:28px;border:0;background:transparent;font-size:17px}
+.dd518Grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.dd518Grid button{display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:5px 3px;gap:3px;overflow:hidden;min-width:0;background:#213944;border:1px solid #506869;border-radius:10px;min-height:105px}
+.dd518Grid button:active{background:#3d574c}.dd518Grid button img{object-fit:contain;max-width:100%;width:100%;height:76px;display:block}
+.dd518Grid button small{font-size:9px;color:#e5d6b4;line-height:1.2;text-align:center;overflow-wrap:anywhere;letter-spacing:.02em}
+.dd518Safety{font-size:10px;color:#a6bab4;margin:7px 0 0}
+.dd518Media{display:flex;flex-direction:column;align-items:flex-start;gap:3px}
+.dd518Media img{width:min(210px,100%);height:auto;max-height:175px;object-fit:contain;border-radius:12px;display:block}
+.dd518Alt{font-size:10px;color:#b6c8c2}
+.dd517Bubble p:has(.dd518Media){margin:5px 0;white-space:normal}
+@media(max-width:370px){.dd517Composer .dd518PickerBtn{min-width:31px;max-width:31px;font-size:16px!important;flex:0 0 31px}.dd518Grid{gap:4px}.dd518Grid button{padding:4px 2px;min-height:87px}.dd518Grid button img{height:60px}.dd518Tray{max-height:230px}}
