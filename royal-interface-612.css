@@ -1,0 +1,57 @@
+/* Build 6.12 — Ornate-but-readable royal navigation, additive and reversible. */
+:root{--dd612-gold:#e6bd73;--dd612-gold2:#b7873f;--dd612-ink:#07141b;--dd612-panel:#0c2027}
+body.dd612MenuOpen{overflow:hidden!important}
+body.dd612Ready #nav{display:none!important} /* Game still renders original eight hidden buttons for reliable native routing. */
+body.dd612Ready .app{padding-bottom:calc(108px + env(safe-area-inset-bottom))!important}
+.royalTop .brand small{font-size:8px!important;letter-spacing:.09em!important;color:#d9ae70!important}
+body.dd612Ready #rankShortcut{display:none!important} /* Rankings remain in More. */
+body.dd612Ready .dd610Ribbon{display:none!important} /* Deck remains one tap away inside Kingdom. */
+.royalWallet{justify-content:flex-start!important;gap:6px!important;padding:6px 8px!important;flex-wrap:nowrap}
+.royalWallet .walletLabel{display:none!important}
+.royalWallet .pill{flex:0 1 auto;min-width:0;padding:6px 8px!important;background:#142a2d!important;border:1px solid #946a3c!important;border-radius:15px!important}
+#dd612ResourceToggle{margin-left:auto;border:1px solid #b58e53;border-radius:16px;background:#233332;color:#f1dab1;padding:7px 9px;font-size:11px;font-weight:800;white-space:nowrap}
+#dd612ResourceToggle[aria-expanded="true"]{background:#453921}
+body.dd612Ready .dd5161CompactHud,body.dd612Ready .app>.stats{display:none!important}
+body.dd612ShowResources .dd5161CompactHud,body.dd612ShowResources .app>.stats{display:flex!important}
+body.dd612ShowResources .dd5161CompactHud{display:block!important}
+body.dd612ShowResources .app>.stats{display:flex!important}
+/* Relocate the existing scene controls, preserving native listeners, and collapse them. */
+#dd612ViewToggle{position:absolute;top:12px;right:12px;z-index:9;border:1px solid var(--dd612-gold);border-radius:30px;background:#07151cdb;color:#ffdb97;box-shadow:0 3px 12px #0008;padding:8px 12px;font-size:12px;font-weight:800;display:flex;gap:5px;align-items:center}
+#dd612ViewToggle[aria-expanded="true"]{background:#382b1b}
+#dd612ViewFlyout[hidden]{display:none!important}
+#dd612ViewFlyout{position:absolute;top:51px;right:10px;z-index:10;width:min(195px,65vw);border:1px solid #c9a05e;border-radius:13px;padding:7px;background:linear-gradient(140deg,#0c2329,#1c2225);box-shadow:0 16px 36px #000b;display:grid;gap:5px;max-height:220px;overflow-y:auto}
+#dd612ViewFlyout button,#dd612ViewFlyout #roamToggle,#dd612ViewFlyout #viewToggle,#dd612ViewFlyout #riderToggle,#dd612ViewFlyout #detailToggle{position:static!important;inset:auto!important;transform:none!important;width:100%!important;height:auto!important;max-width:100%!important;min-height:36px!important;margin:0!important;padding:8px 7px!important;display:block!important;opacity:1!important;visibility:visible!important;text-align:left!important;font:700 11px system-ui,sans-serif!important;border-radius:8px!important;background:#19333a!important;border:1px solid #98784b!important;color:#f5deae!important;white-space:normal!important;line-height:1.2!important;box-shadow:none!important;touch-action:manipulation}
+#dd612Dock{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(650px,100%);z-index:18;padding:0 7px calc(5px + env(safe-area-inset-bottom));background:linear-gradient(#101d23ed,#070f16fa);border-top:2px solid var(--dd612-gold2);box-shadow:0 -9px 22px #0009,inset 0 1px #ffe2a955;color:#f5dcab;backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px)}
+#dd612Dock::before{content:'♛';position:absolute;left:50%;top:-12px;transform:translateX(-50%);font-size:14px;color:#ffdc8c;background:#1b2428;padding:0 9px;border:1px solid #bd9555;border-radius:50%;line-height:17px;pointer-events:none}
+.dd612Categories{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;padding:8px 0 0}
+.dd612Categories button{border:1px solid #815e36;border-radius:12px 12px 8px 8px;min-width:0;min-height:61px;background:linear-gradient(155deg,#16282a,#0a151e);color:#e6c99b;display:grid;place-content:center;gap:1px;align-items:center;justify-items:center;text-shadow:0 1px #000;box-shadow:inset 0 1px #e0af4d22;cursor:pointer}
+.dd612Categories button.active{background:linear-gradient(165deg,#72522e,#222223 68%);color:#ffe2a8;border-color:#e8bb6a;box-shadow:inset 0 1px #ffe5a788,0 0 0 1px #bd8e4b44}
+.dd612Categories button>span{font-size:23px;line-height:27px}.dd612Categories button>small{font-size:10px;font-weight:800;letter-spacing:.01em}
+.dd612Pinned[hidden]{display:none!important}.dd612Pinned{display:flex;align-items:center;gap:5px;padding:7px 3px 1px;overflow-x:auto}
+.dd612Pinned button{border:1px solid #8e7348;border-radius:20px;background:#182c30;color:#f7dfad;white-space:nowrap;font-size:10px;font-weight:800;padding:6px 11px;min-height:28px}.dd612Pinned button span{margin-right:5px}
+#dd612Shade[hidden]{display:none!important}#dd612Shade{position:fixed;inset:0;z-index:56;display:flex;align-items:flex-end;justify-content:center}
+.dd612Dim{position:absolute;inset:0;border:0;background:#020a0dbe;cursor:pointer}
+.dd612Drawer{position:relative;width:min(650px,100%);max-height:min(73dvh,680px);overflow:hidden;display:flex;flex-direction:column;padding:0 12px calc(83px + env(safe-area-inset-bottom));border:1px solid #b9924f;border-bottom:0;border-radius:19px 19px 0 0;background:radial-gradient(ellipse at 90% 0%,#31443a,#0b242c 46%,#09171f 85%);box-shadow:0 -16px 50px #000d,inset 0 1px #f4d79b77;color:#f8ebcf}
+.dd612Drawer header{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:15px 3px 12px;border-bottom:1px solid #bc93566e;flex:0 0 auto}
+.dd612Drawer header small{color:#e9c489;font-size:9px;letter-spacing:.12em;font-weight:900}.dd612Drawer h2{font:normal 26px Georgia,serif;margin:2px 0;color:#ffda95}.dd612Drawer p{font-size:11px;color:#b9cfca;margin:0}.dd612Close{flex:0 0 auto;border:1px solid #be945a;border-radius:9px;background:#203038;color:#ffe0a2;width:42px;height:40px;font-size:18px}
+.dd612MenuGrid{overflow-y:auto;min-height:0;overscroll-behavior:contain;padding:12px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;align-content:start;-webkit-overflow-scrolling:touch}
+.dd612Tile{position:relative;min-width:0;border:1px solid #715d44;border-radius:12px;background:linear-gradient(140deg,#20363a,#10232c);box-shadow:inset 0 1px #ffffff12;overflow:hidden}
+.dd612Destination{border:0;background:transparent;color:#f8e9cb;width:100%;text-align:left;display:flex;align-items:center;gap:8px;padding:12px 8px;min-height:71px;cursor:pointer}
+.dd612TileIcon{flex:0 0 32px;font-size:23px;text-align:center}.dd612TileWords{flex:1;min-width:0}.dd612TileWords strong{display:block;font-size:12px;line-height:1.2;overflow-wrap:anywhere}.dd612TileWords small{display:block;font-size:10px;color:#b5c8c3;line-height:1.3;margin-top:4px;overflow-wrap:anywhere}.dd612Arrow{color:#d9b875;align-self:start;font-size:13px}
+.dd612Pin{position:absolute;top:1px;right:4px;background:#2a3732;color:#f8d78b;border:1px solid #a98755;border-radius:99px;font-size:15px;min-width:30px;min-height:30px;cursor:pointer}
+.dd612MenuFoot{flex:0 0 auto;border-top:1px solid #95744869;padding:9px 3px;color:#bcbaaa;font-size:10px;min-height:32px}
+.dd612Categories button:focus-visible,.dd612Destination:focus-visible,.dd612Close:focus-visible,#dd612ViewToggle:focus-visible{outline:2px solid #fff7d7;outline-offset:2px}
+@media(max-width:360px){.dd612Categories{gap:3px}.dd612Categories button{min-height:57px}.dd612Categories button>span{font-size:21px}.dd612Categories button>small{font-size:9px}.dd612Destination{gap:3px;padding:10px 5px}.dd612TileIcon{font-size:20px;flex-basis:26px}.dd612TileWords strong{font-size:11px}.dd612TileWords small{font-size:9px}.dd612Drawer{padding-inline:9px}.royalWallet .pill{padding:5px!important}#dd612ResourceToggle{padding:6px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){#dd612Shade *,#dd612Dock *{animation:none!important;transition:none!important}}
+
+body.dd612MenuOpen #dd612Dock{z-index:60}
+
+/* A successful JS mount is required before hiding any of the original game UI. */
+body.dd612Ready #content .dd67Entry,body.dd612Ready #content .dd68Entry,body.dd612Ready #content .dd69Entry,body.dd612Ready #content .dd611Entry{display:none!important}
+body.dd612Ready .hero:not(.exploring):not(.cinematic){height:clamp(300px,70vw,430px)}
+body.dd612HasPins .dd612Drawer{padding-bottom:calc(114px + env(safe-area-inset-bottom))}
+/* Carry the royal theme into the existing command center without repainting gameplay. */
+body.dd612Ready .royalTop{background:linear-gradient(125deg,#10252c,#182127 64%,#34281f)!important;border-bottom:1px solid #b38c4f70;box-shadow:0 2px 12px #0007}
+body.dd612Ready .royalTop .brand{color:#f8e8c3!important;text-shadow:0 1px 0 #000}
+body.dd612Ready .hero{border-bottom:2px solid #ae8b54}
+body.dd612Ready .hero:not(.exploring) .heroTag{border-color:#b99a62;color:#f2dab1;background:#0b2027df}
