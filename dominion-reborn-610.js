@@ -3,12 +3,13 @@
  * achievements, combat outcomes, or mandatory animations.
  */
 (()=>{'use strict';
-const VERSION='6.10.0-beta-command-deck';
+const VERSION='6.10.1-beta-bond-route';
 const $=id=>document.getElementById(id);
 const safe=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const PLACES=[
  {id:'castle',icon:'🏰',tag:'WALK THE CITADEL',name:'Living Castle',desc:'Step inside your stronghold'},
  {id:'council',icon:'♛',tag:'TRUST & LEGACY',name:'Royal Council',desc:'Meet your signature companion'},
+ {id:'bond',icon:'♥',tag:'THE LIVING BOND',name:'Companion Sanctuary',desc:'Earn moments of trust together'},
  {id:'war',icon:'⚔️',tag:'ALLIANCE COMMAND',name:'War Council',desc:'Plan around live territories'},
  {id:'valley',icon:'🧭',tag:'THE WILD FRONTIER',name:'Mossveil Valley',desc:'Follow tracks and discoveries'},
  {id:'chat',icon:'✉️',tag:'ACROSS KINGDOMS',name:'Royal Messenger',desc:'Speak across seven languages'},
@@ -41,7 +42,7 @@ function update(){if(!visible||!root)return;phase=currentPhase();root.dataset.ti
 function open(){build();if(visible)return;visible=true;formerFocus=document.activeElement;previousBodyScroll=window.scrollY||0;still=readStill();root.hidden=false;document.body.classList.add('dd610Open');root.querySelector('.dd610Scroll').scrollTop=0;update();interval=setInterval(update,15000);root.querySelector('.dd610Exit')?.focus({preventScroll:true})}
 function close(){if(!visible)return;visible=false;clearInterval(interval);interval=null;root.hidden=true;document.body.classList.remove('dd610Open');if(Math.abs((window.scrollY||0)-previousBodyScroll)>5)window.scrollTo(0,previousBodyScroll);if(formerFocus?.isConnected)formerFocus.focus({preventScroll:true})}
 function travel(place){const actions={
- castle:()=>window.DD60?.open?.(),council:()=>window.DD67?.open?.(),war:()=>window.DD68?.open?.(),valley:()=>window.DD69?.open?.(),chat:()=>window.DD517?.open?.(),warfront:()=>window.DDFullUI?.open?.('war')
+ castle:()=>window.DD60?.open?.(),council:()=>window.DD67?.open?.(),bond:()=>window.DD611?.open?.(),war:()=>window.DD68?.open?.(),valley:()=>window.DD69?.open?.(),chat:()=>window.DD517?.open?.(),warfront:()=>window.DDFullUI?.open?.('war')
  };const action=actions[place];if(!action)return;close();try{action()}catch(e){console.warn('Dominion route unavailable',e)}}
 function click(e){const b=e.target.closest('[data-dd610]');if(!b)return;const cmd=b.dataset.dd610;if(cmd==='close')return close();if(cmd==='travel')return travel(b.dataset.place);if(cmd==='motion'){still=!still;writeStill(still);update()}}
 function init(){const btn=$('dd610Launch');if(!btn)return;btn.addEventListener('click',open);window.DD610={version:VERSION,open,close,debug:()=>({visible,phase,still,cloud:cloud(),companion:companion(),power:$('dd610Power')?.textContent||''})}}
