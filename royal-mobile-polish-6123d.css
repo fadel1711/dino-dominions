@@ -1,0 +1,31 @@
+/* Dino Dominion 6.12.3d — Mobile polish (presentation only; no economy changes). */
+.royalEconomyBanner,.royalBalance,.royalBalance>div{min-width:0}
+.royalBalance{gap:clamp(5px,1.8vw,10px)}
+.royalBalance>div{padding:clamp(8px,2vw,12px) 5px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;min-height:82px}
+.royalBalance strong{display:block;max-width:100%;min-width:0;margin:0;font-size:clamp(14px,4vw,21px);line-height:1.25;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;word-break:normal;white-space:normal;text-align:center}
+.royalBalance small{display:block;max-width:100%;font-size:clamp(10px,2.5vw,12px);line-height:1.3;overflow-wrap:break-word;text-align:center}
+.royalVIPStep{min-width:0;flex-wrap:wrap}
+.royalVIPStep span{overflow-wrap:anywhere;min-width:0}
+.royalShopTabs{min-width:0;max-width:100%}
+.royalShopTabs button{min-width:0;max-width:100%;min-height:44px;white-space:normal;line-height:1.2;text-align:center;overflow-wrap:anywhere;touch-action:manipulation}
+@media(max-width:480px){
+ .royalEconomyBanner{padding:13px 11px}
+ .royalBalance{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .royalShopTabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;overflow:visible;padding:10px 0 12px}
+ .royalShopTabs button{width:100%;padding:11px 6px;font-size:clamp(11px,3vw,13px)}
+ .royalWallet{flex-wrap:wrap;row-gap:5px;padding-inline:10px;max-width:100%;min-width:0}
+ .royalWallet .pill{min-width:0;overflow-wrap:anywhere;white-space:normal}
+ .royalWallet .walletLabel{min-width:85px}
+ .royalProduct .royalOfferText b,.royalProduct .royalOfferText small{overflow-wrap:anywhere}
+ .royalBulkModal{width:min(410px,calc(100vw - 22px));max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 24px)}
+}
+@media(max-width:350px){
+ .royalBalance>div{padding:8px 3px}
+ .royalBalance strong{font-size:12px;letter-spacing:-.2px}
+ .royalBalance small{font-size:10px}
+ .royalShopTabs{gap:6px}
+}
+/* Pending = amber, success = green. No client-side payment grant. */
+.dd510Notice[data-dd6123d-status="pending"]{border-color:#96856a;background:#3e352a;color:#fff0d1}
+.dd510Notice.dd6123dVerified{border-color:#82d4b1;background:#1b4a3f;color:#edfff4}
+.dd510Notice.dd6123dUnconfirmed{border-color:#96856a;background:#423a2d;color:#fff0d1}
