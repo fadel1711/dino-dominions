@@ -1,0 +1,9 @@
+.dd6123bEggGift{margin:12px 0;padding:18px;border:1px solid #ae83c9;border-radius:16px;background:radial-gradient(circle at top right,rgba(181,108,230,.24),transparent 55%),linear-gradient(140deg,#2e2545,#152c35);box-shadow:0 8px 24px #0005;color:#f3e8ff}
+.dd6123bEggOverline{font-size:11px;letter-spacing:1.2px;color:#eac7ff;font-weight:700}
+.dd6123bEggGift h3{margin:9px 0;color:#fff0ff;font-size:22px}
+.dd6123bEggGift p{margin:10px 0;font-size:13px;line-height:1.55}
+.dd6123bEggStatus{color:#e0d6ee}
+.dd6123bEggGift button{background:linear-gradient(110deg,#9f73cb,#6e4596)!important;color:white!important;border:1px solid #e0c4ff!important;border-radius:11px;padding:11px 14px;min-height:42px;width:100%;font-weight:800}
+.dd6123bEggGift button:disabled{opacity:.63;cursor:not-allowed}
+.dd6123bEggGift small{display:block;margin-top:9px;color:#e4d5f4;font-size:11px;line-height:1.45}
+.dd6123bEggNotice{color:#ffedb4!important}
