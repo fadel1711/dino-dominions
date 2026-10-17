@@ -1,0 +1,36 @@
+/* Dino Dominion 6.12.3 — additive commander profile safety UI */
+#dd517Messenger .dd517MsgMeta b{cursor:pointer;text-decoration:underline dotted #aa9066;text-underline-offset:3px;min-height:28px;display:inline-flex;align-items:center}
+#dd517Messenger .dd517MsgMeta b:active{color:#fff2c8}
+.dd6123Shade[hidden]{display:none!important}
+.dd6123Shade{position:fixed;inset:0;z-index:99999;background:#031019de;display:flex;align-items:center;justify-content:center;padding:calc(18px + env(safe-area-inset-top)) 16px calc(18px + env(safe-area-inset-bottom));font:14px system-ui,-apple-system,sans-serif}
+.dd6123Sheet{width:min(440px,100%);max-height:88dvh;overflow-y:auto;background:linear-gradient(145deg,#19313b,#0d202d);border:1px solid #bb945b;border-radius:20px;box-shadow:0 16px 80px #000c;color:#e8f4ee;padding:18px}
+.dd6123Sheet header{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.dd6123Overline{font-size:11px;letter-spacing:2px;font-weight:800;color:#ebcc91}
+.dd6123Sheet button{cursor:pointer;background:#304e50;color:#f5f6e9;border:1px solid #607270;border-radius:12px;padding:10px 12px;min-height:42px;font:inherit}
+.dd6123Sheet button:disabled{opacity:.55;cursor:not-allowed}
+.dd6123Sheet .dd6123Primary{background:#e8c38b;color:#1c2625;font-weight:850;border-color:#d9aa6b}
+.dd6123Identity{display:flex;align-items:center;gap:15px;padding:20px 0}
+.dd6123Avatar{width:62px;height:62px;display:grid;place-items:center;background:#24434a;border:1px solid #9a815b;border-radius:18px;font-size:33px;flex-shrink:0}
+.dd6123Identity h2{font:700 23px/1.25 Georgia,serif;color:#f0d4a1;margin:0 0 8px;overflow-wrap:anywhere}
+.dd6123Identity small{color:#a8c4c4;font-size:11px}
+.dd6123Actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.dd6123Actions button{font-size:12px;padding:11px 5px;overflow-wrap:anywhere}
+.dd6123Hint{font-size:12px;color:#b6c9c7;line-height:1.5}
+#dd6123Feedback{background:#25464b;border:1px solid #b9965d;border-radius:9px;padding:10px;color:#f5e2c0;font-size:12px;margin:12px 0 0}
+#dd6123Feedback[hidden]{display:none}
+.dd6123ReportForm{display:grid;gap:8px;padding:12px 0}
+.dd6123ReportForm label{font-size:12px;color:#d6dfd9}
+.dd6123ReportForm select,.dd6123ReportForm textarea{width:100%;background:#112735;color:#f6f5e8;border:1px solid #617877;border-radius:10px;padding:10px;font:inherit}
+.dd6123PrivateTools{padding:10px 0 0;display:grid;gap:8px}
+#dd517Messenger .dd6123PrivateTools>button{padding:10px 12px;min-height:40px;border-radius:10px;background:#2d4b4c;color:#eed7a4;border:1px solid #779085;text-align:left}
+#dd6123RecentList{max-height:210px;overflow:auto;display:grid;gap:6px}
+#dd6123RecentList[hidden]{display:none}
+#dd517Messenger .dd6123Recent{display:flex;align-items:center;gap:8px;width:100%;min-height:42px;background:#152d38;text-align:left;color:#ecf0e6;border:1px solid #3e5960;padding:8px;border-radius:9px;font-size:12px}
+.dd6123Recent b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.dd6123Recent small{color:#c6d2c3;font-size:11px}
+@media(max-width:380px){.dd6123Actions{grid-template-columns:1fr 1fr}.dd6123Sheet{padding:12px}}
+
+.dd6123FindToggle{margin:0 10px 10px;border:1px solid #435f64;border-radius:12px;overflow:hidden;background:#102734}
+.dd6123FindToggle summary{cursor:pointer;padding:11px 12px;font-size:12px;color:#efdbad;font-weight:650;min-height:42px}
+.dd6123FindToggle .dd517Friend{border-top:1px solid #3e5661}
+#dd517Messenger .dd6123PrivateTools{padding:9px 10px}
