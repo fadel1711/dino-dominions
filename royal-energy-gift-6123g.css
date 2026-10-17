@@ -1,0 +1,12 @@
+/* Dino Dominion 6.12.3g — Royal Gift of Eternity */
+#dd6123gGiftMount[hidden]{display:none!important}
+#dd6123gGiftMount{margin:11px 0 17px}
+#dd6123gGiftMount .dd6123gGift{border:1px solid #e8bd72;border-radius:16px;padding:16px 15px;background:radial-gradient(circle at 100% 0,#9b69c146,transparent 55%),linear-gradient(145deg,#302941,#15262e);box-shadow:0 8px 24px #0006;color:#fbecda;overflow-wrap:anywhere}
+#dd6123gGiftMount .dd6123gOverline{font-size:10px;font-weight:900;letter-spacing:.13em;color:#f6d18f}
+#dd6123gGiftMount h3{font-family:Georgia,serif;font-size:22px;line-height:1.3;margin:8px 0;color:#ffe7ae}
+#dd6123gGiftMount .dd6123gNote{font-size:13px;line-height:1.55;font-style:italic;color:#f1ddd2}
+#dd6123gGiftMount button{background:linear-gradient(120deg,#f4d695,#d7a5df);color:#2d2136;border:1px solid #ffe4a4;border-radius:10px;width:100%;padding:13px 8px;font-weight:900;margin:12px 0}
+#dd6123gGiftMount button:disabled{opacity:.6}
+#dd6123gGiftMount small{display:block;font-size:11px;line-height:1.5;color:#d6cbbb;margin-top:9px}
+#dd6123gGiftMount .dd6123gActive{font-weight:900;color:#a8f0cb}
+#dd6123gGiftMount .dd6123gIssue{border-radius:8px;padding:8px;background:#4b3342;color:#ffebd4;font-size:12px}
