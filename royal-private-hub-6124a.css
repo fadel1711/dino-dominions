@@ -1,0 +1,59 @@
+/* Dino Dominion 6.12.4a — compact Private Messenger. Scoped to the new hub. */
+#dd517Messenger .dd6124aHub{display:grid;gap:9px;min-width:0;color:#e6f0e8}
+#dd517Messenger .dd6124aNav{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.45fr) minmax(0,1.2fr);gap:6px;min-width:0}
+#dd517Messenger .dd6124aNav button{display:flex;align-items:center;justify-content:center;gap:5px;min-width:0;min-height:43px;padding:8px 5px;font-weight:700;font-size:11px;line-height:1.25;text-align:center;white-space:normal;background:#172d38;color:#c9ded8;border:1px solid #537077;border-radius:10px}
+#dd517Messenger .dd6124aNav button[aria-selected=true]{background:#ac8958;border-color:#e5c287;color:#132834;box-shadow:inset 0 0 0 1px #e5c28744}
+#dd517Messenger .dd6124aPill{display:inline-grid;place-items:center;min-width:18px;min-height:18px;border-radius:12px;padding:1px 4px;background:#b43d32;color:#fff;font-weight:800;font-size:10px}
+#dd517Messenger .dd6124aPill[hidden]{display:none!important}
+#dd517Messenger .dd6124aPane{min-width:0;display:grid;gap:7px}
+#dd517Messenger .dd6124aPane[hidden]{display:none!important}
+#dd517Messenger .dd6124aSectionHead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 1px;color:#e9d5aa;font-size:12px}
+#dd517Messenger .dd6124aSectionHead>div{display:flex;gap:5px}
+#dd517Messenger .dd6124aSectionHead button{padding:5px 10px;min-height:34px;font-size:11px;background:#233f49;color:#f2d7a5;border-radius:8px}
+#dd517Messenger .dd6124aThreads{display:grid;gap:6px;max-height:min(29dvh,245px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+#dd517Messenger .dd6124aThread{display:flex;align-items:center;gap:8px;padding:5px 8px;min-height:65px;border:1px solid #47666c;border-radius:11px;background:#182f3b}
+#dd517Messenger .dd6124aAvatar{flex:0 0 41px;width:41px;min-height:43px;display:grid;place-items:center;font-size:22px;border-color:#6f8075;background:#2a4748;padding:0}
+#dd517Messenger .dd6124aThreadMain{flex:1;min-width:0;display:grid;gap:2px;text-align:left;background:transparent;border:0;padding:3px 1px;min-height:51px;color:#f2f2e9;overflow:hidden}
+#dd517Messenger .dd6124aThreadTop{display:flex;align-items:center;justify-content:space-between;gap:6px;min-width:0}
+#dd517Messenger .dd6124aThreadTop strong{min-width:0;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;font-size:13px;color:#f4da9e}
+#dd517Messenger .dd6124aThreadTop time{font-size:10px;white-space:nowrap;color:#aac1bd}
+#dd517Messenger .dd6124aPreview{font-size:12px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;color:#d0dfdc}
+#dd517Messenger .dd6124aMsgCount{font-size:10px;color:#96b9b4}
+#dd517Messenger .dd6124aUnread{flex:0 0 auto;min-width:24px;min-height:24px;border-radius:12px;padding:4px 6px;background:#b94d3d;color:#fff;font-size:11px;font-weight:800;text-align:center}
+#dd517Messenger .dd6124aMuted{padding:8px 6px;color:#c1d3ce;font-size:12px;line-height:1.55;margin:0}
+#dd517Messenger .dd6124aError{padding:8px;color:#ffc6b5;font-size:12px;margin:0}
+#dd517Messenger[data-dd6124a-tab] .dd6123PrivateTools>[data-dd6123=current],
+#dd517Messenger[data-dd6124a-tab] .dd6123PrivateTools>[data-dd6123=recent],
+#dd517Messenger[data-dd6124a-tab] #dd6123RecentList{display:none!important}
+#dd517Messenger .dd6124aPane .dd6123FindToggle{margin:2px 0 0;border-radius:9px}
+#dd517Messenger .dd6124aPane .dd6123FindToggle>summary{display:none!important}
+#dd517Messenger .dd6124aPane .dd6123FindToggle:not([open]){display:none!important}
+#dd517Messenger .dd6124aPane .dd6123FindToggle .dd517Friend{padding:9px}
+#dd517Messenger .dd6124aPane .dd6123FindToggle input{min-width:0}
+#dd517Messenger .dd6124aPane .dd6123FindToggle .dd517Friend>div{flex-wrap:wrap}
+#dd517Messenger .dd6124aPane .dd6123FindToggle .dd517Friend input{min-width:150px}
+#dd517Messenger .dd6124aPane .dd6123FindToggle .dd517Friend button{min-height:36px}
+#dd517Messenger .dd6124aBlockHeading{border-top:1px solid #56615e;margin-top:6px;padding-top:12px}
+#dd517Messenger .dd6124aPane .dd6123aTools{margin-top:0;padding-top:0;border:0}
+#dd517Messenger .dd6124aPane .dd6123aTools>[data-dd6123a=toggle]{min-height:36px;padding:7px 10px;font-size:12px}
+#dd517Messenger .dd6124aPane .dd6124Toggle{display:none!important}
+#dd517Messenger .dd6124aPane #dd6124Panel{max-height:none;overflow:visible;padding:3px 0 8px;border:0;background:transparent;gap:7px}
+#dd517Messenger[data-dd6124a-tab=requests] #dd6124Panel .dd6124Summary,
+#dd517Messenger[data-dd6124a-tab=requests] #dd6124Panel .dd6124AidInfo,
+#dd517Messenger[data-dd6124a-tab=requests] #dd6124Panel .dd6124Authority,
+#dd517Messenger[data-dd6124a-tab=requests] #dd6124Panel .dd6124aFriendItem{display:none!important}
+#dd517Messenger[data-dd6124a-tab=friends] #dd6124Panel .dd6124aRequestItem{display:none!important}
+#dd517Messenger[data-dd6124a-tab=friends] #dd6124Panel .dd6124Summary{display:none!important}
+#dd517Messenger[data-dd6124a-tab=requests] #dd517Messages,
+#dd517Messenger[data-dd6124a-tab=requests] .dd517Composer,
+#dd517Messenger[data-dd6124a-tab=friends] #dd517Messages,
+#dd517Messenger[data-dd6124a-tab=friends] .dd517Composer{display:none!important}
+#dd517Messenger[data-dd6124a-tab=requests] #dd517Controls,
+#dd517Messenger[data-dd6124a-tab=friends] #dd517Controls{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain}
+#dd517Messenger[data-dd6124a-tab=requests] .dd6123PrivateTools,
+#dd517Messenger[data-dd6124a-tab=friends] .dd6123PrivateTools{padding-bottom:28px}
+#dd517Messenger[data-dd6124a-tab=chats][data-dd6124a-chat-selected=false] #dd517Messages,
+#dd517Messenger[data-dd6124a-tab=chats][data-dd6124a-chat-selected=false] .dd517Composer{display:none!important}
+#dd517Messenger[data-dd6124a-tab=chats][data-dd6124a-chat-selected=false] #dd517Controls{flex:1 1 auto;min-height:0;overflow-y:auto}
+#dd517Messenger[data-dd6124a-tab=chats][data-dd6124a-chat-selected=false] .dd6124aThreads{max-height:min(60dvh,520px)}
+@media(max-width:350px){#dd517Messenger .dd6124aNav{gap:3px}#dd517Messenger .dd6124aNav button{font-size:10px;padding:7px 3px}#dd517Messenger .dd6124aThread{gap:5px;padding:4px}}
