@@ -1000,3 +1000,92 @@ body.dd615Open{overflow:hidden!important}
  #dd615Overlay .dd615Card{padding:15px 13px}
 }
 @media(prefers-reduced-motion:reduce){#dd615Overlay *{transition:none!important;animation:none!important}}
+
+/* =======================================================================
+ * 6.16 + 6.17 — Dinosaur Mastery & Royal Expeditions.
+ * Only new dd61617 / dd617 UI; 6.13, 6.14, 6.15 CSS above is preserved.
+ * ======================================================================= */
+.dd617MenuTile{border-color:#cfac6c!important;background:linear-gradient(138deg,#31433d,#1a3540)!important}
+.dd617MenuTile .dd612Destination{min-height:76px!important}
+.dd617MenuTile .dd612TileIcon{color:#ffdc8f}
+body.dd61617Open{overflow:hidden!important}
+#dd61617Overlay[hidden]{display:none!important}
+#dd61617Overlay{position:fixed;inset:0;z-index:23000;display:flex;justify-content:center;
+ overflow:hidden;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+ color:#f9e9cd;background:radial-gradient(ellipse at 50% 0,#263f35,#07131b 79%);font:14px/1.5 system-ui,-apple-system,sans-serif}
+#dd61617Overlay *{box-sizing:border-box}
+#dd61617Overlay button,#dd61617Overlay select{font:inherit;touch-action:manipulation}
+#dd61617Overlay button:focus-visible,#dd61617Overlay select:focus-visible{outline:2px solid #f5d18c;outline-offset:2px}
+#dd61617Overlay button:disabled{opacity:.54;cursor:default}
+#dd61617Overlay .dd61617Frame{width:min(650px,100%);height:100%;min-height:0;display:flex;flex-direction:column;
+ background:radial-gradient(circle at 94% 9%,#46675365,transparent 35%),linear-gradient(#142b31,#081922 75%);
+ border-inline:1px solid #90764b7a}
+#dd61617Overlay .dd61617Head{display:flex;align-items:center;gap:11px;flex:none;
+ padding:14px 14px 13px;background:linear-gradient(105deg,#10252c,#263e34,#362b20);
+ border-bottom:1px solid #b29461}
+#dd61617Overlay .dd61617Head>button{width:45px;min-width:45px;height:44px;border-radius:12px;
+ background:#18373f;color:#fff0c8;border:1px solid #b89a66;font-size:27px}
+#dd61617Overlay .dd61617Head>div{flex:1;min-width:0}
+#dd61617Overlay .dd61617Head small{display:block;letter-spacing:.12em;font-size:9px;font-weight:900;color:#d9b980}
+#dd61617Overlay .dd61617Head h2{font:normal clamp(22px,6vw,28px)/1.2 Georgia,serif;color:#ffe2a9;margin:2px 0 0}
+#dd61617Overlay .dd61617Head>span{font-size:26px}
+#dd61617Overlay .dd61617Tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:9px 12px;
+ border-bottom:1px solid #59726b;flex:none}
+#dd61617Overlay .dd61617Tabs button{min-height:46px;border:1px solid #577d72;border-radius:12px;
+ color:#e6efdd;background:#1a3940;font-size:13px;font-weight:800;padding:10px 7px}
+#dd61617Overlay .dd61617Tabs button.active{background:linear-gradient(#f6d89c,#cda05e);
+ border-color:#ffe8af;color:#15232a}
+#dd61617Overlay .dd61617Body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;
+ -webkit-overflow-scrolling:touch;padding:16px 13px calc(32px + env(safe-area-inset-bottom))}
+#dd61617Overlay .dd617Hero{border:1px solid #b6955d;border-radius:18px;background:linear-gradient(148deg,#263e3b,#11262e 72%);
+ padding:18px 16px;box-shadow:inset 0 1px #ffeac32b,0 10px 27px #0007}
+#dd61617Overlay .dd617Hero>small{color:#eec98e;letter-spacing:.14em;font-size:10px;font-weight:900}
+#dd61617Overlay .dd617Hero h3{font:normal clamp(23px,6.5vw,32px)/1.14 Georgia,serif;margin:11px 0;color:#f8dbab}
+#dd61617Overlay p{color:#c6d8ce;line-height:1.55;font-size:12px;margin:11px 0}
+#dd61617Overlay .dd617Counter{background:#183c3e;border:1px solid #77916d;border-radius:12px;
+ padding:10px 13px;color:#f1d7a2;margin:15px 0;font-size:12px}
+#dd61617Overlay .dd617Counter b{font-size:17px;color:#fff0c8}
+#dd61617Overlay label{display:block;font-weight:800;color:#e6d49f;margin-bottom:7px;font-size:12px}
+#dd61617Overlay select{width:100%;min-height:46px;border-radius:11px;border:1px solid #b59b68;
+ padding:8px 11px;color:#fff0cf;background:#0a242b;font-size:14px}
+#dd61617Overlay .dd617Hint{font-size:11px;color:#badac1;margin:10px 2px}
+#dd61617Overlay .dd617RouteList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:15px 0}
+#dd61617Overlay .dd617Route{display:flex;flex-direction:column;align-items:flex-start;text-align:left;
+ gap:7px;min-width:0;min-height:147px;padding:12px 10px;border:1px solid #55766c;
+ background:linear-gradient(146deg,#234047,#152a33);border-radius:14px;color:#ebeadb}
+#dd61617Overlay .dd617Route.selected{border-color:#eccb87;background:linear-gradient(144deg,#4c4732,#214039 70%);
+ box-shadow:inset 0 0 0 1px #f2d59d80,0 6px 14px #0007}
+#dd61617Overlay .dd617RouteIcon{font-size:23px}
+#dd61617Overlay .dd617RouteInfo{display:block;min-width:0;width:100%}
+#dd61617Overlay .dd617RouteInfo strong{display:block;font-size:12px;color:#ffe5af}
+#dd61617Overlay .dd617RouteInfo small{display:block;font-size:10px;line-height:1.35;margin-top:4px;color:#c5d4ce}
+#dd61617Overlay .dd617RouteInfo em{display:block;margin-top:6px;font-style:normal;font-size:10px;color:#b3e4c7}
+#dd61617Overlay .dd617RouteRewards{font-size:11px;color:#f5dab1;line-height:1.5}
+#dd61617Overlay .dd617Gold{display:block;width:100%;min-height:49px;padding:11px;margin:13px 0 4px;
+ border-radius:12px;border:1px solid #ffe4a7;background:linear-gradient(#f9dca0,#cda15d);
+ font-size:13px;font-weight:900;color:#10272d}
+#dd61617Overlay .dd617Refresh{display:block;width:100%;min-height:44px;margin:15px 0 6px;
+ border:1px solid #6a8d80;border-radius:12px;background:#17383e;color:#ffdfab;font-weight:800;font-size:12px}
+#dd61617Overlay .dd617Timer{border:1px solid #dfbf86;background:#142e30;border-radius:15px;
+ padding:17px 10px;font:800 clamp(32px,9vw,46px)/1.1 ui-monospace,monospace;
+ color:#ffe2a5;text-align:center;letter-spacing:.05em;margin:18px 0}
+#dd61617Overlay .dd617Tip{font-size:11px;color:#b4c9c4}
+#dd61617Overlay .dd617Feedback{border-left:4px solid #dbb373;border-radius:10px;
+ background:#2b3c3c;color:#ffdfab;padding:12px;overflow-wrap:anywhere}
+#dd61617Overlay .dd617Feedback[hidden]{display:none!important}
+#dd61617Overlay .dd617Roster{display:grid;gap:9px;margin:15px 0}
+#dd61617Overlay .dd617Dino{display:flex;align-items:center;gap:9px;min-width:0;
+ border:1px solid #5b7d73;border-radius:13px;background:linear-gradient(130deg,#214147,#192c35);padding:11px 9px}
+#dd61617Overlay .dd617DinoIcon{font-size:25px;flex:0 0 28px}
+#dd61617Overlay .dd617DinoMain{min-width:0;flex:1}
+#dd61617Overlay .dd617DinoMain strong{display:block;font-size:13px;color:#ffe2ae}
+#dd61617Overlay .dd617DinoMain small{display:block;font-size:10px;color:#b8d3c8}
+#dd61617Overlay .dd617Dino>button{border-radius:10px;border:1px solid #af935d;background:#324a42;
+ color:#ffe4ae;font-size:11px;font-weight:850;min-width:57px;min-height:43px}
+#dd61617Overlay .dd617Bar{height:6px;background:#081920;border-radius:20px;overflow:hidden;margin:8px 0 5px}
+#dd61617Overlay .dd617Bar span{display:block;height:100%;background:linear-gradient(90deg,#79cba6,#e8c779)}
+@media(max-width:340px){#dd61617Overlay .dd617Hero{padding:13px 10px}
+ #dd61617Overlay .dd617RouteList{gap:6px}
+ #dd61617Overlay .dd617Route{padding:10px 7px}
+ #dd61617Overlay .dd61617Head{padding-inline:9px;gap:6px}}
+@media(prefers-reduced-motion:reduce){#dd61617Overlay *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}

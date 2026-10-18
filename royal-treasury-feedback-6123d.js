@@ -208,3 +208,142 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
  window.DD615RoyalRewards={version:'6.15.0',open:()=>void open(),close};
 })();
+
+/* Dino Dominion 6.16 + 6.17 — Dinosaur Mastery and Royal Expeditions.
+ * Additive interface: the existing Royal Rewards and Stripe sandbox remain intact.
+ * Persistent progression, timer checks, roster eligibility and rewards are
+ * verified on the existing Supabase Royal Authority backend. No Cloud save edits.
+ */
+(()=>{'use strict';
+ const $=id=>document.getElementById(id);
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ const DINOS=[
+  ['Blazefang','Tyrannosaurus','Berserker','🦖'],
+  ['Thornshield','Triceratops','Guardian','🦕'],
+  ['Nightclaw','Raptor','Assassin','🦖'],
+  ['Tidebreaker','Spinosaurus','Striker','🦕'],
+  ['Ironhide','Ankylosaurus','Guardian','🦕'],
+  ['Sunwhisper','Parasaurolophus','Support','🦕']
+ ];
+ const ROUTES=[
+  {id:'track',icon:'🌿',name:'Trail Tracking',role:'Assassin / Striker',secs:90,gold:75,essence:10,desc:'Scout the ancient jungle and trace dinosaur tracks.'},
+  {id:'patrol',icon:'🛡️',name:'Citadel Patrol',role:'Guardian',secs:120,gold:90,essence:12,desc:'Defend the kingdom borders and secure the road.'},
+  {id:'hunt',icon:'🦴',name:'Primeval Hunt',role:'Berserker / Striker',secs:180,gold:125,essence:15,desc:'Lead a dangerous expedition into predator territory.'},
+  {id:'sanctuary',icon:'✨',name:'Sanctuary Aid',role:'Support',secs:120,gold:80,essence:20,desc:'Rescue hatchlings and restore the ancient habitat.'}
+ ];
+ let overlay=null,host=null,tab='expeditions',data=null,busy=false,notice='',chosenSpecies=-1,chosenRoute='track';
+ let clock=null,loadedAt=0,installed=false,accountId='',epoch=0;
+ const client=()=>window.DDOnlineClient||null;
+ async function uid(){try{const c=client();const {data,error}=await c.auth.getUser();return error?'':data?.user?.id||''}catch{return ''}}
+ async function rpc(name,args={}){const c=client();if(!c?.rpc)throw Error('Supabase is unavailable');
+  const {data,error}=await c.rpc(name,args);if(error)throw Error(error.message||'Server unavailable');return data;}
+ const match=(route,species)=>route==='track'?[2,3].includes(species):route==='patrol'?[1,4].includes(species):route==='hunt'?[0,3].includes(species):species===5;
+ const mins=s=>s<120?s+' seconds':Math.round(s/60)+' minutes';
+ const timeLeft=()=>Math.max(0,Math.ceil((Date.parse(data?.active?.ready_at||'')-Date.now())/1000)||0);
+ function scene(){if(overlay)return;
+  overlay=document.createElement('section');overlay.id='dd61617Overlay';overlay.hidden=true;
+  overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');overlay.setAttribute('aria-label','Dinosaur Mastery and Royal Expeditions');
+  overlay.innerHTML=`<div class="dd61617Frame"><header class="dd61617Head"><button type="button" data-dd617="close" aria-label="Return to Dino Dominion">‹</button><div><small>✦ DINO DOMINION · 6.16 + 6.17</small><h2>Dinosaur Command</h2></div><span aria-hidden="true">🦖</span></header>
+   <nav class="dd61617Tabs" aria-label="Dinosaur command sections"><button type="button" data-dd617="tab" data-tab="expeditions">🗺️ Expeditions</button><button type="button" data-dd617="tab" data-tab="mastery">⭐ Mastery</button></nav>
+   <main id="dd61617Body" class="dd61617Body"></main></div>`;
+  document.body.appendChild(overlay);host=$('dd61617Body');
+  overlay.addEventListener('click',e=>{const b=e.target.closest('[data-dd617]');if(!b)return;
+   const act=b.dataset.dd617;
+   if(act==='close'){close();return}
+   if(act==='tab'){tab=b.dataset.tab==='mastery'?'mastery':'expeditions';notice='';draw();return}
+   if(act==='route'){chosenRoute=b.dataset.route;draw();return}
+   if(act==='select'){chosenSpecies=Number(b.dataset.species);tab='expeditions';draw();return}
+   if(act==='refresh'){void refresh();return}
+   if(act==='start'){void start();return}
+   if(act==='claim'){void claim();return}
+  });
+  overlay.addEventListener('change',e=>{if(e.target.id==='dd617Select')chosenSpecies=Number(e.target.value);if(!busy)draw()});
+  overlay.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();close()}});
+ }
+ function formatClock(seconds){const m=Math.floor(seconds/60),s=seconds%60;return m+':'+String(s).padStart(2,'0')}
+ function choices(){return `<div class="dd617RouteList">${ROUTES.map(r=>`<button type="button" class="dd617Route${chosenRoute===r.id?' selected':''}" data-dd617="route" data-route="${r.id}" aria-pressed="${chosenRoute===r.id}" ${busy?'disabled':''}>
+   <span class="dd617RouteIcon">${r.icon}</span><span class="dd617RouteInfo"><strong>${r.name}</strong><small>${r.desc}</small><em>${r.role} · ${mins(r.secs)}</em></span><span class="dd617RouteRewards">🪙 ${r.gold}<br>✨ ${r.essence}</span></button>`).join('')}</div>`}
+ function expHtml(){
+  const roster=Array.isArray(data?.roster)?data.roster:[];
+  const remaining=Number(data?.remaining_today)||0;
+  if(data?.active){const a=data.active,name=DINOS[Number(a.species_id)]?.[0]||'Your dinosaur',r=ROUTES.find(x=>x.id===a.route);
+   return `<article class="dd617Hero"><small>🦖 EXPEDITION IN PROGRESS</small><h3>${esc(name)} is on a mission!</h3>
+    <p>${esc(r?.name||'Royal Expedition')} · Rewards become available after the server timer completes.</p>
+    <div class="dd617Timer" role="timer" id="dd617Countdown">${formatClock(timeLeft())}</div>
+    <button class="dd617Gold" type="button" data-dd617="claim" ${busy||timeLeft()>0?'disabled':''}>${timeLeft()>0?'⏳ Waiting for return':'🎁 Claim verified rewards'}</button>
+    <p class="dd617Tip">Do not change your phone clock to skip time. Supabase checks the real completion time.</p></article>`;
+  }
+  if(!roster.length)return '<article class="dd617Hero"><h3>No unlocked dinosaurs found</h3><p>Enroll in Royal Authority and unlock a verified dinosaur to dispatch it.</p></article>';
+  if(!roster.some(x=>Number(x.species_id)===chosenSpecies))chosenSpecies=Number(roster[0].species_id);
+  const selected=roster.find(x=>Number(x.species_id)===chosenSpecies)||roster[0];
+  const suggested=match(chosenRoute,chosenSpecies);
+  return `<article class="dd617Hero"><small>ROYAL EXPEDITION BOARD · UTC</small><h3>Send your dinosaurs beyond the gates</h3>
+   <p>Choose a verified dinosaur, select a route, and bring back resources and Mastery XP. Class-matched routes earn bonus rewards.</p>
+   <div class="dd617Counter">⚔️ <b>${remaining}/3</b> dispatches remaining today</div>
+   <label for="dd617Select">Choose your dinosaur</label><select id="dd617Select" ${busy?'disabled':''}>${roster.map(x=>`<option value="${Number(x.species_id)}" ${Number(x.species_id)===chosenSpecies?'selected':''}>${DINOS[Number(x.species_id)]?.[0]||'Dinosaur'} · Mastery ${Number(x.mastery_level)||1}</option>`).join('')}</select>
+   <p class="dd617Hint">${suggested?'✨ Class match: +25 Gold, +5 Essence, +7 XP!':'Tip: choose a dinosaur whose class matches the route for extra rewards.'}</p>
+   ${choices()}<button type="button" class="dd617Gold" data-dd617="start" ${busy||remaining<=0?'disabled':''}>${remaining?'🦖 Dispatch expedition':'🌙 Daily dispatches exhausted'}</button></article>`;
+ }
+ function masteryHtml(){const roster=Array.isArray(data?.roster)?data.roster:[];
+  return `<article class="dd617Hero"><small>6.16 · PERSISTENT DINOSAUR MASTERY</small><h3>A legend is earned, not given</h3>
+   <p>Your verified dinosaurs gain Mastery XP from completed expeditions. Every 100 XP unlocks a higher rank, up to Mastery 5. Each rank improves verified expedition rewards.</p>
+   <div class="dd617Roster">${roster.map(x=>{const id=Number(x.species_id),name=DINOS[id]?.[0]||'Dinosaur';const lvl=Number(x.mastery_level)||1,xp=Number(x.xp)||0;const percent=lvl>=5?100:xp%100;
+    return `<div class="dd617Dino"><div class="dd617DinoIcon">${DINOS[id]?.[3]||'🦖'}</div><div class="dd617DinoMain"><strong>${esc(name)}</strong><small>${esc(DINOS[id]?.[2]||'Dinosaur')} · Verified Lv.${Number(x.level)||1}</small><div class="dd617Bar"><span style="width:${percent}%"></span></div><small>⭐ Mastery ${lvl}/5 · ${xp} XP</small></div><button type="button" data-dd617="select" data-species="${id}" ${busy?'disabled':''}>Send ↗</button></div>`}).join('')}</div>
+   <p class="dd617Tip">Every mastery rank above 1 adds +8 Gold and +2 Essence per expedition. Mastery does not change PvP combat or paid entitlements.</p></article>`;
+ }
+ function draw(){if(!overlay||overlay.hidden)return;
+  for(const b of overlay.querySelectorAll('.dd61617Tabs button')){const on=b.dataset.tab===tab;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))}
+  const entry=data?.ok===true ? (tab==='mastery'?masteryHtml():expHtml()):`<article class="dd617Hero"><h3>${data?.disabled?'Expeditions paused':'Opening the expedition board'}</h3><p>${esc(data?.message||'Loading your verified dinosaur roster…')}</p></article>`;
+  host.innerHTML=entry+`<p class="dd617Feedback" role="status" ${notice?'':'hidden'}>${esc(notice)}</p><button type="button" data-dd617="refresh" class="dd617Refresh" ${busy?'disabled':''}>↻ Refresh verified progress</button>`;
+  tick();
+ }
+ function tick(){if(!overlay||overlay.hidden||!data?.active)return;const seconds=timeLeft();const timer=$('dd617Countdown');if(timer)timer.textContent=seconds?formatClock(seconds):'READY!';
+  const claim=host?.querySelector('[data-dd617="claim"]');if(claim){claim.disabled=busy||seconds>0;claim.textContent=busy?'Verifying…':seconds?'⏳ Waiting for return':'🎁 Claim verified rewards'};
+ }
+ function close(){if(!overlay)return;overlay.hidden=true;document.body.classList.remove('dd61617Open');epoch++;}
+ async function open(){scene();if(!overlay.hidden)return;overlay.hidden=false;document.body.classList.add('dd61617Open');tab='expeditions';notice='';data=null;chosenSpecies=-1;draw();await refresh();}
+ async function refresh(keepNotice=false){if(busy||!overlay||overlay.hidden)return;
+  const ticket=++epoch;busy=true;if(!keepNotice)notice='';draw();
+  try{const before=await uid();if(!before)throw Error('Sign in to your commander account first.');
+   const response=await rpc('dd61617_status');if(ticket!==epoch||overlay.hidden)return;
+   if(before!==await uid())throw Error('Commander changed. Close and reopen the board.');
+   accountId=before;data=response;loadedAt=Date.now();
+  }catch(e){if(ticket===epoch)data={ok:false,message:String(e?.message||'Unable to load expeditions.').slice(0,180)}}
+  finally{if(ticket===epoch){busy=false;draw()}}
+ }
+ async function action(name,args){if(busy||!overlay||overlay.hidden||!data?.ok)return;
+  const ticket=++epoch;busy=true;notice='Verifying with Supabase…';draw();
+  try{const before=await uid();if(!before||before!==accountId)throw Error('Commander changed. Reopen the board.');
+   const response=await rpc(name,args);
+   if(ticket!==epoch||overlay.hidden)return;
+   if(before!==await uid())throw Error('Account changed while awaiting a reward. Reopen the board.');
+   const next=await rpc('dd61617_status');if(ticket!==epoch||overlay.hidden)return;
+   data=next;notice=response?.ok ? (name==='dd617_claim'?`✅ ${response.message} +${response.gold} Gold · +${response.essence} Essence · +${response.mastery_xp} Mastery XP.`:response.message)
+      :String(response?.message||'Operation was not accepted.');
+  }catch(e){if(ticket===epoch)notice='Could not confirm the action. Refresh verified progress before retrying. '+String(e?.message||'').slice(0,150)}
+  finally{if(ticket===epoch){busy=false;draw()}}
+ }
+ function start(){if(!data?.ok||data.active||!Number(data.remaining_today)||busy)return;
+  void action('dd617_start',{p_species:chosenSpecies,p_route:chosenRoute});}
+ function claim(){if(!data?.active||busy)return;
+  void action('dd617_claim',{p_expedition_id:data.active.id});}
+ function inject(){const grid=$('dd612MenuGrid');if(!grid||!window.DD612?.debug)return;
+  const active=window.DD612.debug()?.category==='dinos';
+  if(!active||grid.querySelector('[data-dd617-launch]'))return;
+  const tile=document.createElement('div');tile.className='dd612Tile dd617MenuTile';
+  tile.innerHTML='<button type="button" class="dd612Destination" data-dd617-launch="true" aria-label="Open Dinosaur Mastery and Royal Expeditions"><span class="dd612TileIcon" aria-hidden="true">⭐</span><span class="dd612TileWords"><strong>Mastery & Expeditions</strong><small>Train legends · Timed missions</small></span><span class="dd612Arrow" aria-hidden="true">↗</span></button>';
+  grid.appendChild(tile);
+ }
+ function boot(){if(installed)return true;const grid=$('dd612MenuGrid');if(!grid||!window.DD612)return false;
+  installed=true;scene();const observer=new MutationObserver(()=>{queueMicrotask(inject)});observer.observe(grid,{childList:true});
+  grid.addEventListener('click',e=>{const btn=e.target.closest('[data-dd617-launch]');if(!btn)return;
+   e.preventDefault();e.stopPropagation();window.DD612.closeMenu();void open();},true);
+  const c=client();c?.auth?.onAuthStateChange?.(()=>{if(overlay&&!overlay.hidden){close();data=null}});
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&overlay&&!overlay.hidden)void refresh(true)});
+  clock=setInterval(()=>{if(overlay&&!overlay.hidden)tick()},1000);
+  inject();return true;
+ }
+ function launch(){if(boot())return;let count=0;const t=setInterval(()=>{if(boot()||++count>=80)clearInterval(t)},250)}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',launch,{once:true});else launch();
+ window.DD61617={version:'6.17.0',open,close,refresh};
+})();
