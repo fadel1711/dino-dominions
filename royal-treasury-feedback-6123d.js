@@ -427,3 +427,159 @@
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',launch,{once:true});else launch();
  window.DD61617={version:'6.17.1-foreground-recovery',open,close,refresh};
 })();
+
+/* Dino Dominion 6.17.3 — Safe Royal Screens localization.
+ * UI TEXT ONLY: never modifies inputs, chat, mail, names, server payloads,
+ * translated reward values, economy state or page navigation.
+ * Language follows the existing DDWorldwide 5-language preference.
+ */
+(()=>{'use strict';
+ const supported=new Set(['en','fr','ar','es','pt']);
+ const WORDS=[
+ // english, french, arabic, spanish, brazilian portuguese
+ ['Royal Rewards','Récompenses royales','المكافآت الملكية','Recompensas reales','Recompensas reais'],
+ ['Gift Codes','Codes cadeaux','رموز الهدايا','Códigos de regalo','Códigos de presente'],
+ ['Dominion Trial','Épreuve du Dominion','اختبار السيادة','Prueba del Dominio','Prova do Domínio'],
+ ['AN OFFER FROM THE CROWN','UNE OFFRE DE LA COURONNE','عرض من التاج','UNA OFERTA DE LA CORONA','UMA OFERTA DA COROA'],
+ ['Redeem a Royal Gift','Réclamer un cadeau royal','استرداد هدية ملكية','Canjear un regalo real','Resgatar um presente real'],
+ ['Redeem a code issued by the kingdom. Every award is confirmed on our server and limited by account.','Saisissez un code du royaume. Chaque récompense est validée sur notre serveur et limitée par compte.','استخدم رمزًا أصدرته المملكة. تؤكد خوادمنا كل مكافأة وتحددها لكل حساب.','Canjea un código del reino. Cada recompensa se verifica en el servidor y se limita por cuenta.','Resgate um código do reino. Cada prêmio é verificado no servidor e limitado por conta.'],
+ ['Your code','Votre code','رمزك','Tu código','Seu código'],
+ ['Verifying…','Vérification…','جارٍ التحقق…','Verificando…','Verificando…'],
+ ['Redeem Code','Utiliser le code','استرداد الرمز','Canjear código','Resgatar código'],
+ ['Rewards may include verified Royal Gems, a Godly Egg, or an expedition energy blessing. The King issues codes privately.','Les récompenses peuvent comprendre des gemmes royales, un œuf divin ou de l’énergie d’expédition. Le Roi transmet les codes en privé.','قد تشمل المكافآت جواهر ملكية أو بيضة إلهية أو طاقة للبعثات. يوزّع الملك الرموز بشكل خاص.','Los premios pueden incluir gemas reales, un huevo divino o energía de expedición. El Rey entrega los códigos en privado.','Os prêmios podem incluir gemas reais, um ovo divino ou energia de expedição. O Rei entrega os códigos em particular.'],
+ ['THE DAILY TRIAL · UTC','L’ÉPREUVE DU JOUR · UTC','الاختبار اليومي · UTC','PRUEBA DIARIA · UTC','PROVA DIÁRIA · UTC'],
+ ['Train your Command','Entraînez votre commandement','درّب قيادتك','Entrena tu mando','Treine seu comando'],
+ ['Choose your class.','Choisissez votre classe.','اختر فئتك.','Elige tu clase.','Escolha sua classe.'],
+ ['An enemy charges the gates. Which class absorbs the opening blow?','Un ennemi attaque les portes. Quelle classe encaisse le premier coup ?','العدو يقتحم البوابات. أي فئة تتصدى للضربة الأولى؟','Un enemigo carga contra las puertas. ¿Qué clase recibe el primer golpe?','Um inimigo avança pelos portões. Qual classe recebe o primeiro golpe?'],
+ ['Your scouts need speed and stealth. Who leads the mission?','Vos éclaireurs ont besoin de vitesse et de discrétion. Qui dirige la mission ?','يحتاج كشّافتك إلى السرعة والتخفي. من يقود المهمة؟','Tus exploradores necesitan velocidad y sigilo. ¿Quién dirige la misión?','Seus batedores precisam de velocidade e furtividade. Quem lidera a missão?'],
+ ['The warband needs healing and reinforcements. Choose a class.','La troupe a besoin de soins et de renforts. Choisissez une classe.','تحتاج الفرقة إلى العلاج والتعزيزات. اختر فئة.','La tropa necesita curación y refuerzos. Elige una clase.','O grupo precisa de cura e reforços. Escolha uma classe.'],
+ ['You need an aggressive opening strike. Choose a class.','Vous devez attaquer agressivement dès le départ. Choisissez une classe.','تحتاج إلى ضربة افتتاحية قوية. اختر فئة.','Necesitas un ataque inicial agresivo. Elige una clase.','Você precisa de um ataque inicial agressivo. Escolha uma classe.'],
+ ['Push the frontline with steady direct attacks. Choose a class.','Poussez la ligne de front avec des attaques directes. Choisissez une classe.','ادفع خط المواجهة بهجمات مباشرة ومتواصلة. اختر فئة.','Avanza con ataques directos constantes. Elige una clase.','Avance com ataques diretos constantes. Escolha uma classe.'],
+ ['Enroll in Royal Authority first.','Inscrivez-vous d’abord à l’Autorité royale.','انضم إلى السلطة الملكية أولاً.','Inscríbete primero en la Autoridad Real.','Inscreva-se primeiro na Autoridade Real.'],
+ ['Completed today','Terminé aujourd’hui','اكتمل اليوم','Completado hoy','Concluído hoje'],
+ ['attempts remaining','essais restants','محاولات متبقية','intentos restantes','tentativas restantes'],
+ ['Reward:','Récompense :','المكافأة:','Premio:','Prêmio:'],
+ ['verified Gold','or vérifié','ذهب موثّق','oro verificado','ouro verificado'],
+ ['Essence','Essence','جوهر','Esencia','Essência'],
+ ['Refresh daily trial','Actualiser l’épreuve','تحديث الاختبار اليومي','Actualizar prueba diaria','Atualizar prova diária'],
+ ['Daily Dominion Trial','Épreuve quotidienne du Dominion','اختبار السيادة اليومي','Prueba diaria del Dominio','Prova diária do Domínio'],
+ ['Loading the server-verified challenge…','Chargement du défi vérifié…','جارٍ تحميل التحدي الموثّق…','Cargando el desafío verificado…','Carregando o desafio verificado…'],
+ ['Open Royal Mail for Egg & Energy Gifts','Ouvrir le courrier royal pour les cadeaux','افتح البريد الملكي لاستلام الهدايا','Abrir correo real para regalos','Abrir Correio Real para presentes'],
+ ['Sign in first.','Connectez-vous d’abord.','سجّل الدخول أولاً.','Inicia sesión primero.','Entre na sua conta primeiro.'],
+ ['Sign in and enroll in Royal Authority first.','Connectez-vous et inscrivez-vous à l’Autorité royale.','سجّل الدخول وانضم إلى السلطة الملكية أولاً.','Inicia sesión e inscríbete en la Autoridad Real.','Entre e inscreva-se na Autoridade Real.'],
+ ['Dinosaur Command','Commandement des dinosaures','قيادة الديناصورات','Mando de dinosaurios','Comando dos dinossauros'],
+ ['Expeditions','Expéditions','البعثات','Expediciones','Expedições'],
+ ['Mastery','Maîtrise','الإتقان','Maestría','Maestria'],
+ ['Mastery & Expeditions','Maîtrise et expéditions','الإتقان والبعثات','Maestría y expediciones','Maestria e expedições'],
+ ['Train legends · Timed missions','Forgez des légendes · Missions chronométrées','درّب الأساطير · مهمات مؤقتة','Forja leyendas · Misiones cronometradas','Treine lendas · Missões cronometradas'],
+ ['ROYAL EXPEDITION BOARD · UTC','MISSIONS ROYALES · UTC','لوحة البعثات الملكية · UTC','TABLÓN DE EXPEDICIONES · UTC','QUADRO DE EXPEDIÇÕES · UTC'],
+ ['Send your dinosaurs beyond the gates','Envoyez vos dinosaures au-delà des remparts','أرسل ديناصوراتك خارج الأسوار','Envía a tus dinosaurios más allá de las puertas','Envie seus dinossauros além dos portões'],
+ ['Choose a verified dinosaur, select a route, and bring back resources and Mastery XP. Class-matched routes earn bonus rewards.','Choisissez un dinosaure vérifié et un parcours pour gagner des ressources et de l’XP de maîtrise. Les classes adaptées reçoivent un bonus.','اختر ديناصورًا موثّقًا ومسارًا لجلب الموارد وخبرة الإتقان. تمنح الفئة المناسبة مكافآت إضافية.','Elige un dinosaurio verificado y una ruta para obtener recursos y XP de maestría. Las clases adecuadas reciben una bonificación.','Escolha um dinossauro verificado e uma rota para obter recursos e XP de maestria. Classes adequadas ganham bônus.'],
+ ['dispatches remaining today','missions restantes aujourd’hui','بعثات متبقية اليوم','envíos restantes hoy','envios restantes hoje'],
+ ['Choose your dinosaur','Choisissez votre dinosaure','اختر ديناصورك','Elige tu dinosaurio','Escolha seu dinossauro'],
+ ['Class match: +25 Gold, +5 Essence, +7 XP!','Classe adaptée : +25 or, +5 essence, +7 XP !','الفئة مناسبة: +25 ذهب، +5 جوهر، +7 خبرة!','Clase adecuada: +25 oro, +5 esencia, +7 XP','Classe adequada: +25 ouro, +5 essência, +7 XP!'],
+ ['Tip: choose a dinosaur whose class matches the route for extra rewards.','Astuce : associez la classe du dinosaure au parcours pour obtenir un bonus.','نصيحة: اختر ديناصورًا بفئة تناسب المسار لمكافآت إضافية.','Consejo: elige una clase adecuada para recibir más recompensas.','Dica: escolha uma classe adequada para ganhar recompensas extras.'],
+ ['Trail Tracking','Pistage en forêt','تعقّب الآثار','Rastreo del bosque','Rastreamento na floresta'],
+ ['Citadel Patrol','Patrouille de la citadelle','دورية القلعة','Patrulla de la ciudadela','Patrulha da cidadela'],
+ ['Primeval Hunt','Chasse primitive','الصيد البدائي','Cacería primitiva','Caçada primitiva'],
+ ['Sanctuary Aid','Secours du sanctuaire','إغاثة المحمية','Ayuda al santuario','Ajuda ao santuário'],
+ ['Scout the ancient jungle and trace dinosaur tracks.','Explorez la jungle ancienne et suivez les pistes.','استكشف الأدغال القديمة وتتبّع آثار الديناصورات.','Explora la selva ancestral y sigue los rastros.','Explore a selva antiga e siga os rastros.'],
+ ['Defend the kingdom borders and secure the road.','Protégez les frontières du royaume et sécurisez les routes.','احمِ حدود المملكة وأمّن الطريق.','Defiende las fronteras del reino y protege el camino.','Defenda as fronteiras do reino e proteja a estrada.'],
+ ['Lead a dangerous expedition into predator territory.','Menez une expédition périlleuse en territoire prédateur.','قُد بعثة خطيرة إلى أراضي المفترسات.','Dirige una expedición peligrosa entre depredadores.','Lidere uma expedição perigosa em território de predadores.'],
+ ['Rescue hatchlings and restore the ancient habitat.','Sauvez les petits et restaurez leur habitat ancestral.','أنقذ الصغار وأعد تأهيل موطنهم القديم.','Rescata crías y restaura el hábitat ancestral.','Resgate filhotes e restaure o habitat ancestral.'],
+ ['Dispatch expedition','Lancer l’expédition','إرسال البعثة','Enviar expedición','Enviar expedição'],
+ ['Daily dispatches exhausted','Plus de missions aujourd’hui','انتهت بعثات اليوم','Límite diario alcanzado','Limite diário atingido'],
+ ['EXPEDITION IN PROGRESS','EXPÉDITION EN COURS','البعثة جارية','EXPEDICIÓN EN CURSO','EXPEDIÇÃO EM ANDAMENTO'],
+ ['is on a mission!','est en mission !','في مهمة!','está en una misión!','está em uma missão!'],
+ ['Rewards become available after the server timer completes.','Récompenses disponibles à la fin du minuteur serveur.','تتاح المكافآت عند انتهاء مؤقّت الخادم.','Recompensas disponibles al terminar el temporizador del servidor.','Recompensas disponíveis após o temporizador do servidor.'],
+ ['Waiting for return','En attente du retour','بانتظار العودة','Esperando regreso','Aguardando retorno'],
+ ['Claim verified rewards','Réclamer les récompenses','استلام المكافآت الموثّقة','Reclamar recompensas','Resgatar recompensas'],
+ ['Do not change your phone clock to skip time. Supabase checks the real completion time.','Ne changez pas l’horloge du téléphone : le serveur contrôle l’heure réelle.','لا تغيّر ساعة هاتفك لتجاوز الوقت؛ يتحقق الخادم من الموعد الحقيقي.','No cambies la hora del móvil: el servidor verifica el tiempo real.','Não altere o relógio: o servidor verifica o horário real.'],
+ ['No unlocked dinosaurs found','Aucun dinosaure débloqué','لا توجد ديناصورات مفتوحة','No hay dinosaurios desbloqueados','Nenhum dinossauro desbloqueado'],
+ ['Enroll in Royal Authority and unlock a verified dinosaur to dispatch it.','Rejoignez l’Autorité royale et débloquez un dinosaure vérifié.','انضم إلى السلطة الملكية وافتح ديناصورًا موثّقًا لإرساله.','Únete a la Autoridad Real y desbloquea un dinosaurio verificado.','Entre na Autoridade Real e desbloqueie um dinossauro verificado.'],
+ ['PERSISTENT DINOSAUR MASTERY','MAÎTRISE PERSISTANTE','إتقان دائم للديناصورات','MAESTRÍA PERSISTENTE','MAESTRIA PERSISTENTE'],
+ ['A legend is earned, not given','La légende se mérite','الأسطورة تُكتسب ولا تُمنح','Una leyenda se gana','Uma lenda é conquistada'],
+ ['Your verified dinosaurs gain Mastery XP from completed expeditions. Every 100 XP unlocks a higher rank, up to Mastery 5. Each rank improves verified expedition rewards.','Vos dinosaures vérifiés gagnent de l’XP de maîtrise en terminant des missions. Chaque tranche de 100 XP augmente leur rang, jusqu’au niveau 5, et améliore les récompenses.','تكسب ديناصوراتك الموثّقة خبرة الإتقان من البعثات المكتملة. كل 100 نقطة ترفع رتبتها حتى المستوى 5 وتحسّن المكافآت.','Tus dinosaurios verificados ganan XP de maestría al completar expediciones. Cada 100 XP sube su rango, hasta 5, y mejora los premios.','Dinossauros verificados ganham XP de maestria nas expedições. Cada 100 XP aumenta o nível, até 5, e melhora os prêmios.'],
+ ['Every mastery rank above 1 adds +8 Gold and +2 Essence per expedition. Mastery does not change PvP combat or paid entitlements.','Chaque rang au-dessus de 1 ajoute +8 or et +2 essence par mission. La maîtrise ne modifie pas le PvP ni les achats.','تضيف كل رتبة إتقان بعد الأولى 8 ذهب و2 جوهر لكل بعثة. لا تؤثر على PvP أو المشتريات.','Cada rango superior a 1 añade +8 oro y +2 esencia por expedición. No modifica el PvP ni las compras.','Cada nível acima de 1 adiciona +8 ouro e +2 essência por expedição. Não altera PvP ou compras.'],
+ ['Send','Envoyer','إرسال','Enviar','Enviar'],
+ ['Refresh verified progress','Actualiser la progression','تحديث التقدّم الموثّق','Actualizar progreso','Atualizar progresso'],
+ ['Opening the expedition board','Ouverture des missions','جارٍ فتح لوحة البعثات','Abriendo expediciones','Abrindo expedições'],
+ ['Loading your verified dinosaur roster…','Chargement de vos dinosaures vérifiés…','جارٍ تحميل قائمة الديناصورات الموثّقة…','Cargando tus dinosaurios verificados…','Carregando seus dinossauros verificados…'],
+ ['Expeditions paused','Expéditions en pause','البعثات متوقّفة مؤقتًا','Expediciones pausadas','Expedições pausadas'],
+ ['Reconnecting · checking verified expedition progress…','Reconnexion · vérification de la progression…','جارٍ إعادة الاتصال والتحقق من التقدّم…','Reconectando · verificando progreso…','Reconectando · verificando progresso…'],
+ ['seconds','secondes','ثوانٍ','segundos','segundos'],
+ ['minutes','minutes','دقائق','minutos','minutos'],
+ ['Assassin','Assassin','قاتل متخفٍ','Asesino','Assassino'],
+ ['Striker','Frappeur','مهاجم','Atacante','Atacante'],
+ ['Guardian','Gardien','حارس','Guardián','Guardião'],
+ ['Berserker','Berserker','محارب هائج','Berserker','Berserker'],
+ ['Support','Soutien','دعم','Apoyo','Suporte'],
+ ];
+ const DICT=Object.fromEntries(['fr','ar','es','pt'].map((l,j)=>[l,new Map(WORDS.map(row=>[row[0],row[j+1]]))]));
+ const originals=new WeakMap(),applied=new WeakMap();
+ let lastLang='en',queued=false,installed=false;
+ const getLang=()=>{try{const lang=window.DDWorldwide?.getLanguage?.()||localStorage.getItem('dd59-language')||'en';return supported.has(lang)?lang:'en'}catch{return'en'}};
+ const protect=node=>!node?.parentElement||!!node.parentElement.closest('input,textarea,select,option,script,style,[contenteditable],[data-user-content],.dd615Feedback,.dd617Feedback');
+ function lookup(source,lang){
+  if(lang==='en')return source;
+  const dict=DICT[lang],raw=String(source),trim=raw.trim();
+  if(!trim)return raw;
+  let result=dict.get(trim);
+  // Emoji and stars are decorative prefixes to localized UI labels.
+  if(!result){const m=/^([^\p{L}\p{N}]*)(.*)$/u.exec(trim);if(m&&m[1]){const t=dict.get(m[2]);if(t)result=m[1]+t;}}
+  // Small UI fragments that include numeric counters and status prefixes.
+  if(!result){const m=/^(.*?)(\d+)(\/3\s+dispatches remaining today)$/i.exec(trim);if(m)result=m[1]+m[2]+'/3 '+dict.get('dispatches remaining today');}
+  if(!result){const m=/^(.+?)\s+(is on a mission!)$/.exec(trim);if(m)result=m[1]+' '+dict.get('is on a mission!');}
+  if(!result){const m=/^(\d+)\s+(seconds|minutes)$/.exec(trim);if(m)result=m[1]+' '+dict.get(m[2]);}
+  if(!result){const m=/^(.*?)(\d+)\s+attempts remaining$/.exec(trim);if(m)result=m[1]+m[2]+' '+dict.get('attempts remaining');}
+  if(!result){const m=/^(.*?)(\d+)\s+verified Gold\s*\+\s*(.*?)(\d+)\s+Essence$/.exec(trim);if(m)result=m[1]+m[2]+' '+dict.get('verified Gold')+' + '+m[3]+m[4]+' '+dict.get('Essence');}
+  if(!result&&/^(?:Assassin|Striker|Guardian|Berserker|Support)(?: \/ (?:Assassin|Striker|Guardian|Berserker|Support))? · \d+ (?:seconds|minutes)$/.test(trim)){
+   result=trim.replace(/Assassin|Striker|Guardian|Berserker|Support|seconds|minutes/g,v=>dict.get(v)||v);
+  }
+  if(!result&&/^⭐ Mastery \d+\/5 · \d+ XP$/.test(trim))result=trim.replace('Mastery',dict.get('Mastery'));
+  if(!result&&/^↻ Refresh verified progress$/.test(trim))result='↻ '+dict.get('Refresh verified progress');
+
+  if(!result)return raw;
+  return raw.replace(trim,result);
+ }
+ function translate(root,lang){
+  if(!root)return;
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let node;
+  while((node=walker.nextNode())){
+   if(protect(node))continue;
+   const previous=applied.get(node),now=node.nodeValue;
+   if(!originals.has(node)||previous!==undefined&&previous!==now)originals.set(node,now);
+   const origin=originals.get(node),next=lookup(origin,lang);
+   if(next!==now)node.nodeValue=next;
+   applied.set(node,next);
+  }
+ }
+ function render(){queued=false;const lang=getLang();lastLang=lang;
+  for(const id of ['dd615Overlay','dd61617Overlay','dd612MenuGrid']){
+   const root=document.getElementById(id);
+   if(root){translate(root,lang);hook(root);}
+  }
+ }
+ function schedule(){if(queued)return;queued=true;(window.requestAnimationFrame||setTimeout)(render);}
+ const watched=new WeakSet();
+ function hook(root){if(watched.has(root))return;watched.add(root);
+  const obs=new MutationObserver(schedule);obs.observe(root,{childList:true,subtree:true});
+ }
+ function init(){if(installed)return;installed=true;render();
+  // New overlay roots are appended lazily; observe additions only.
+  new MutationObserver(records=>{
+   if(records.some(r=>[...r.addedNodes].some(n=>n.nodeType===1&&(
+      n.id==='dd615Overlay'||n.id==='dd61617Overlay'||n.id==='dd612MenuGrid'||
+      n.querySelector?.('#dd615Overlay,#dd61617Overlay,#dd612MenuGrid')))))schedule();
+  }).observe(document.body,{childList:true,subtree:false});
+  // The worldwide language selector does not emit an event in Build 5.9.
+  document.addEventListener('click',e=>{if(e.target.closest('[data-dd59="language"]')){
+   setTimeout(schedule,0);setTimeout(schedule,130);
+  }},true);
+  new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  window.addEventListener('focus',()=>{if(lastLang!==getLang())schedule()});
+  window.addEventListener('pageshow',schedule);
+  window.DD6173Locale={version:'6.17.3',refresh:schedule,getLanguage:getLang};
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+})();
