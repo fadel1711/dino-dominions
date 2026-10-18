@@ -233,6 +233,16 @@
  ];
  let overlay=null,host=null,tab='expeditions',data=null,busy=false,notice='',chosenSpecies=-1,chosenRoute='track';
  let clock=null,loadedAt=0,installed=false,accountId='',epoch=0;
+ // 6.17.1: WebKit can suspend unresolved promises while backgrounded. The
+ // request ticket and deadline prevent old responses from trapping the UI.
+ let wasBackgrounded=false,lastWakeAt=0,wakeTimer=null;
+ const STATUS_DEADLINE_MS=12000;
+ function withDeadline(promise,ms=STATUS_DEADLINE_MS){
+  let timer;
+  const timeout=new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Connection timed out; tap Refresh to retry.')),ms)});
+  return Promise.race([promise,timeout]).finally(()=>clearTimeout(timer));
+ }
+
  const client=()=>window.DDOnlineClient||null;
  async function uid(){try{const c=client();const {data,error}=await c.auth.getUser();return error?'':data?.user?.id||''}catch{return ''}}
  async function rpc(name,args={}){const c=client();if(!c?.rpc)throw Error('Supabase is unavailable');
@@ -294,33 +304,59 @@
  function draw(){if(!overlay||overlay.hidden)return;
   for(const b of overlay.querySelectorAll('.dd61617Tabs button')){const on=b.dataset.tab===tab;b.classList.toggle('active',on);b.setAttribute('aria-pressed',String(on))}
   const entry=data?.ok===true ? (tab==='mastery'?masteryHtml():expHtml()):`<article class="dd617Hero"><h3>${data?.disabled?'Expeditions paused':'Opening the expedition board'}</h3><p>${esc(data?.message||'Loading your verified dinosaur roster…')}</p></article>`;
-  host.innerHTML=entry+`<p class="dd617Feedback" role="status" ${notice?'':'hidden'}>${esc(notice)}</p><button type="button" data-dd617="refresh" class="dd617Refresh" ${busy?'disabled':''}>↻ Refresh verified progress</button>`;
+  host.innerHTML=entry+`<p class="dd617Feedback" role="status" ${notice?'':'hidden'}>${esc(notice)}</p><button type="button" data-dd617="refresh" class="dd617Refresh">${busy?'↻ Retry connection':'↻ Refresh verified progress'}</button>`;
   tick();
  }
  function tick(){if(!overlay||overlay.hidden||!data?.active)return;const seconds=timeLeft();const timer=$('dd617Countdown');if(timer)timer.textContent=seconds?formatClock(seconds):'READY!';
   const claim=host?.querySelector('[data-dd617="claim"]');if(claim){claim.disabled=busy||seconds>0;claim.textContent=busy?'Verifying…':seconds?'⏳ Waiting for return':'🎁 Claim verified rewards'};
  }
- function close(){if(!overlay)return;overlay.hidden=true;document.body.classList.remove('dd61617Open');epoch++;}
+ function close(){if(!overlay)return;
+  // Closing during a suspended fetch must NOT leave busy=true on next open.
+  ++epoch;busy=false;data=null;accountId='';loadedAt=0;wasBackgrounded=false;
+  if(wakeTimer!==null){clearTimeout(wakeTimer);wakeTimer=null}
+  overlay.hidden=true;document.body.classList.remove('dd61617Open');
+ }
+
  async function open(){scene();if(!overlay.hidden)return;overlay.hidden=false;document.body.classList.add('dd61617Open');tab='expeditions';notice='';data=null;chosenSpecies=-1;draw();await refresh();}
- async function refresh(keepNotice=false){if(busy||!overlay||overlay.hidden)return;
+ async function refresh(keepNotice=false){if(!overlay||overlay.hidden)return;
+  // A retry is read-only and invalidates older, possibly suspended requests.
+  // NEVER replay dd617_start or dd617_claim on foreground/resume.
   const ticket=++epoch;busy=true;if(!keepNotice)notice='';draw();
-  try{const before=await uid();if(!before)throw Error('Sign in to your commander account first.');
-   const response=await rpc('dd61617_status');if(ticket!==epoch||overlay.hidden)return;
-   if(before!==await uid())throw Error('Commander changed. Close and reopen the board.');
-   accountId=before;data=response;loadedAt=Date.now();
-  }catch(e){if(ticket===epoch)data={ok:false,message:String(e?.message||'Unable to load expeditions.').slice(0,180)}}
+  try{
+   const verified=await withDeadline((async()=>{
+    const before=await uid();if(!before)throw Error('Sign in to your commander account first.');
+    const response=await rpc('dd61617_status');
+    const after=await uid();
+    if(before!==after)throw Error('Commander changed. Close and reopen the board.');
+    return {before,response};
+   })());
+   if(ticket!==epoch||overlay.hidden)return;
+   if(accountId && accountId!==verified.before){close();return;}
+   accountId=verified.before;data=verified.response;loadedAt=Date.now();
+  }catch(e){if(ticket===epoch){
+    data={ok:false,message:String(e?.message||'Expedition status unavailable. Please retry.').slice(0,180)};
+    notice='No expedition rewards or Cloud Kingdom saves were changed by this refresh.';
+  }}
   finally{if(ticket===epoch){busy=false;draw()}}
  }
  async function action(name,args){if(busy||!overlay||overlay.hidden||!data?.ok)return;
   const ticket=++epoch;busy=true;notice='Verifying with Supabase…';draw();
-  try{const before=await uid();if(!before||before!==accountId)throw Error('Commander changed. Reopen the board.');
-   const response=await rpc(name,args);
+  try{
+   // A timeout only abandons waiting for the reply: it does not cancel a
+   // server-side reward, nor retry a potentially completed mutation.
+   const verified=await withDeadline((async()=>{
+    const before=await uid();if(!before||before!==accountId)throw Error('Commander changed. Reopen the board.');
+    const response=await rpc(name,args);
+    if(before!==await uid())throw Error('Account changed while awaiting a reward. Reopen the board.');
+    const next=await rpc('dd61617_status');
+    return {response,next};
+   })());
    if(ticket!==epoch||overlay.hidden)return;
-   if(before!==await uid())throw Error('Account changed while awaiting a reward. Reopen the board.');
-   const next=await rpc('dd61617_status');if(ticket!==epoch||overlay.hidden)return;
-   data=next;notice=response?.ok ? (name==='dd617_claim'?`✅ ${response.message} +${response.gold} Gold · +${response.essence} Essence · +${response.mastery_xp} Mastery XP.`:response.message)
+   data=verified.next;
+   const response=verified.response;
+   notice=response?.ok ? (name==='dd617_claim'?`✅ ${response.message} +${response.gold} Gold · +${response.essence} Essence · +${response.mastery_xp} Mastery XP.`:response.message)
       :String(response?.message||'Operation was not accepted.');
-  }catch(e){if(ticket===epoch)notice='Could not confirm the action. Refresh verified progress before retrying. '+String(e?.message||'').slice(0,150)}
+  }catch(e){if(ticket===epoch)notice='Action result not confirmed. Refresh VERIFIED progress before trying again. '+String(e?.message||'').slice(0,140)}
   finally{if(ticket===epoch){busy=false;draw()}}
  }
  function start(){if(!data?.ok||data.active||!Number(data.remaining_today)||busy)return;
@@ -338,12 +374,47 @@
   installed=true;scene();const observer=new MutationObserver(()=>{queueMicrotask(inject)});observer.observe(grid,{childList:true});
   grid.addEventListener('click',e=>{const btn=e.target.closest('[data-dd617-launch]');if(!btn)return;
    e.preventDefault();e.stopPropagation();window.DD612.closeMenu();void open();},true);
-  const c=client();c?.auth?.onAuthStateChange?.(()=>{if(overlay&&!overlay.hidden){close();data=null}});
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&overlay&&!overlay.hidden)void refresh(true)});
+  const c=client();
+  c?.auth?.onAuthStateChange?.((event,session)=>{
+   if(!overlay||overlay.hidden)return;
+   const next=session?.user?.id||'';
+   if(event==='SIGNED_OUT'||(accountId&&next&&next!==accountId)){
+    close();return; // Never show an old commander's roster to a new account.
+   }
+   // TOKEN_REFRESHED and INITIAL_SESSION are NOT a sign-out. Safari often
+   // emits these when the app returns to foreground. Reverify read-only.
+   if(event==='TOKEN_REFRESHED'||event==='SIGNED_IN'){
+    if(document.hidden)wasBackgrounded=true;
+    else scheduleResume();
+   }
+  });
+  function scheduleResume(){
+   if(!overlay||overlay.hidden||document.hidden)return;
+   const now=Date.now();if(now-lastWakeAt<400)return;lastWakeAt=now;
+   if(wakeTimer!==null)clearTimeout(wakeTimer);
+   wakeTimer=setTimeout(()=>{
+    wakeTimer=null;if(!overlay||overlay.hidden||document.hidden)return;
+    wasBackgrounded=false;
+    // Invalidate a stalled request, then reread the server. Nothing is
+    // dispatched, claimed, locally granted or saved during recovery.
+    ++epoch;busy=false;notice='Reconnecting · checking verified expedition progress…';
+    void refresh(true);
+   },200);
+  }
+  document.addEventListener('visibilitychange',()=>{
+   if(document.hidden){wasBackgrounded=true;return;}
+   if(wasBackgrounded)scheduleResume();
+  });
+  window.addEventListener('pageshow',e=>{
+   if(e.persisted||wasBackgrounded||busy)scheduleResume();
+  });
+  window.addEventListener('focus',()=>{
+   if(wasBackgrounded||busy&&Date.now()-loadedAt>3000)scheduleResume();
+  });
   clock=setInterval(()=>{if(overlay&&!overlay.hidden)tick()},1000);
   inject();return true;
  }
  function launch(){if(boot())return;let count=0;const t=setInterval(()=>{if(boot()||++count>=80)clearInterval(t)},250)}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',launch,{once:true});else launch();
- window.DD61617={version:'6.17.0',open,close,refresh};
+ window.DD61617={version:'6.17.1-foreground-recovery',open,close,refresh};
 })();
