@@ -10,6 +10,17 @@ let uid=null, mode='guest', revision=0, error='', updated='', inFlight=false, ti
 const localGet=k=>{try{return JSON.parse(localStorage.getItem(k)||'null')}catch{return null}};
 const localPut=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch{return false}};
 const snapshot=v=>JSON.parse(JSON.stringify(v));
+// 6.17.2 — Safari may suspend promises while in the background. A deadline
+// ends the UI wait WITHOUT aborting or replaying a potentially committed write.
+// Cloud revision and the account-scoped dirty device cache remain authoritative.
+const READ_DEADLINE_MS=12000,WRITE_DEADLINE_MS=16000;
+function limited(promise,ms){
+ let t;
+ return Promise.race([Promise.resolve(promise),new Promise((_,reject)=>{
+  t=setTimeout(()=>reject(Error('Cloud request timed out. Verify the server before retrying.')),ms);
+ })]).finally(()=>clearTimeout(t));
+}
+
 const cacheKey=()=>CACHE+uid;
 const isDirty=()=>uid&&!!localGet(cacheKey())?.dirty;
 function refresh(){
@@ -42,7 +53,10 @@ async function auth(nextUid){
    refresh();return;
  }
  uid=nextUid;revision=0;mode='loading';error='';updated='';inFlight=false;refresh();
- const {data, error:fetchError}=await client.from('dd_cloud_kingdoms').select('state,revision,updated_at').eq('user_id',nextUid).maybeSingle();
+ let data,fetchError;
+ try{({data,error:fetchError}=await limited(client.from('dd_cloud_kingdoms')
+   .select('state,revision,updated_at').eq('user_id',nextUid).maybeSingle(),READ_DEADLINE_MS));}
+ catch(e){fetchError={message:String(e?.message||e)};}
  if(token!==serial||uid!==nextUid)return;
  if(fetchError){mode='error';error=fetchError.message;refresh();return}
  if(!data){mode='missing';refresh();return}
@@ -76,7 +90,14 @@ async function create(fresh){
  const prompt=fresh?'Create a NEW cloud kingdom at starting values? Your original device save will stay backed up locally.':'IMPORT your existing device kingdom to this account? This creates your first cloud save. Your original local save stays untouched.';
  if(!confirm(prompt))return;
  mode='loading';refresh();const target=uid;
- const {data,error:saveError}=await client.rpc('dd_cloud_create',{p_state:content});
+ let data,saveError;
+ try{({data,error:saveError}=await limited(client.rpc('dd_cloud_create',{p_state:content}),WRITE_DEADLINE_MS));}
+ catch(e){
+  // Creation might have reached Supabase before the connection timed out.
+  // Never blindly repeat the CREATE. Reconnect to inspect the account first.
+  if(target===uid){mode='error';error='Creation acknowledgement uncertain. Reconnect to inspect the cloud before trying again.';refresh()}
+  return;
+ }
  if(target!==uid)return;
  if(saveError){mode=saveError.message?.includes('already exists')?'error':'missing';error=saveError.message;refresh();throw saveError}
  revision=Number(data)||1;setGame(content);keep(content,false);serverSnapshot=snapshot(content);mode='ready';error='';refresh();
@@ -85,13 +106,17 @@ function onGameSave(data){
  if(!active())return;
  const latest=snapshot(data);lastSnapshot=latest;queued=latest;
  if(!keep(latest,true)){mode='offline';error='Device storage is full or blocked; do not close this page before saving.';refresh();return}
- if(mode!=='offline')mode='syncing';refresh();stopTimer();timer=setTimeout(flush,650);
+ if(mode==='offline'){refresh();return;}
+ mode='syncing';refresh();stopTimer();timer=setTimeout(flush,650);
 }
 async function flush(){
  stopTimer();if(!uid||inFlight||!queued||!active())return;
  const whichUid=uid, token=serial;
  const sent=queued;queued=null;inFlight=true;mode='syncing';refresh();
- const {data,error:writeError}=await client.rpc('dd_cloud_update',{p_state:sent,p_expected_revision:revision});
+ let data,writeError;
+ try{({data,error:writeError}=await limited(client.rpc('dd_cloud_update',
+   {p_state:sent,p_expected_revision:revision}),WRITE_DEADLINE_MS));}
+ catch(e){writeError={message:String(e?.message||e)}}
  if(token!==serial||whichUid!==uid)return;
  inFlight=false;
  if(writeError){
@@ -109,19 +134,47 @@ async function flush(){
 async function retry(){
  if(!uid||!['offline','conflict'].includes(mode))return;
  const local=cached();if(!local?.dirty||!local.snapshot)throw Error('No pending device save found');
- if(mode==='conflict'){
-   // Check authoritative revision again and refuse destructive overwrites.
-   const {data,error:e}=await client.from('dd_cloud_kingdoms').select('revision').eq('user_id',uid).single();
-   if(e)throw e;
-   if(Number(data.revision)!==Number(local.revision)){error='Cloud has a different revision. Download your device backup, then load the cloud save.';refresh();return}
+ // Always read back FIRST: a timed-out upload may already have committed.
+ // Never resend blindly, even when the UI currently says OFFLINE.
+ const target=uid,token=serial;
+ let remote;
+ try{
+  const {data,error:e}=await limited(client.from('dd_cloud_kingdoms')
+   .select('state,revision,updated_at').eq('user_id',target).single(),READ_DEADLINE_MS);
+  if(e)throw e;remote=data;
+ }catch(e){
+  if(target===uid&&token===serial){mode='offline';error='Could not verify cloud revision. Local changes are safe; retry when connected.';refresh()}
+  return;
  }
- revision=Number(local.revision);queued=snapshot(local.snapshot);mode='syncing';error='';refresh();await flush();
+ if(target!==uid||token!==serial)return;
+ if(!remote||!Number.isSafeInteger(Number(remote.revision))){
+  mode='offline';error='Cloud read-back was invalid; nothing was uploaded.';refresh();return;
+ }
+ if(sameState(local.snapshot,remote.state)){
+  // Previous request arrived but its acknowledgement was lost. Exactly this
+  // account's cached data exists on the server: clear the stale dirty marker.
+  revision=Number(remote.revision);updated=remote.updated_at||'';
+  serverSnapshot=snapshot(remote.state);queued=null;inFlight=false;
+  if(!keep(local.snapshot,false)){
+   mode='offline';error='Cloud is saved, but device cache could not be updated. Download a backup.';
+  }else{mode='ready';error=''}
+  refresh();return;
+ }
+ if(Number(remote.revision)!==Number(local.revision)){
+  mode='conflict';error='Cloud revision changed. Download the device backup before choosing which copy to keep.';
+  refresh();return;
+ }
+ revision=Number(remote.revision);queued=snapshot(local.snapshot);
+ mode='syncing';error='';refresh();await flush();
 }
 async function loadCloud(){
  if(!uid||!['conflict','offline','error'].includes(mode))return;
  if(!confirm('Load the latest CLOUD kingdom? Your unsynced device changes will not be merged. Download a device backup first if you need them.'))return;
  const target=uid, token=serial;mode='loading';refresh();
- const {data,error:e}=await client.from('dd_cloud_kingdoms').select('state,revision,updated_at').eq('user_id',target).single();
+ let data,e;
+ try{({data,error:e}=await limited(client.from('dd_cloud_kingdoms')
+   .select('state,revision,updated_at').eq('user_id',target).single(),READ_DEADLINE_MS));}
+ catch(err){e={message:String(err?.message||err)}}
  if(target!==uid||token!==serial)return;
  if(e){mode='error';error=e.message;refresh();return}
  revision=Number(data.revision);updated=data.updated_at||'';serverSnapshot=snapshot(data.state);queued=null;
@@ -157,7 +210,7 @@ refresh();
 if(client&&game){
   client.auth.onAuthStateChange((event,s)=>{setTimeout(()=>auth(s?.user?.id||null),0)});
   client.auth.getSession().then(({data})=>auth(data.session?.user?.id||null)).catch(e=>{mode='error';error=e.message;refresh()});
-  window.addEventListener('online',()=>{if(mode==='offline')retry().catch(()=>{})});
+  window.addEventListener('online',()=>{if(mode==='offline'&&!inFlight)retry().catch(()=>{})});
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden'&&queued)flush()});
 }else{mode='error';error='Game or Supabase client not available';refresh()}
 })();

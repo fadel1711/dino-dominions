@@ -201,12 +201,21 @@
   if(observer)return true;
   observer=new MutationObserver(injectTab);observer.observe(host,{childList:true,subtree:true});
   host.addEventListener('click',e=>{const button=e.target.closest('button[data-dd615-open]');if(!button)return;e.preventDefault();e.stopPropagation();void open();},true);
-  client()?.auth?.onAuthStateChange?.(()=>{if(panel&&!panel.hidden){close();code='';trial=null;}});
+  // 6.17.2: Supabase emits TOKEN_REFRESHED on iOS background/foreground.
+  // Only a genuine sign-out or change to a different commander closes Rewards.
+  // Never clear a typed private redemption code on routine token renewal.
+  client()?.auth?.onAuthStateChange?.((event,session)=>{
+   if(!panel||panel.hidden)return;
+   const next=session?.user?.id||'';
+   if(event==='SIGNED_OUT'||(loginUid&&next&&next!==loginUid)||(!loginUid&&next)){
+    close();code='';trial=null;loginUid='';
+   }
+  });
   injectTab();return true;
  }
  function start(){if(boot())return;let n=0;const timer=setInterval(()=>{if(boot()||++n>=60)clearInterval(timer)},250);}
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
- window.DD615RoyalRewards={version:'6.15.0',open:()=>void open(),close};
+ window.DD615RoyalRewards={version:'6.17.2-token-refresh-safe',open:()=>void open(),close};
 })();
 
 /* Dino Dominion 6.16 + 6.17 — Dinosaur Mastery and Royal Expeditions.
