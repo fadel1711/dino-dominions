@@ -931,3 +931,72 @@ body.dd612Ready #dd510Launch:focus-visible {
   body.dd612Ready #dd58Launch,body.dd612Ready #dd59Launch,
   body.dd612Ready #dd510Launch{transition:none!important;animation:none!important}
 }
+
+/* =====================================================================
+ * 6.15.0 — Royal Gift Codes + Dominion Trial. ADDITIVE presentation only.
+ * Old 6.13 Observatory, 6.14.0 and 6.14.1 layout remain intact.
+ * ===================================================================== */
+#dd510Overlay .dd510Tabs{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px}
+#dd510Overlay .dd510Tabs button[data-dd615-open]{min-width:0;display:grid;justify-items:center;gap:3px;
+ background:linear-gradient(145deg,#413b2d,#1a3238);color:#ffdea0;border:1px solid #b59b6d;
+ font:800 16px system-ui,-apple-system,sans-serif;padding:9px 2px;border-radius:10px;min-height:52px}
+#dd510Overlay .dd510Tabs button[data-dd615-open] span{font-size:10px;line-height:1.15;text-align:center}
+#dd510Overlay .dd510Tabs button[data-dd615-open]:focus-visible{outline:2px solid #fff0c8;outline-offset:2px}
+body.dd615Open{overflow:hidden!important}
+#dd615Overlay[hidden]{display:none!important}
+#dd615Overlay{position:fixed;inset:0;z-index:19000;display:flex;justify-content:center;overflow:hidden;
+ background:radial-gradient(circle at top,#253f39,#07151df5 72%);color:#f6e7cb;
+ padding:max(0px,env(safe-area-inset-top)) 0 env(safe-area-inset-bottom);font:14px/1.5 system-ui,-apple-system,sans-serif}
+#dd615Overlay *{box-sizing:border-box}
+#dd615Overlay .dd615Screen{width:min(640px,100%);height:100%;display:flex;flex-direction:column;min-height:0;
+ background:radial-gradient(circle at 90% 15%,#3552435a,transparent 35%),linear-gradient(#162d31,#071620 66%);
+ border-inline:1px solid #b7996055}
+#dd615Overlay .dd615Head{display:flex;align-items:center;gap:13px;flex:none;
+ padding:15px 14px 13px;border-bottom:1px solid #a98a59;background:linear-gradient(115deg,#101f27,#273830)}
+#dd615Overlay .dd615Head button{flex:0 0 44px;height:44px;min-height:44px;border:1px solid #baa071;
+ border-radius:13px;background:#19343c;color:#fff0c8;font-size:29px}
+#dd615Overlay .dd615Head>div{flex:1;min-width:0}
+#dd615Overlay .dd615Head small{display:block;font-size:9px;letter-spacing:.12em;color:#d4b884;font-weight:800}
+#dd615Overlay .dd615Head strong{display:block;font:normal 25px/1.15 Georgia,serif;color:#ffe7b6;margin-top:3px}
+#dd615Overlay .dd615Head>span{font-size:28px}
+#dd615Overlay .dd615Tabs{flex:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:9px 12px;gap:7px;
+ border-bottom:1px solid #6b745f66}
+#dd615Overlay .dd615Tabs button{min-height:46px;min-width:0;background:#1d3940;color:#d8dace;border:1px solid #627e74;
+ border-radius:11px;font-size:13px;font-weight:750;padding:8px}
+#dd615Overlay .dd615Tabs button.active{background:linear-gradient(120deg,#d9b16c,#ac844c);color:#10232a;border-color:#ffdf9d}
+#dd615Overlay .dd615Body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+ padding:18px 14px calc(36px + env(safe-area-inset-bottom))}
+#dd615Overlay .dd615Card{border:1px solid #b39160;border-radius:19px;background:linear-gradient(145deg,#243b3c,#11272f 70%);
+ padding:19px 17px;box-shadow:inset 0 1px #ffecb52d,0 14px 25px #0006}
+#dd615Overlay .dd615Eyebrow{font-size:10px;letter-spacing:.16em;color:#eccd93;font-weight:800}
+#dd615Overlay h2{font:normal clamp(24px,7vw,32px)/1.2 Georgia,serif;color:#ffdfac;margin:10px 0}
+#dd615Overlay p{font-size:13px;color:#ccd9d0;line-height:1.6}
+#dd615Overlay label{display:block;color:#f6d9a2;font-weight:750;margin:18px 0 6px}
+#dd615Overlay input{display:block;width:100%;min-height:49px;padding:11px 12px;
+ background:#0a202c;border:1px solid #8c9a81;border-radius:11px;color:#fff3d9;font:16px/1.3 ui-monospace,SFMono-Regular,monospace;
+ outline-offset:2px}
+#dd615Overlay input:focus-visible{outline:2px solid #e5c987}
+#dd615Overlay .dd615Gold{width:100%;min-height:49px;margin:13px 0 11px;background:linear-gradient(#f9dda0,#cca05e);
+ border:1px solid #ffe5a7;border-radius:11px;color:#18272b;font-size:14px;font-weight:850}
+#dd615Overlay small{color:#c3cec7;line-height:1.5}
+#dd615Overlay .dd615TrialInfo{border:1px solid #a68f65;background:#334036;padding:11px;border-radius:11px;color:#fff0be;font-size:12px;margin:13px 0}
+#dd615Overlay .dd615Choices{display:grid;gap:9px}
+#dd615Overlay .dd615Choices button{display:flex;align-items:center;justify-content:space-between;gap:8px;
+ min-height:52px;padding:10px 15px;border:1px solid #829180;border-radius:12px;
+ background:linear-gradient(135deg,#234346,#1a2d3a);color:#f7e8cb;font-weight:800;text-align:left}
+#dd615Overlay .dd615Choices button span{color:#dcb879;font-size:23px}
+#dd615Overlay .dd615Refresh,#dd615Overlay .dd615Mail{display:block;width:100%;margin:14px 0;
+ padding:13px;border-radius:12px;border:1px solid #718a7e;background:#16373b;color:#f2d5a9;font-weight:800}
+#dd615Overlay .dd615Feedback{border-left:4px solid #d9ac67;background:#2a3c3d;color:#ffe5b5;
+ padding:13px;border-radius:9px;white-space:normal;overflow-wrap:anywhere}
+#dd615Overlay .dd615Feedback[hidden]{display:none!important}
+#dd615Overlay button:disabled{opacity:.48}
+#dd615Overlay button:focus-visible{outline:2px solid #fff0c8;outline-offset:3px}
+@media(max-width:380px){
+ #dd510Overlay .dd510Tabs{gap:3px}
+ #dd510Overlay .dd510Tabs button{font-size:15px;padding:7px 1px}
+ #dd510Overlay .dd510Tabs button span,#dd510Overlay .dd510Tabs button[data-dd615-open] span{font-size:9px}
+ #dd615Overlay .dd615Body{padding-inline:10px}
+ #dd615Overlay .dd615Card{padding:15px 13px}
+}
+@media(prefers-reduced-motion:reduce){#dd615Overlay *{transition:none!important;animation:none!important}}
