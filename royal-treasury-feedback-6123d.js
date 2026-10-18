@@ -607,6 +607,211 @@
  ['Cloud conflict — choose which save to keep','Conflit cloud — choisissez la sauvegarde à conserver','تعارض في الحفظ السحابي — اختر النسخة المطلوبة','Conflicto en la nube — elige qué guardado conservar','Conflito na nuvem — escolha o salvamento'],
  ['Cloud unavailable — device progress remains available','Cloud indisponible — votre progression locale reste accessible','الحفظ السحابي غير متاح — تقدم الجهاز محفوظ','Nube no disponible — tu progreso local sigue disponible','Nuvem indisponível — progresso local preservado'],
  ['Drag to rotate · Tap castle gate to enter','Faites glisser pour tourner · Touchez la porte du château','اسحب للتدوير · اضغط بوابة القلعة للدخول','Arrastra para girar · Toca la puerta del castillo','Arraste para girar · Toque o portão do castelo'],
+
+ // 6.17.5 — Curated interface translations; text only, no gameplay writes.
+ ["Riders & Warbands", "Cavaliers et troupes", "الفرسان والفرق", "Jinetes y escuadrones", "Montadores e tropas"],
+ ["BUILD 6.5 + 6.6", "VERSION 6.5 + 6.6", "الإصدار 6.5 + 6.6", "VERSIÓN 6.5 + 6.6", "VERSÃO 6.5 + 6.6"],
+ ["BUILD 6.5 + 6.6 · RIDERS & WARBANDS", "VERSION 6.5 + 6.6 · CAVALIERS ET TROUPES", "الإصدار 6.5 + 6.6 · الفرسان والفرق", "VERSIÓN 6.5 + 6.6 · JINETES Y ESCUADRONES", "VERSÃO 6.5 + 6.6 · MONTADORES E TROPAS"],
+ ["Exit", "Quitter", "خروج", "Salir", "Sair"],
+ ["My Rider", "Mon cavalier", "فارسي", "Mi jinete", "Meu montador"],
+ ["Warband", "Troupe", "الفرقة", "Escuadrón", "Tropa"],
+ ["ONE RIDER. YOUR STORY.", "UN CAVALIER. VOTRE HISTOIRE.", "فارس واحد. قصتك.", "UN JINETE. TU HISTORIA.", "UM MONTADOR. SUA HISTÓRIA."],
+ ["Meet the commander behind your dinosaurs.", "Rencontrez le commandant de vos dinosaures.", "تعرّف على القائد الذي يقود ديناصوراتك.", "Conoce al comandante de tus dinosaurios.", "Conheça o comandante dos seus dinossauros."],
+ ["Choose a simple style and role. No separate rider inventories, equipment chores, or extra daily quests.", "Choisissez un style et un rôle simples. Aucun inventaire distinct ni quête quotidienne supplémentaire.", "اختر المظهر والدور ببساطة. لا مخزون منفصل للفارس ولا مهام تجهيز أو مهام يومية إضافية.", "Elige un estilo y rol sencillos. Sin inventarios ni tareas diarias adicionales.", "Escolha um estilo e função simples. Sem inventários ou tarefas diárias extras."],
+ ["ROYAL COMMANDER", "COMMANDANT ROYAL", "القائد الملكي", "COMANDANTE REAL", "COMANDANTE REAL"],
+ ["Rider name", "Nom du cavalier", "اسم الفارس", "Nombre del jinete", "Nome do montador"],
+ ["Your style", "Votre style", "مظهرك", "Tu estilo", "Seu estilo"],
+ ["Royal Bronze", "Bronze royal", "البرونزي الملكي", "Bronce real", "Bronze real"],
+ ["Forest Green", "Vert forêt", "الأخضر الغابي", "Verde bosque", "Verde floresta"],
+ ["Obsidian", "Obsidienne", "السبج", "Obsidiana", "Obsidiana"],
+ ["Ember Red", "Rouge braise", "الأحمر الجَمري", "Rojo brasa", "Vermelho brasa"],
+ ["Simple specialization", "Spécialisation simple", "التخصص البسيط", "Especialización simple", "Especialização simples"],
+ ["Your courtyard mount", "Votre monture dans la cour", "مطيتك في ساحة القلعة", "Tu montura del patio", "Sua montaria no pátio"],
+ ["Save Rider", "Enregistrer le cavalier", "حفظ الفارس", "Guardar jinete", "Salvar montador"],
+ ["FIVE-DINOSAUR SQUADS", "ESCOUADES DE CINQ DINOSAURES", "فرق من خمسة ديناصورات", "ESCUADRONES DE CINCO DINOSAURIOS", "ESQUADRÕES DE CINCO DINOSSAUROS"],
+ ["Lead your own Warband.", "Dirigez votre propre troupe.", "قُد فرقتك الخاصة.", "Dirige tu propio escuadrón.", "Lidere sua própria tropa."],
+ ["Any factions. Repeated species welcome. One tap to save your favorite lineup.", "Toutes factions acceptées, même les espèces répétées. Enregistrez votre formation en un geste.", "أي فصائل، مع السماح بتكرار الأنواع. اضغط مرة لحفظ تشكيلتك المفضلة.", "Cualquier facción y especies repetidas. Guarda tu formación favorita con un toque.", "Quaisquer facções e espécies repetidas. Salve a formação favorita com um toque."],
+ ["FRONTLINE", "PREMIÈRE LIGNE", "الخط الأمامي", "PRIMERA LÍNEA", "LINHA DE FRENTE"],
+ ["BACKLINE", "LIGNE ARRIÈRE", "الخط الخلفي", "RETAGUARDIA", "RETAGUARDA"],
+ ["Positions 1–2", "Positions 1–2", "الموقعان 1–2", "Posiciones 1–2", "Posições 1–2"],
+ ["Positions 3–5", "Positions 3–5", "المواقع 3–5", "Posiciones 3–5", "Posições 3–5"],
+ ["Edit", "Modifier", "تعديل", "Editar", "Editar"],
+ ["Start 5v5 Practice", "Lancer l’entraînement 5 contre 5", "بدء تدريب 5 ضد 5", "Iniciar práctica 5 contra 5", "Iniciar treino 5 contra 5"],
+ ["Save Squad 1", "Enregistrer l’escouade 1", "حفظ الفرقة 1", "Guardar escuadrón 1", "Salvar esquadrão 1"],
+ ["Repeats represent practice copies of dinosaurs you already unlocked. They do not create new owned dinosaurs. Frontline receives a small defensive bonus; placement stays flexible.", "Les doublons sont des copies d’entraînement de dinosaures débloqués, sans créer de nouveaux compagnons. L’avant bénéficie d’un léger bonus défensif.", "النسخ المكررة للتدريب فقط ومن ديناصورات فتحتها سابقًا؛ لا تمنح ديناصورات جديدة. يحصل الخط الأمامي على دفاع إضافي بسيط.", "Los duplicados son copias de práctica, no dinosaurios nuevos. La primera línea obtiene una pequeña bonificación defensiva.", "Duplicatas são cópias de treino, não novos dinossauros. A linha de frente recebe um pequeno bônus defensivo."],
+ ["LOCAL PRACTICE / DEVICE ONLY · No online battle changes, cloud saves, paid rewards, or server-side achievements.", "ENTRAÎNEMENT LOCAL · Aucun changement aux combats en ligne, sauvegardes cloud ou récompenses.", "تدريب محلي على الجهاز فقط، بلا تغيير للمعارك أو الحفظ السحابي أو الجوائز.", "PRÁCTICA LOCAL · Sin cambios en batallas en línea, guardados en la nube ni recompensas.", "TREINO LOCAL · Sem alterar batalhas online, salvos na nuvem ou recompensas."],
+ ["Warrior", "Guerrier", "محارب", "Guerrero", "Guerreiro"],
+ ["Attack", "Attaque", "هجوم", "Ataque", "Ataque"],
+ ["Victory!", "Victoire !", "انتصار!", "¡Victoria!", "Vitória!"],
+ ["Practice", "Entraînement", "تدريب", "Práctica", "Treino"],
+ ["Round", "Tour", "الجولة", "Ronda", "Rodada"],
+ ["Retreat", "Battre en retraite", "انسحاب", "Retirarse", "Recuar"],
+ ["Battle log", "Journal de combat", "سجل المعركة", "Registro de batalla", "Registro de batalha"],
+ ["Save name", "Enregistrer le nom", "حفظ الاسم", "Guardar nombre", "Salvar nome"],
+ ["GENEFORGE · BUILDS 6.3 + 6.4", "FORGEGÈNE · VERSIONS 6.3 + 6.4", "مختبر الجينات · الإصدارات 6.3 + 6.4", "FORJA GENÉTICA · VERSIONES 6.3 + 6.4", "FORJA GENÉTICA · VERSÕES 6.3 + 6.4"],
+ ["DINO DOMINION · BUILD 6.3 + 6.4", "DINO DOMINION · VERSION 6.3 + 6.4", "سيادة الديناصورات · الإصدار 6.3 + 6.4", "DINO DOMINION · VERSIÓN 6.3 + 6.4", "DINO DOMINION · VERSÃO 6.3 + 6.4"],
+ ["Legacy of the Geneforge", "Héritage de la forge génétique", "إرث مختبر الجينات", "Legado de la forja genética", "Legado da forja genética"],
+ ["Lineage", "Lignée", "السلالة", "Linaje", "Linhagem"],
+ ["Lab", "Laboratoire", "المختبر", "Laboratorio", "Laboratório"],
+ ["Breed", "Reproduction", "تزاوج", "Criar", "Cruzar"],
+ ["Genetics Laboratory", "Laboratoire génétique", "مختبر الوراثة", "Laboratorio genético", "Laboratório genético"],
+ ["Discover a curated hybrid recipe, then try it in the nursery.", "Découvrez une recette hybride, puis essayez-la à la nurserie.", "اكتشف وصفة هجينة ثم جرّبها في الحاضنة.", "Descubre una receta híbrida y pruébala en la incubadora.", "Descubra uma receita híbrida e experimente no berçário."],
+ ["DEVICE-LOCAL TRIAL", "ESSAI LOCAL À L’APPAREIL", "تجربة محلية على الجهاز", "PRUEBA LOCAL DEL DISPOSITIVO", "TESTE LOCAL NO DISPOSITIVO"],
+ ["Lab recipes, eggs and offspring are stored only on this device. They do not enter real collections, spend resources, or change online battles.", "Les formules, œufs et petits sont conservés sur cet appareil uniquement. Ils n’affectent ni les collections réelles ni les combats en ligne.", "تُحفظ الوصفات والبيض والصغار على هذا الجهاز فقط، ولا تدخل مجموعتك الحقيقية أو تستهلك الموارد أو تغيّر المعارك عبر الإنترنت.", "Las recetas, los huevos y las crías se guardan solo en este dispositivo. No afectan la colección real ni las batallas.", "Receitas, ovos e filhotes ficam apenas neste dispositivo. Não afetam coleções reais nem batalhas online."],
+ ["CURATED CROSSBREEDING", "TEINTES HYBRIDES SÉLECTIONNÉES", "تهجين مختار بعناية", "CRUCES SELECCIONADOS", "CRUZAMENTOS SELECIONADOS"],
+ ["Six engineered bloodlines.", "Six lignées créées en laboratoire.", "ست سلالات هجينة مصممة.", "Seis linajes diseñados.", "Seis linhagens criadas."],
+ ["Discover a formula with one tap, then create its egg in the nursery. More recipes can arrive in future seasons.", "Découvrez une formule et créez son œuf. D’autres recettes viendront lors des prochaines saisons.", "اكتشف وصفة ثم أنشئ بيضتها في الحاضنة. قد تأتي وصفات أخرى في المواسم القادمة.", "Descubre una fórmula y crea su huevo. Habrá más recetas en futuras temporadas.", "Descubra uma fórmula e crie seu ovo. Mais receitas poderão chegar nas próximas temporadas."],
+ ["No currencies, timers, or quests required to research recipes in this trial.", "Aucune monnaie, minuterie ni quête n’est requise pour ces recherches.", "لا تحتاج إلى عملات أو مؤقتات أو مهمات لبحث الوصفات في هذه التجربة.", "No se requieren monedas, temporizadores ni misiones para investigar recetas.", "Nenhuma moeda, cronômetro ou missão é necessária para pesquisar receitas."],
+ ["Genetics Lab & Dinosaur Collection", "Laboratoire de génétique et collection de dinosaures", "مختبر الوراثة ومجموعة الديناصورات", "Laboratorio de genética y colección de dinosaurios", "Laboratório de genética e coleção de dinossauros"],
+ ["Apex power meets Shadowclaw speed.", "La puissance suprême rencontre la vitesse de Shadowclaw.", "تلتقي القوة الجبارة بسرعة شادوكلو.", "El poder supremo se une a la velocidad de Shadowclaw.", "O poder supremo encontra a velocidade de Shadowclaw."],
+ ["Try this Hybrid", "Essayer cet hybride", "جرّب هذا الهجين", "Probar este híbrido", "Testar este híbrido"],
+ ["FORMULA 01 · DISCOVERED", "FORMULE 01 · DÉCOUVERTE", "الوصفة 01 · مكتشفة", "FÓRMULA 01 · DESCUBIERTA", "FÓRMULA 01 · DESCOBERTA"],
+ ["Discover a formula first", "Découvrez d’abord une formule", "اكتشف وصفة أولًا", "Descubre una fórmula primero", "Descubra uma fórmula primeiro"],
+ ["INCUBATING A NEW BLOODLINE", "INCUBATION D’UNE NOUVELLE LIGNÉE", "حضانة سلالة جديدة", "INCUBANDO UN NUEVO LINAJE", "INCUBANDO UMA NOVA LINHAGEM"],
+ ["Ready to hatch!", "Prêt à éclore !", "جاهز للفقس!", "¡Listo para eclosionar!", "Pronto para chocar!"],
+ ["Your dinosaur is waiting.", "Votre dinosaure vous attend.", "ديناصورك بانتظارك.", "Tu dinosaurio te espera.", "Seu dinossauro está esperando."],
+ ["Hatch now", "Faire éclore", "افقس الآن", "Eclosionar ahora", "Chocar agora"],
+ ["Bad-luck protection", "Protection contre la malchance", "حماية من سوء الحظ", "Protección contra la mala suerte", "Proteção contra má sorte"],
+ ["A Gold+ is guaranteed by hatch 40, Mythic+ by hatch 100, and Godly by hatch 250. Each counter resets on its qualifying result.", "Un rang Or+ est garanti au 40e œuf, Mythique+ au 100e et Divin au 250e. Chaque compteur se réinitialise après obtention.", "تُضمن رتبة ذهبية أو أعلى عند الفقس رقم 40، وأسطورية أو أعلى عند 100، وإلهية عند 250. يُصفّر كل عداد عند تحقق شرطه.", "Oro+ garantizado en el huevo 40, Mítico+ en el 100 y Divino en el 250. Cada contador se reinicia al lograrlo.", "Ouro+ garantido no ovo 40, Mítico+ no 100 e Divino no 250. Cada contador reinicia ao atingir o prêmio."],
+ ["Each rarity has its own magical shell · Actual odds unchanged", "Chaque rareté possède sa coquille magique · Probabilités inchangées", "لكل ندرة قشرتها السحرية · الاحتمالات الفعلية لم تتغير", "Cada rareza tiene su cáscara mágica · Probabilidades sin cambios", "Cada raridade tem sua casca mágica · Probabilidades inalteradas"],
+ ["THE ROYAL HATCHERY", "LE COUVOIR ROYAL", "المفقس الملكي", "LA INCUBADORA REAL", "O INCUBATÓRIO REAL"],
+ ["Discover your next legend", "Découvrez votre prochaine légende", "اكتشف أسطورتك القادمة", "Descubre tu próxima leyenda", "Descubra sua próxima lenda"],
+ ["Standard Mystery Egg", "Œuf mystère standard", "بيضة غامضة عادية", "Huevo misterioso estándar", "Ovo misterioso padrão"],
+ ["INCUBATOR · Mystery Egg", "INCUBATEUR · ŒUF MYSTÈRE", "الحاضنة · بيضة غامضة", "INCUBADORA · HUEVO MISTERIOSO", "INCUBADORA · OVO MISTERIOSO"],
+ ["Incubating…", "Incubation…", "جارٍ الحضانة…", "Incubando…", "Incubando…"],
+ ["Check incubation", "Vérifier l’incubation", "تحقق من الحضانة", "Comprobar incubación", "Verificar incubação"],
+ ["Your Dino Companions", "Vos dinosaures compagnons", "رفاقك من الديناصورات", "Tus compañeros dinosaurios", "Seus companheiros dinossauros"],
+ ["Dinosaur collection", "Collection de dinosaures", "مجموعة الديناصورات", "Colección de dinosaurios", "Coleção de dinossauros"],
+ ["Mystery Egg", "Œuf mystère", "بيضة غامضة", "Huevo misterioso", "Ovo misterioso"],
+ ["Standard Mystery Eggs", "Œufs mystères standards", "بيض غامض عادي", "Huevos misteriosos estándar", "Ovos misteriosos padrão"],
+ ["Gold+", "Or+", "ذهبي+", "Oro+", "Ouro+"],
+ ["Mythic+", "Mythique+", "أسطوري+", "Mítico+", "Mítico+"],
+ ["Godly", "Divin", "إلهي", "Divino", "Divino"],
+ ["Gold", "Or", "ذهب", "Oro", "Ouro"],
+ ["Collect in Mail", "Réclamer par courrier", "اجمع من البريد", "Cobrar por correo", "Coletar no correio"],
+ ["Territory income", "Revenus des territoires", "دخل الأراضي", "Ingresos territoriales", "Renda dos territórios"],
+ ["Controlled", "Contrôlé", "تحت السيطرة", "Controlado", "Controlado"],
+ ["Conquer adjacent regions to expand your empire.", "Conquérez les régions voisines pour agrandir votre empire.", "اغزُ المناطق المجاورة لتوسيع إمبراطوريتك.", "Conquista regiones vecinas para ampliar tu imperio.", "Conquiste regiões vizinhas para expandir seu império."],
+ ["Base level 11 · 9 territories controlled", "Base niveau 11 · 9 territoires contrôlés", "مستوى القاعدة 11 · السيطرة على 9 أراضٍ", "Nivel base 11 · 9 territorios controlados", "Nível da base 11 · 9 territórios controlados"],
+ ["Emerald Valley Citadel", "Citadelle de la vallée d’émeraude", "قلعة وادي الزمرد", "Ciudadela del Valle Esmeralda", "Cidadela do Vale Esmeralda"],
+ ["Ashen Ridge", "Crête des cendres", "مرتفعات الرماد", "Cresta Cenicienta", "Cordilheira das Cinzas"],
+ ["Crystal Falls", "Chutes de cristal", "شلالات البلور", "Cascadas de Cristal", "Cachoeiras de Cristal"],
+ ["Emerald Valley", "Vallée d’émeraude", "وادي الزمرد", "Valle Esmeralda", "Vale Esmeralda"],
+ ["Sunken Marsh", "Marais englouti", "المستنقع الغارق", "Pantano Hundido", "Pântano Submerso"],
+ ["Ancient Ruins", "Ruines anciennes", "الآثار القديمة", "Ruinas Antiguas", "Ruínas Antigas"],
+ ["Mosswood", "Bois moussu", "غابة الطحالب", "Bosque Musgoso", "Bosque Musgoso"],
+ ["Obsidian Crown", "Couronne d’obsidienne", "تاج السبج", "Corona de Obsidiana", "Coroa de Obsidiana"],
+ ["Frostfang", "Croc de givre", "ناب الصقيع", "Colmillo Helado", "Presa de Gelo"],
+ ["Golden Plains", "Plaines dorées", "السهول الذهبية", "Llanuras Doradas", "Planícies Douradas"],
+ ["Territory Conquest", "Conquête territoriale", "غزو الأراضي", "Conquista territorial", "Conquista territorial"],
+ ["The Frontier Campaign", "Campagne des frontières", "حملة الحدود", "Campaña de la frontera", "Campanha da Fronteira"],
+ ["Build your kingdom", "Bâtissez votre royaume", "ابنِ مملكتك", "Construye tu reino", "Construa seu reino"],
+ ["Return to game", "Retourner au jeu", "العودة للعبة", "Volver al juego", "Voltar ao jogo"],
+ ["Meet Your Rider", "Rencontrez votre cavalier", "تعرّف على فارسك", "Conoce a tu jinete", "Conheça seu montador"],
+ ["Customize one Rider, choose your mount, and explore your real 3D castle.", "Personnalisez un cavalier, choisissez sa monture et explorez votre château en 3D.", "خصّص فارسًا واحدًا، واختر مطيته، واستكشف قلعتك ثلاثية الأبعاد.", "Personaliza un jinete, elige su montura y explora tu castillo 3D.", "Personalize um montador, escolha sua montaria e explore seu castelo 3D."],
+ ["Discover hybrids, bloodlines, and your hatchlings.", "Découvrez les hybrides, les lignées et vos nouveau-nés.", "اكتشف الهجائن والسلالات وصغارك.", "Descubre híbridos, linajes y crías.", "Descubra híbridos, linhagens e filhotes."],
+ ["Riding works in the live 3D castle courtyard. The Royal Hall stays walk-only. Roles only affect 5v5 local practice. This Rider is saved on this device, not in your cloud account.", "Montez dans la cour 3D du château. La salle royale reste accessible à pied. Les rôles n’affectent que l’entraînement local 5 contre 5. Ce cavalier est enregistré sur cet appareil.", "يمكن الركوب في ساحة القلعة ثلاثية الأبعاد؛ القاعة الملكية سيرًا فقط. تؤثر الأدوار على التدريب المحلي 5 ضد 5 فقط. يُحفظ الفارس على جهازك لا على السحابة.", "Puedes montar en el patio 3D del castillo. El Salón Real es solo a pie. Los roles solo afectan la práctica local 5 contra 5. El jinete se guarda en tu dispositivo.", "Monte no pátio 3D do castelo. O Salão Real é apenas a pé. Funções afetam somente o treino local 5 contra 5. O montador fica salvo no dispositivo."],
+ ["5v5 · LOCAL PRACTICE · NO REWARDS", "5 CONTRE 5 · ENTRAÎNEMENT LOCAL · SANS RÉCOMPENSES", "5 ضد 5 · تدريب محلي · بلا مكافآت", "5 CONTRA 5 · PRÁCTICA LOCAL · SIN PREMIOS", "5 CONTRA 5 · TREINO LOCAL · SEM PRÊMIOS"],
+ ["Change Squad", "Changer d’escouade", "تغيير الفرقة", "Cambiar escuadrón", "Mudar esquadrão"],
+ ["Rematch", "Revanche", "إعادة القتال", "Revancha", "Revanche"],
+ ["Your Rider is saved on this device.", "Votre cavalier est enregistré sur cet appareil.", "تم حفظ فارسك على هذا الجهاز.", "Tu jinete se guardó en este dispositivo.", "Seu montador foi salvo neste dispositivo."],
+ ["Save Squad", "Enregistrer l’escouade", "حفظ الفرقة", "Guardar escuadrón", "Salvar esquadrão"],
+ ["Squad", "Escouade", "الفرقة", "Escuadrón", "Esquadrão"],
+ ["The castle 3D engine is still loading. Refresh while online and try again.", "Le moteur 3D du château se charge. Actualisez en ligne et réessayez.", "ما زال محرك القلعة ثلاثي الأبعاد يُحمّل. حدّث الصفحة وأنت متصل وأعد المحاولة.", "El motor 3D está cargando. Actualiza conectado e inténtalo de nuevo.", "O motor 3D está carregando. Atualize conectado e tente novamente."],
+ ["Unlock a dinosaur before mounting.", "Débloquez un dinosaure avant de monter.", "افتح ديناصورًا قبل الركوب.", "Desbloquea un dinosaurio antes de montar.", "Desbloqueie um dinossauro antes de montar."],
+ ["Your permanent kingdom and dinosaurs were not modified.", "Votre royaume et vos dinosaures permanents n’ont pas changé.", "لم تتغير مملكتك أو ديناصوراتك الدائمة.", "Tu reino y tus dinosaurios permanentes no cambiaron.", "Seu reino e dinossauros permanentes não foram alterados."],
+ ["Warbands enter the practice arena.", "Les troupes entrent dans l’arène d’entraînement.", "تدخل الفرق ساحة التدريب.", "Los escuadrones entran en la arena de práctica.", "As tropas entram na arena de treino."],
+ ["Practice dinosaurs gain 6% more starting health", "Les dinosaures gagnent 6 % de santé initiale à l’entraînement", "تحصل الديناصورات على صحة ابتدائية إضافية 6% في التدريب", "Los dinosaurios ganan 6 % más de salud inicial en práctica", "Dinossauros ganham 6% mais vida inicial no treino"],
+ ["Practice attacks deal 6% more damage", "Les attaques d’entraînement infligent 6 % de dégâts supplémentaires", "تُسبب هجمات التدريب ضررًا إضافيًا 6%", "Los ataques de práctica infligen 6 % más de daño", "Ataques de treino causam 6% mais dano"],
+ ["Practice special moves are 6% stronger", "Les techniques spéciales d’entraînement sont 6 % plus puissantes", "تصبح الحركات الخاصة في التدريب أقوى بنسبة 6%", "Los movimientos especiales son 6 % más fuertes en práctica", "Habilidades especiais ficam 6% mais fortes no treino"],
+ ["Geneforge Genetics Laboratory trial", "Essai du laboratoire de génétique", "تجربة مختبر الوراثة", "Prueba del laboratorio de genética", "Teste do laboratório de genética"],
+ ["Breeding & Hybrid Lab", "Laboratoire d’élevage et d’hybridation", "مختبر التزاوج والتهجين", "Laboratorio de cría e híbridos", "Laboratório de reprodução e híbridos"],
+ ["Breeding Grounds", "Terrains de reproduction", "أماكن التزاوج", "Zona de cría", "Área de reprodução"],
+ ["Trial offspring are stored only in this browser, never in real PvP or Cloud Kingdom. Your 6.2 hatchlings are preserved.", "Les petits d’essai restent dans ce navigateur, jamais en PvP ni dans le royaume cloud. Vos petits 6.2 sont préservés.", "تبقى الصغار التجريبية في هذا المتصفح فقط، لا تدخل المعارك الحقيقية أو المملكة السحابية. صغارك من 6.2 محفوظة.", "Las crías de prueba quedan en este navegador; no afectan el PvP ni tu reino. Tus crías 6.2 se conservan.", "Filhotes de teste ficam neste navegador; não afetam PvP nem reino na nuvem. Filhotes 6.2 preservados."],
+ ["No trial hatchlings in this category yet.", "Aucun nouveau-né d’essai dans cette catégorie.", "لا توجد صغار تجريبية في هذه الفئة بعد.", "No hay crías de prueba en esta categoría.", "Ainda não há filhotes de teste nesta categoria."],
+ ["Your trial hatchlings", "Vos petits d’essai", "صغارك التجريبية", "Tus crías de prueba", "Seus filhotes de teste"],
+ ["Natural", "Naturel", "طبيعي", "Natural", "Natural"],
+ ["Hybrids", "Hybrides", "هجائن", "Híbridos", "Híbridos"],
+ ["Geneforge Genetics Laboratory", "Laboratoire de la forge génétique", "مختبر الوراثة", "Laboratorio de la forja genética", "Laboratório da forja genética"],
+ ["Your bloodline story starts with an egg.", "L’histoire de votre lignée commence par un œuf.", "تبدأ قصة سلالتك من بيضة.", "Tu historia de linaje comienza con un huevo.", "Sua linhagem começa com um ovo."],
+ ["Hatch a dinosaur to trace its inherited traits and ancestry.", "Faites éclore un dinosaure pour découvrir ses traits et ses ancêtres.", "افقس ديناصورًا لتكتشف صفاته الموروثة وأصوله.", "Haz eclosionar un dinosaurio para descubrir sus rasgos y ascendencia.", "Choque um dinossauro para conhecer seus traços e ancestrais."],
+ ["Create something extraordinary.", "Créez quelque chose d’extraordinaire.", "اصنع شيئًا استثنائيًا.", "Crea algo extraordinario.", "Crie algo extraordinário."],
+ ["Every bloodline begins somewhere.", "Chaque lignée a son commencement.", "لكل سلالة بداية.", "Todo linaje tiene un origen.", "Toda linhagem tem um começo."],
+ ["Choose a discovered formula and compatible parents.", "Choisissez une formule découverte et des parents compatibles.", "اختر وصفة مكتشفة وأبوين متوافقين.", "Elige una fórmula descubierta y padres compatibles.", "Escolha uma fórmula descoberta e pais compatíveis."],
+ ["No hybrid formulas discovered yet. Visit the Genetics Lab to unlock one for this trial.", "Aucune formule découverte. Visitez le laboratoire génétique pour en débloquer une.", "لم تُكتشف وصفات هجينة بعد. زر مختبر الوراثة لفتح إحداها.", "No hay fórmulas híbridas descubiertas. Visita el laboratorio.", "Ainda não há fórmulas híbridas. Visite o laboratório."],
+ ["Open Genetics Lab", "Ouvrir le laboratoire génétique", "فتح مختبر الوراثة", "Abrir laboratorio de genética", "Abrir laboratório genético"],
+ ["Begin Trial Breeding", "Commencer l’élevage d’essai", "بدء التزاوج التجريبي", "Empezar cría de prueba", "Iniciar reprodução de teste"],
+ ["Incubation continues when you leave this screen. There is no premium skip or resource cost in this trial.", "L’incubation continue après votre départ. Pas de passe-droit premium ni de coût en ressources dans cet essai.", "تستمر الحضانة بعد مغادرة الشاشة، دون دفع أو استهلاك موارد في هذه التجربة.", "La incubación continúa al salir. No hay salto premium ni coste de recursos.", "A incubação continua ao sair. Sem aceleração premium nem custo de recursos."],
+ ["GENEFORGED HYBRID", "HYBRIDE GÉNÉTIQUE", "هجين جيني", "HÍBRIDO GENÉTICO", "HÍBRIDO GENÉTICO"],
+ ["Rare Mutation", "Mutation rare", "طفرة نادرة", "Mutación rara", "Mutação rara"],
+ ["Each companion has its own rarity, evolution stars, bond and special skill. Bonuses currently apply in collection/PvE only; online warfare uses separate server squads.", "Chaque compagnon possède une rareté, des étoiles, un lien et une compétence. Les bonus ne concernent que la collection et les combats PvE.", "لكل رفيق ندرته ونجوم تطوره ورابطته ومهارته. المكافآت تخص المجموعة ومعارك البيئة فقط، لا الحرب عبر الإنترنت.", "Cada compañero tiene rareza, estrellas, vínculo y habilidad. Los bonos solo afectan colección y PvE.", "Cada companheiro tem raridade, estrelas, vínculo e habilidade. Bônus afetam só coleção e PvE."],
+ ["No companions yet. Hatch a Mystery Egg or tame a wild dinosaur in Explore!", "Pas de compagnons. Faites éclore un œuf mystère ou apprivoisez un dinosaure sauvage !", "لا رفاق بعد. افقس بيضة غامضة أو روّض ديناصورًا بريًا في الاستكشاف!", "Aún no hay compañeros. Abre un huevo misterioso o doma un dinosaurio salvaje.", "Ainda sem companheiros. Choque um ovo misterioso ou dome um dinossauro selvagem."],
+ ["Wild encounters", "Rencontres sauvages", "لقاءات برية", "Encuentros salvajes", "Encontros selvagens"],
+ ["SEARCH THE WILDS", "FOUILLEZ LES TERRES SAUVAGES", "ابحث في البرية", "EXPLORA LO SALVAJE", "EXPLORE AS TERRAS SELVAGENS"],
+ ["Find a wild dinosaur", "Trouver un dinosaure sauvage", "اعثر على ديناصور بري", "Encontrar dinosaurio salvaje", "Encontrar dinossauro selvagem"],
+ ["Spend 2 energy to scout. Weaken an encounter, build trust with supplies, and attempt to tame it with a crafted trap.", "Dépensez 2 points d’énergie pour explorer. Affaiblissez la cible et apprivoisez-la avec un piège.", "أنفق نقطتي طاقة للاستطلاع، وأضعف الديناصور واكسب ثقته ثم حاول ترويضه بفخ.", "Gasta 2 de energía para explorar. Debilita y gana confianza antes de domar con una trampa.", "Gaste 2 de energia para explorar. Enfraqueça, ganhe confiança e dome com armadilha."],
+ ["No egg is incubating", "Aucun œuf en incubation", "لا توجد بيضة في الحضانة", "No hay huevo incubándose", "Nenhum ovo em incubação"],
+ ["An egg is already incubating", "Un œuf est déjà en incubation", "هناك بيضة قيد الحضانة بالفعل", "Ya se está incubando un huevo", "Já há um ovo em incubação"],
+ ["Your collection is full (200). Hatch later.", "Votre collection est pleine (200). Revenez plus tard.", "مجموعتك ممتلئة (200). عُد للفقس لاحقًا.", "Tu colección está llena (200). Vuelve más tarde.", "Sua coleção está cheia (200). Volte depois."],
+ ["Dinosaur no longer exists", "Ce dinosaure n’existe plus", "لم يعد هذا الديناصور موجودًا", "El dinosaurio ya no existe", "O dinossauro não existe mais"],
+ ["COLLECTION", "COLLECTION", "المجموعة", "COLECCIÓN", "COLEÇÃO"],
+ ["Royal Research", "Recherches royales", "البحوث الملكية", "Investigación real", "Pesquisa real"],
+ ["Dinosaur Workers", "Dinosaures ouvriers", "الديناصورات العاملة", "Trabajadores dinosaurios", "Dinossauros trabalhadores"],
+ ["Kingdom Outposts", "Avant-postes du royaume", "مواقع المملكة الخارجية", "Puestos del reino", "Postos avançados do reino"],
+ ["Activate once to start producing resources. Your kingdom save will remember the start time.", "Activez une fois pour produire des ressources. Votre sauvegarde conservera l’heure de départ.", "فعّل مرة واحدة لبدء الإنتاج، وسيحفظ تقدم مملكتك وقت البدء.", "Actívalo una vez para producir recursos. Se guardará la hora de inicio.", "Ative uma vez para produzir recursos. O início será salvo."],
+ ["Establish outposts in Base to begin production shipments.", "Établissez des avant-postes pour lancer des livraisons.", "أنشئ المواقع الخارجية في القاعدة لبدء إرسال الموارد.", "Establece puestos para iniciar entregas de recursos.", "Estabeleça postos para iniciar remessas de recursos."],
+ ["Assign spare dinosaurs, not your battle squad. Each working dinosaur adds 35% output to one site.", "Affectez des dinosaures libres, hors escouade. Chacun augmente la production d’un site de 35 %.", "عيّن ديناصورات احتياطية خارج فرقة القتال. يزيد كل ديناصور إنتاج موقع واحد بنسبة 35%.", "Asigna dinosaurios libres. Cada trabajador aumenta la producción de un puesto en 35 %.", "Atribua dinossauros livres. Cada trabalhador aumenta a produção de um posto em 35%."],
+ ["Nine permanent discoveries across Economy, Warfare, and Dinosaurs. Research is earned through ordinary kingdom resources.", "Neuf découvertes permanentes en économie, guerre et dinosaures. La recherche utilise les ressources du royaume.", "تسعة اكتشافات دائمة في الاقتصاد والحرب والديناصورات. تُكتسب الأبحاث بموارد المملكة.", "Nueve descubrimientos permanentes en economía, guerra y dinosaurios. Investiga con recursos del reino.", "Nove descobertas permanentes em economia, guerra e dinossauros. Pesquise com recursos do reino."],
+ ["Open Royal Mail", "Ouvrir le courrier royal", "افتح البريد الملكي", "Abrir correo real", "Abrir correio real"],
+ ["Kingdom Rewards", "Récompenses du royaume", "مكافآت المملكة", "Recompensas del reino", "Recompensas do reino"],
+ ["Claim all kingdom rewards", "Réclamer toutes les récompenses", "استلم كل مكافآت المملكة", "Reclamar todas las recompensas", "Resgatar todas as recompensas"],
+ ["Your cloud save needs attention before claiming.", "Vérifiez votre sauvegarde cloud avant de réclamer.", "يجب إصلاح الحفظ السحابي قبل الاستلام.", "Tu guardado en la nube necesita atención antes de reclamar.", "Seu salvamento na nuvem precisa de atenção antes do resgate."],
+ ["Royal Lumberyard", "Scierie royale", "منشرة الأخشاب الملكية", "Aserradero real", "Serraria real"],
+ ["Stone Quarry", "Carrière de pierre", "مقلع الحجارة", "Cantera de piedra", "Pedreira"],
+ ["Sunfield Farms", "Fermes des champs dorés", "مزارع حقول الشمس", "Granjas de Solcampo", "Fazendas do Campo Solar"],
+ ["Essence Grove", "Bosquet d’essence", "بستان الجوهر", "Arboleda de esencia", "Bosque da essência"],
+ ["Battle Arena", "Arène de combat", "ساحة المعركة", "Arena de batalla", "Arena de batalha"],
+ ["Dinosaur Loadout & Armory", "Escouade de dinosaures et armurerie", "تشكيلة الديناصورات ومستودع الأسلحة", "Equipo de dinosaurios y armería", "Formação de dinossauros e arsenal"],
+ ["Choose your lead, assign two support dinos, craft unique gear and bring real bonuses into The Living Kingdom battles.", "Choisissez un meneur et deux soutiens, fabriquez de l’équipement et obtenez des bonus dans les combats du royaume vivant.", "اختر ديناصورًا قائدًا واثنين للدعم، واصنع معدات خاصة للحصول على مكافآت في معارك المملكة الحية.", "Elige líder, dos apoyos y fabrica equipo que dé bonificaciones en las batallas del Reino Viviente.", "Escolha líder, dois apoios e crie equipamentos com bônus nas batalhas do Reino Vivo."],
+ ["Owned Gear", "Équipement possédé", "المعدات المملوكة", "Equipo propio", "Equipamentos possuídos"],
+ ["No gear yet. Claim your starter equipment or craft an item at the Forge.", "Pas encore d’équipement. Réclamez le kit initial ou fabriquez un objet à la forge.", "لا معدات بعد. استلم معدات البداية أو اصنع قطعة في الحدادة.", "Aún no hay equipo. Reclama el inicial o crea uno en la forja.", "Ainda não há equipamentos. Resgate o inicial ou crie na forja."],
+ ["Training & Evolution", "Entraînement et évolution", "التدريب والتطور", "Entrenamiento y evolución", "Treino e evolução"],
+ ["Battle Squad", "Escouade de combat", "فرقة القتال", "Escuadrón de combate", "Equipe de batalha"],
+ ["Three slots · One on-field leader", "Trois places · Un meneur actif", "ثلاث خانات · قائد واحد نشط", "Tres espacios · Un líder activo", "Três posições · Um líder ativo"],
+ ["No unlocked dinosaurs yet. Hatch an egg or unlock a war beast first.", "Aucun dinosaure débloqué. Faites éclore un œuf pour commencer.", "لا توجد ديناصورات مفتوحة. افقس بيضة أو افتح وحش حرب أولًا.", "Sin dinosaurios desbloqueados. Abre un huevo o desbloquea una bestia.", "Nenhum dinossauro desbloqueado. Choque um ovo ou desbloqueie uma fera."],
+ ["Forge Gear", "Forger l’équipement", "صناعة المعدات", "Forjar equipo", "Forjar equipamento"],
+ ["Gear unequipped.", "Équipement retiré.", "تم نزع المعدات.", "Equipo retirado.", "Equipamento removido."],
+ ["Beastkeeper", "Gardien des bêtes", "مروّض الوحوش", "Guardián de bestias", "Guardião de feras"],
+ ["Health", "Santé", "الصحة", "Salud", "Vida"],
+ ["Special", "Spécial", "خاص", "Especial", "Especial"],
+ ["Collect", "Récolter", "جمع", "Recoger", "Coletar"],
+ ["once every", "toutes les", "مرة كل", "cada", "cada"],
+ ["Base level", "Niveau de la base", "مستوى القاعدة", "Nivel de la base", "Nível da base"],
+ ["territories controlled", "territoires contrôlés", "أراضٍ تحت السيطرة", "territorios controlados", "territórios controlados"],
+ ["Open", "Ouvrir", "فتح", "Abrir", "Abrir"],
+ ["Customize", "Personnaliser", "تخصيص", "Personalizar", "Personalizar"],
+ ["Upgrade", "Améliorer", "ترقية", "Mejorar", "Melhorar"],
+ ["Start", "Démarrer", "ابدأ", "Iniciar", "Iniciar"],
+ ["Upgrade Castle", "Améliorer le château", "ترقية القلعة", "Mejorar castillo", "Melhorar castelo"],
+ ["Build 5.15 · Rise of the Kingdom", "Version 5.15 · Essor du royaume", "الإصدار 5.15 · نهضة المملكة", "Versión 5.15 · Auge del reino", "Versão 5.15 · Ascensão do Reino"],
+ ["Rise of the Kingdom", "Essor du royaume", "نهضة المملكة", "Auge del reino", "Ascensão do Reino"],
+ ["Kingdom's Outposts", "Avant-postes du royaume", "مواقع المملكة الخارجية", "Puestos del reino", "Postos do reino"],
+ ["Natural breeding or curated hybrid experiments.", "Élevage naturel ou expériences d’hybridation contrôlée.", "تزاوج طبيعي أو تجارب تهجين مختارة.", "Cría natural o experimentos híbridos seleccionados.", "Reprodução natural ou experimentos híbridos selecionados."],
+ ["Your real starter dinosaurs and device-only genetic experiments.", "Vos dinosaures de départ réels et vos expériences locales.", "ديناصورات البداية الحقيقية وتجارب الوراثة المحلية.", "Tus dinosaurios iniciales y los experimentos del dispositivo.", "Seus dinossauros iniciais e os experimentos locais."],
+ ["Dinosaur Collection", "Collection de dinosaures", "مجموعة الديناصورات", "Colección de dinosaurios", "Coleção de dinossauros"],
+ ["Choose two dinosaurs, then hatch a unique trial companion.", "Choisissez deux dinosaures et faites éclore un compagnon d’essai.", "اختر ديناصورين ثم افقس رفيقًا تجريبيًا مميزًا.", "Elige dos dinosaurios y cría un compañero de prueba.", "Escolha dois dinossauros e choque um companheiro de teste."],
+ ["All six crossbreeds are curated. There is no unrestricted mixing. These formulas and traits are not final launch balance or real multiplayer unlocks.", "Les six hybrides sont prédéfinis. Leurs caractéristiques ne représentent ni l’équilibrage final ni des déblocages multijoueurs.", "الهجائن الستة مختارة مسبقًا، ولا يوجد تهجين غير محدود. هذه الصفات ليست توازن الإصدار النهائي ولا فتحًا لميزات اللعب الجماعي.", "Los seis híbridos están seleccionados. Sus rasgos no reflejan el equilibrio final ni desbloqueos multijugador.", "Os seis híbridos são selecionados. Não representam o equilíbrio final nem desbloqueios do multijogador."],
+ ["Select dinosaur", "Choisir un dinosaure", "اختر ديناصورًا", "Elegir dinosaurio", "Escolher dinossauro"],
+ ["SELECT A DISCOVERED FORMULA", "CHOISIR UNE FORMULE DÉCOUVERTE", "اختر وصفة مكتشفة", "ELEGIR FÓRMULA DESCUBIERTA", "ESCOLHER FÓRMULA DESCOBERTA"],
+ ["PARENT ONE", "PREMIER PARENT", "الأب الأول", "PROGENITOR UNO", "PRIMEIRO PROGENITOR"],
+ ["PARENT TWO", "SECOND PARENT", "الأب الثاني", "PROGENITOR DOS", "SEGUNDO PROGENITOR"],
+ ["Find partner", "Trouver un partenaire", "ابحث عن شريك", "Buscar pareja", "Encontrar parceiro"],
+ ["GENEFORGE EXPERIMENT", "EXPÉRIENCE GENEFORGE", "تجربة المختبر الجيني", "EXPERIMENTO GENÉTICO", "EXPERIMENTO GENÉTICO"],
+ ["SANCTUARY BREEDING", "REPRODUCTION DU SANCTUAIRE", "تزاوج الملاذ", "CRÍA DEL SANTUARIO", "REPRODUÇÃO DO SANTUÁRIO"],
+ ["You have not discovered any recipes yet.", "Vous n’avez pas encore découvert de formules.", "لم تكتشف أي وصفات بعد.", "Aún no has descubierto recetas.", "Você ainda não descobriu receitas."],
+ ["INCUBATOR", "INCUBATEUR", "الحاضنة", "INCUBADORA", "INCUBADORA"],
+ ["Bad luck protection", "Protection contre la malchance", "حماية من الحظ السيئ", "Protección contra la mala suerte", "Proteção contra má sorte"],
+ ["No separate rider inventories, equipment chores, or extra daily quests.", "Aucun inventaire ni quête quotidienne supplémentaire pour le cavalier.", "لا توجد مخزونات منفصلة أو مهام تجهيز أو مهام يومية إضافية للفارس.", "Sin inventarios ni misiones diarias adicionales para el jinete.", "Sem inventários nem tarefas diárias extras para o montador."],
  ];
  const DICT=Object.fromEntries(['fr','ar','es','pt'].map((l,j)=>[l,new Map(WORDS.map(row=>[row[0],row[j+1]]))]));
  const originals=new WeakMap(),applied=new WeakMap();
@@ -629,6 +834,13 @@
   if(!result&&/^(?:Assassin|Striker|Guardian|Berserker|Support)(?: \/ (?:Assassin|Striker|Guardian|Berserker|Support))? · \d+ (?:seconds|minutes)$/.test(trim)){
    result=trim.replace(/Assassin|Striker|Guardian|Berserker|Support|seconds|minutes/g,v=>dict.get(v)||v);
   }
+  // Buttons often append decorative emoji; retain emoji while translating the label.
+  if(!result){const m=/^(.+?)(\s*[^\p{L}\p{N}]+)$/u.exec(trim);if(m){const t=dict.get(m[1].trim());if(t)result=t+m[2];}}
+  if(!result){const m=/^Squad (\d+)(\s*●)?$/.exec(trim);if(m)result=(dict.get('Squad')||'Squad')+' '+m[1]+(m[2]||'');}
+  if(!result){const m=/^Save Squad (\d+)$/.exec(trim);if(m)result=(dict.get('Save Squad')||'Save Squad')+' '+m[1];}
+  if(!result){const m=/^(Warrior|Guardian|Beastkeeper)\s*·\s*(\+\d+%\s*)(Attack|Health|Special)$/.exec(trim);if(m)result=(dict.get(m[1])||m[1])+' · '+m[2]+(dict.get(m[3])||m[3]);}
+  if(!result){const m=/^Collect (\d+) gold \(once every (\d+) sec\)$/.exec(trim);if(m)result=(dict.get('Collect')||'Collect')+' '+m[1]+' '+(dict.get('Gold')||'gold')+' ('+(dict.get('once every')||'once every')+' '+m[2]+' '+(dict.get('seconds')||'sec')+')';}
+  if(!result){const m=/^Base level (\d+) · (\d+) territories controlled$/.exec(trim);if(m)result=(dict.get('Base level')||'Base level')+' '+m[1]+' · '+m[2]+' '+(dict.get('territories controlled')||'territories controlled');}
   if(!result&&/^⭐ Mastery \d+\/5 · \d+ XP$/.test(trim))result=trim.replace('Mastery',dict.get('Mastery'));
   if(!result&&/^↻ Refresh verified progress$/.test(trim))result='↻ '+dict.get('Refresh verified progress');
 
@@ -664,6 +876,21 @@
    }
   }
  }
+ const directionMarked=new WeakSet();
+ function fixFallbackDirection(root,lang){
+  const leaves=root.matches?.('h1,h2,h3,h4,p,small,label,strong,span,button,div')?[root]:[];
+  const elements=[...leaves,...root.querySelectorAll('h1,h2,h3,h4,p,small,label,strong,span,button,div')];
+  for(const el of elements){
+   if(el.children.length||el.closest('input,textarea,select,option,[contenteditable],[data-user-content],.msg,.ddMailMessage,.royalMailMessage,#onlineMount'))continue;
+   if(lang==='ar'){
+    if(!el.hasAttribute('dir')||directionMarked.has(el)){
+     el.setAttribute('dir','auto');directionMarked.add(el);
+    }
+   }else if(directionMarked.has(el)){
+    el.removeAttribute('dir');directionMarked.delete(el);
+   }
+  }
+ }
  // The deck title is a CSS ::before pseudo-element, not a text node.
  // Set only a presentation-only locale marker; never replace the original grid.
  function ensureDeckStyle(){
@@ -676,17 +903,17 @@
   document.head.appendChild(style);
  }
  // Keep account IDs, user-created labels, messages and editable text unchanged.
- const watchedIds=['dd615Overlay','dd61617Overlay','dd612RoyalUI','dd58Launch','dd510Launch','dd60Launcher','dd60BaseLauncher','cloudStatus'];
+ const watchedIds=['dd615Overlay','dd61617Overlay','dd612RoyalUI','dd58Launch','dd510Launch','dd60Launcher','dd60BaseLauncher','cloudStatus','content','dd656App','dd656MountBar','dd62Overlay','dd610Deck','dd515Economy','dd516Conquest','dd516Battle','dd514Armory','dd67Council','dd69Layer','dd68Layer','dd611Overlay'];
  function render(){queued=false;const lang=getLang();lastLang=lang;
   ensureDeckStyle();document.documentElement.dataset.dd6174Locale=lang;
   for(const id of watchedIds){
    const root=document.getElementById(id);
-   if(root){translate(root,lang);translateAttributes(root,lang);hook(root);}
+   if(root){translate(root,lang);translateAttributes(root,lang);fixFallbackDirection(root,lang);hook(root);}
   }
   // Small controls immediately above the Command Deck also remain in view.
   for(const selector of ['.heroHint','#dd612ResourceToggle','#dd612ViewToggle']){
    const root=document.querySelector(selector);
-   if(root){translate(root,lang);translateAttributes(root,lang);hook(root);}
+   if(root){translate(root,lang);translateAttributes(root,lang);fixFallbackDirection(root,lang);hook(root);}
   }
  }
  function schedule(){if(queued)return;queued=true;(window.requestAnimationFrame||setTimeout)(render);}
@@ -699,7 +926,7 @@
   new MutationObserver(records=>{
    if(records.some(r=>[...r.addedNodes].some(n=>n.nodeType===1&&(
       watchedIds.includes(n.id)||
-      n.querySelector?.('#dd615Overlay,#dd61617Overlay,#dd612RoyalUI,#dd58Launch,#dd510Launch,#dd60Launcher,#dd60BaseLauncher,#cloudStatus')))))schedule();
+      n.querySelector?.('#dd615Overlay,#dd61617Overlay,#dd612RoyalUI,#dd58Launch,#dd510Launch,#dd60Launcher,#dd60BaseLauncher,#cloudStatus,#content,#dd656App,#dd62Overlay,#dd610Deck,#dd515Economy,#dd516Conquest,#dd516Battle,#dd514Armory,#dd67Council,#dd69Layer,#dd68Layer')))))schedule();
   }).observe(document.body,{childList:true,subtree:false});
   // The worldwide language selector does not emit an event in Build 5.9.
   document.addEventListener('click',e=>{if(e.target.closest('[data-dd59="language"]')){
@@ -708,7 +935,7 @@
   new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   window.addEventListener('focus',()=>{if(lastLang!==getLang())schedule()});
   window.addEventListener('pageshow',schedule);
-  window.DD6173Locale={version:'6.17.4-navigation-locales',refresh:schedule,getLanguage:getLang};
+  window.DD6173Locale={version:'6.17.5-extended-screen-locales',refresh:schedule,getLanguage:getLang};
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
