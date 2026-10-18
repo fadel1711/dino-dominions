@@ -514,6 +514,99 @@
  ['Guardian','Gardien','حارس','Guardián','Guardião'],
  ['Berserker','Berserker','محارب هائج','Berserker','Berserker'],
  ['Support','Soutien','دعم','Apoyo','Suporte'],
+
+ // 6.17.4 — The Royal Command Deck and five-category navigation.
+ ['More','Plus','المزيد','Más','Mais'],
+ ['War','Guerre','الحرب','Guerra','Guerra'],
+ ['Explore','Explorer','استكشف','Explorar','Explorar'],
+ ['Dinos','Dinosaures','الديناصورات','Dinosaurios','Dinossauros'],
+ ['Kingdom','Royaume','المملكة','Reino','Reino'],
+ ['Your Kingdom','Votre royaume','مملكتك','Tu reino','Seu reino'],
+ ['Rule your citadel and manage your kingdom.','Gérez votre citadelle et votre royaume.','احكم قلعتك وأدر مملكتك.','Gobierna tu ciudadela y gestiona tu reino.','Governe sua cidadela e gerencie seu reino.'],
+ ['Raise, train, and bond with your dinosaurs.','Élevez, entraînez et renforcez vos liens avec les dinosaures.','ربِّ ديناصوراتك ودرّبها وعزّز الروابط معها.','Cría, entrena y crea vínculos con tus dinosaurios.','Crie, treine e fortaleça laços com seus dinossauros.'],
+ ['Discover what lies beyond the royal gates.','Découvrez ce qui se trouve au-delà des portes royales.','اكتشف ما وراء البوابات الملكية.','Descubre qué hay más allá de las puertas reales.','Descubra o que há além dos portões reais.'],
+ ['Prepare your army and coordinate with allies.','Préparez votre armée et coordonnez-vous avec vos alliés.','جهّز جيشك ونسّق مع حلفائك.','Prepara tu ejército y coordínate con tus aliados.','Prepare seu exército e coordene-se com os aliados.'],
+ ['Your social, account, and interface options.','Vos options sociales, de compte et d’interface.','خيارات التواصل والحساب والواجهة.','Opciones sociales, de cuenta y de interfaz.','Suas opções sociais, de conta e de interface.'],
+ ['♛ DINO DOMINION · ROYAL COMMAND','♛ DINO DOMINION · COMMANDE ROYALE','♛ سيادة الديناصورات · القيادة الملكية','♛ DINO DOMINION · MANDO REAL','♛ DINO DOMINION · COMANDO REAL'],
+ ['Dominion World','Monde du Dominion','عالم السيادة','Mundo del Dominio','Mundo do Domínio'],
+ ['Your kingdom overview','Aperçu de votre royaume','نظرة عامة على مملكتك','Vista general de tu reino','Visão geral do seu reino'],
+ ['Royal Citadel','Citadelle royale','القلعة الملكية','Ciudadela real','Cidadela real'],
+ ['Buildings and construction','Bâtiments et construction','المباني والتشييد','Edificios y construcción','Edifícios e construção'],
+ ['Living Castle','Château vivant','القلعة الحية','Castillo viviente','Castelo vivo'],
+ ['Enter and explore','Entrez et explorez','ادخل واستكشف','Entra y explora','Entre e explore'],
+ ['Royal Council','Conseil royal','المجلس الملكي','Consejo real','Conselho real'],
+ ['Leader and signature dinosaur','Chef et dinosaure emblématique','القائد والديناصور المميّز','Líder y dinosaurio emblemático','Líder e dinossauro principal'],
+ ['Dominion Deck','Tableau du Dominion','لوحة السيادة','Panel del Dominio','Painel do Domínio'],
+ ['Cinematic command center','Centre de commandement cinématique','مركز قيادة سينمائي','Centro de mando cinematográfico','Centro de comando cinematográfico'],
+ ['Kingdom Resources','Ressources du royaume','موارد المملكة','Recursos del reino','Recursos do reino'],
+ ['Expand your resource display','Développez l’affichage des ressources','وسّع عرض الموارد','Amplía la vista de recursos','Expanda a exibição de recursos'],
+ ['Dinosaur Collection','Collection de dinosaures','مجموعة الديناصورات','Colección de dinosaurios','Coleção de dinossauros'],
+ ['Dinos and companion training','Dinosaures et entraînement des compagnons','الديناصورات وتدريب الرفاق','Dinosaurios y entrenamiento de compañeros','Dinossauros e treino de companheiros'],
+ ['Eggs & Hatchery','Œufs et couvoir','البيض والحاضنة','Huevos e incubadora','Ovos e incubatório'],
+ ['Hatching and incubating','Éclosion et incubation','الفقس والحضانة','Eclosión e incubación','Eclosão e incubação'],
+ ['Companion Sanctuary','Sanctuaire des compagnons','ملاذ الرفاق','Santuario de compañeros','Santuário dos companheiros'],
+ ['The Living Bond','Le lien vivant','الرابطة الحية','El vínculo viviente','O vínculo vivo'],
+ ['Genetics & Hybrids','Génétique et hybrides','الوراثة والهجائن','Genética e híbridos','Genética e híbridos'],
+ ['Local genetics laboratory trial','Laboratoire génétique local expérimental','تجربة مختبر الوراثة المحلي','Prueba de laboratorio genético local','Teste local do laboratório genético'],
+ ['Riders & Warbands','Cavaliers et troupes','الفرسان والفرق','Jinetes y escuadrones','Montadores e tropas'],
+ ['Customize riders and practice squads','Personnalisez les cavaliers et les escouades d’entraînement','خصّص الفرسان وفرق التدريب','Personaliza jinetes y escuadrones de práctica','Personalize montadores e equipes de treino'],
+ ['World Exploration','Exploration du monde','استكشاف العالم','Exploración del mundo','Exploração mundial'],
+ ['Explore existing regions','Explorez les régions existantes','استكشف المناطق الحالية','Explora regiones existentes','Explore regiões existentes'],
+ ['Mossveil Expedition','Expédition de Mossveil','بعثة وادي موسفيل','Expedición de Mossveil','Expedição Mossveil'],
+ ['Survey the valley','Explorez la vallée','استطلع الوادي','Explora el valle','Explore o vale'],
+ ['Expedition Journal','Journal des expéditions','سجل البعثات','Diario de expediciones','Diário de expedições'],
+ ['Discoveries and encounters','Découvertes et rencontres','الاكتشافات واللقاءات','Descubrimientos y encuentros','Descobertas e encontros'],
+ ['Dominion Territories','Territoires du Dominion','أراضي السيادة','Territorios del Dominio','Territórios do Domínio'],
+ ['Return to the world overview','Retour à la vue générale du monde','عُد إلى نظرة العالم العامة','Vuelve al mapa general','Volte ao mapa geral'],
+ ['Battle Arena','Arène de combat','ساحة المعركة','Arena de batalla','Arena de batalha'],
+ ['Fight and test your squads','Combattez et testez vos équipes','قاتل واختبر فرقك','Lucha y prueba tus escuadrones','Lute e teste suas equipes'],
+ ['Alliance HQ','QG de l’alliance','مقر التحالف','Cuartel de la alianza','Quartel da aliança'],
+ ['Ranks, members, and War Room','Rangs, membres et salle de guerre','الرتب والأعضاء وغرفة الحرب','Rangos, miembros y sala de guerra','Patentes, membros e sala de guerra'],
+ ['War Council','Conseil de guerre','مجلس الحرب','Consejo de guerra','Conselho de guerra'],
+ ['Orders and live territories','Ordres et territoires actifs','الأوامر والأراضي النشطة','Órdenes y territorios activos','Ordens e territórios ativos'],
+ ['Warfront','Front de guerre','جبهة الحرب','Frente de guerra','Frente de guerra'],
+ ['Server-verified alliance warfare','Guerre d’alliances vérifiée par le serveur','حروب التحالف الموثّقة بالخادم','Guerra de alianzas verificada por el servidor','Guerra de alianças verificada pelo servidor'],
+ ['Royal Messenger','Messagerie royale','المراسلة الملكية','Mensajería real','Mensagens reais'],
+ ['Chat and auto-translation','Discussion et traduction automatique','الدردشة والترجمة التلقائية','Chat y traducción automática','Chat e tradução automática'],
+ ['Royal Mail','Courrier royal','البريد الملكي','Correo real','Correio real'],
+ ['Letters and shipments','Lettres et envois','الرسائل والشحنات','Cartas y envíos','Cartas e remessas'],
+ ['Rankings','Classements','التصنيفات','Clasificaciones','Classificações'],
+ ['Players and alliances','Joueurs et alliances','اللاعبون والتحالفات','Jugadores y alianzas','Jogadores e alianças'],
+ ['Commander Profile','Profil du commandant','ملف القائد','Perfil del comandante','Perfil do comandante'],
+ ['Identity and cloud kingdom','Identité et royaume cloud','الهوية والمملكة السحابية','Identidad y reino en la nube','Identidade e reino na nuvem'],
+ ['Friends','Amis','الأصدقاء','Amigos','Amigos'],
+ ['Find other commanders','Trouvez d’autres commandants','ابحث عن قادة آخرين','Encuentra otros comandantes','Encontre outros comandantes'],
+ ['Royal Shop','Boutique royale','المتجر الملكي','Tienda real','Loja real'],
+ ['Offers and upgrades','Offres et améliorations','العروض والترقيات','Ofertas y mejoras','Ofertas e melhorias'],
+ ['View Settings','Options d’affichage','إعدادات العرض','Ajustes de vista','Configurações de exibição'],
+ ['Castle visuals and motion','Visuels et animations du château','رسومات القلعة وحركتها','Aspecto y movimiento del castillo','Visual e movimento do castelo'],
+ ['Customize Shortcuts','Personnaliser les raccourcis','تخصيص الاختصارات','Personalizar accesos','Personalizar atalhos'],
+ ['Pin up to two favorites','Épinglez deux favoris au maximum','ثبّت ما يصل إلى مفضلتين','Fija hasta dos favoritos','Fixe até dois favoritos'],
+ ['Tap the stars to pin up to two favorites. Pinned shortcuts stay on the navigation dock.','Touchez les étoiles pour épingler deux favoris. Les raccourcis restent dans la barre de navigation.','اضغط النجوم لتثبيت اختصارين مفضلين في شريط التنقل.','Toca las estrellas para fijar hasta dos favoritos en la barra de navegación.','Toque nas estrelas para fixar até dois favoritos na barra de navegação.'],
+ ['All original features remain available. Choose where to go.','Toutes les fonctions restent accessibles. Choisissez votre destination.','تظل جميع الميزات متاحة. اختر وجهتك.','Todas las funciones siguen disponibles. Elige dónde ir.','Todos os recursos continuam disponíveis. Escolha aonde ir.'],
+ ['☆ Tap Customize Shortcuts under More to pin favorites.','☆ Dans « Plus », touchez Personnaliser les raccourcis pour épingler vos favoris.','☆ افتح «المزيد» ثم «تخصيص الاختصارات» لتثبيت المفضلات.','☆ En «Más», toca Personalizar accesos para fijar favoritos.','☆ Em «Mais», toque Personalizar atalhos para fixar favoritos.'],
+ ['Resources','Ressources','الموارد','Recursos','Recursos'],
+ ['View','Affichage','العرض','Vista','Exibição'],
+ ['Royal navigation','Navigation royale','التنقل الملكي','Navegación real','Navegação real'],
+ ['Main game areas','Sections principales du jeu','أقسام اللعبة الرئيسية','Secciones principales','Áreas principais do jogo'],
+ ['Close royal menu','Fermer le menu royal','إغلاق القائمة الملكية','Cerrar menú real','Fechar menu real'],
+ ['Close menu','Fermer le menu','إغلاق القائمة','Cerrar menú','Fechar menu'],
+ ['Open verified Royal Authority','Ouvrir l’Autorité royale vérifiée','افتح السلطة الملكية الموثّقة','Abrir Autoridad Real verificada','Abrir Autoridade Real verificada'],
+ ['ROYAL AUTHORITY','AUTORITÉ ROYALE','السلطة الملكية','AUTORIDAD REAL','AUTORIDADE REAL'],
+ ['Secure progression · World Power Rankings','Progression sécurisée · Classement mondial de puissance','تقدم موثّق · تصنيف القوة العالمي','Progresión segura · Clasificación mundial','Progresso seguro · Classificação mundial'],
+ ['ROYAL TREASURY','TRÉSOR ROYAL','الخزانة الملكية','TESORO REAL','TESOURO REAL'],
+ ['Verified gems · Test payments','Gemmes vérifiées · Paiements de test','جواهر موثّقة · مدفوعات تجريبية','Gemas verificadas · Pagos de prueba','Gemas verificadas · Pagamentos de teste'],
+ ['Enter Living Kingdom','Entrer dans le royaume vivant','ادخل المملكة الحية','Entrar al reino viviente','Entrar no reino vivo'],
+ ['Living Kingdom · Explore','Royaume vivant · Explorer','المملكة الحية · استكشف','Reino viviente · Explorar','Reino vivo · Explorar'],
+ ['Cloud kingdom saved','Royaume cloud sauvegardé','تم حفظ المملكة السحابية','Reino en la nube guardado','Reino na nuvem salvo'],
+ ['Reading your cloud kingdom…','Lecture de votre royaume cloud…','جارٍ تحميل مملكتك السحابية…','Cargando tu reino en la nube…','Carregando seu reino na nuvem…'],
+ ['Saving your kingdom…','Sauvegarde de votre royaume…','جارٍ حفظ مملكتك…','Guardando tu reino…','Salvando seu reino…'],
+ ['Device save · Sign in to enable cloud','Sauvegarde locale · Connectez-vous pour activer le cloud','حفظ محلي · سجّل الدخول لتفعيل الحفظ السحابي','Guardado local · Inicia sesión para activar la nube','Salvo local · Entre para ativar a nuvem'],
+ ['Import this device’s kingdom to start cloud saves','Importez le royaume de cet appareil pour activer le cloud','استورد المملكة من هذا الجهاز لتفعيل الحفظ السحابي','Importa el reino de este dispositivo para guardar en la nube','Importe o reino deste dispositivo para salvar na nuvem'],
+ ['Offline changes saved on this device — retry upload','Modifications hors ligne conservées sur cet appareil — réessayez','حُفظت التغييرات محليًا دون اتصال — أعد المحاولة','Cambios sin conexión guardados en este dispositivo — reintenta','Alterações offline salvas neste dispositivo — tente novamente'],
+ ['Cloud conflict — choose which save to keep','Conflit cloud — choisissez la sauvegarde à conserver','تعارض في الحفظ السحابي — اختر النسخة المطلوبة','Conflicto en la nube — elige qué guardado conservar','Conflito na nuvem — escolha o salvamento'],
+ ['Cloud unavailable — device progress remains available','Cloud indisponible — votre progression locale reste accessible','الحفظ السحابي غير متاح — تقدم الجهاز محفوظ','Nube no disponible — tu progreso local sigue disponible','Nuvem indisponível — progresso local preservado'],
+ ['Drag to rotate · Tap castle gate to enter','Faites glisser pour tourner · Touchez la porte du château','اسحب للتدوير · اضغط بوابة القلعة للدخول','Arrastra para girar · Toca la puerta del castillo','Arraste para girar · Toque o portão do castelo'],
  ];
  const DICT=Object.fromEntries(['fr','ar','es','pt'].map((l,j)=>[l,new Map(WORDS.map(row=>[row[0],row[j+1]]))]));
  const originals=new WeakMap(),applied=new WeakMap();
@@ -554,23 +647,59 @@
    applied.set(node,next);
   }
  }
+ const ariaOriginals=new WeakMap(),ariaApplied=new WeakMap();
+ function translateAttributes(root,lang){
+  const candidates=[root,...root.querySelectorAll('[aria-label],[title]')];
+  for(const el of candidates){
+   for(const name of ['aria-label','title']){
+    if(!el.hasAttribute(name))continue;
+    let byName=ariaOriginals.get(el),last=ariaApplied.get(el);
+    if(!byName){byName={};ariaOriginals.set(el,byName)}
+    if(!last){last={};ariaApplied.set(el,last)}
+    const present=el.getAttribute(name);
+    if(!(name in byName)||(name in last&&last[name]!==present))byName[name]=present;
+    const translated=lookup(byName[name],lang);
+    if(present!==translated)el.setAttribute(name,translated);
+    last[name]=translated;
+   }
+  }
+ }
+ // The deck title is a CSS ::before pseudo-element, not a text node.
+ // Set only a presentation-only locale marker; never replace the original grid.
+ function ensureDeckStyle(){
+  if(document.getElementById('dd6174DeckLocaleStyle'))return;
+  const names={fr:'✦  LE TABLEAU DE COMMANDEMENT ROYAL',ar:'✦  لوحة القيادة الملكية',es:'✦  EL PANEL DE MANDO REAL',pt:'✦  O PAINEL DE COMANDO REAL'};
+  const style=document.createElement('style');style.id='dd6174DeckLocaleStyle';
+  style.textContent=Object.entries(names).map(([code,label])=>
+   `html[data-dd6174-locale="${code}"] body.dd612Ready .app::before{content:${JSON.stringify(label)}!important;}`
+  ).join('\n')+'\n#dd612Dock .dd612Categories button small{white-space:normal;overflow-wrap:anywhere;}';
+  document.head.appendChild(style);
+ }
+ // Keep account IDs, user-created labels, messages and editable text unchanged.
+ const watchedIds=['dd615Overlay','dd61617Overlay','dd612RoyalUI','dd58Launch','dd510Launch','dd60Launcher','dd60BaseLauncher','cloudStatus'];
  function render(){queued=false;const lang=getLang();lastLang=lang;
-  for(const id of ['dd615Overlay','dd61617Overlay','dd612MenuGrid']){
+  ensureDeckStyle();document.documentElement.dataset.dd6174Locale=lang;
+  for(const id of watchedIds){
    const root=document.getElementById(id);
-   if(root){translate(root,lang);hook(root);}
+   if(root){translate(root,lang);translateAttributes(root,lang);hook(root);}
+  }
+  // Small controls immediately above the Command Deck also remain in view.
+  for(const selector of ['.heroHint','#dd612ResourceToggle','#dd612ViewToggle']){
+   const root=document.querySelector(selector);
+   if(root){translate(root,lang);translateAttributes(root,lang);hook(root);}
   }
  }
  function schedule(){if(queued)return;queued=true;(window.requestAnimationFrame||setTimeout)(render);}
  const watched=new WeakSet();
  function hook(root){if(watched.has(root))return;watched.add(root);
-  const obs=new MutationObserver(schedule);obs.observe(root,{childList:true,subtree:true});
+  const obs=new MutationObserver(schedule);obs.observe(root,{childList:true,subtree:true,characterData:true});
  }
  function init(){if(installed)return;installed=true;render();
   // New overlay roots are appended lazily; observe additions only.
   new MutationObserver(records=>{
    if(records.some(r=>[...r.addedNodes].some(n=>n.nodeType===1&&(
-      n.id==='dd615Overlay'||n.id==='dd61617Overlay'||n.id==='dd612MenuGrid'||
-      n.querySelector?.('#dd615Overlay,#dd61617Overlay,#dd612MenuGrid')))))schedule();
+      watchedIds.includes(n.id)||
+      n.querySelector?.('#dd615Overlay,#dd61617Overlay,#dd612RoyalUI,#dd58Launch,#dd510Launch,#dd60Launcher,#dd60BaseLauncher,#cloudStatus')))))schedule();
   }).observe(document.body,{childList:true,subtree:false});
   // The worldwide language selector does not emit an event in Build 5.9.
   document.addEventListener('click',e=>{if(e.target.closest('[data-dd59="language"]')){
@@ -579,7 +708,7 @@
   new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
   window.addEventListener('focus',()=>{if(lastLang!==getLang())schedule()});
   window.addEventListener('pageshow',schedule);
-  window.DD6173Locale={version:'6.17.3',refresh:schedule,getLanguage:getLang};
+  window.DD6173Locale={version:'6.17.4-navigation-locales',refresh:schedule,getLanguage:getLang};
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
