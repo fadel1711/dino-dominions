@@ -29,3 +29,136 @@
 .dd510Notice[data-dd6123d-status="pending"]{border-color:#96856a;background:#3e352a;color:#fff0d1}
 .dd510Notice.dd6123dVerified{border-color:#82d4b1;background:#1b4a3f;color:#edfff4}
 .dd510Notice.dd6123dUnconfirmed{border-color:#96856a;background:#423a2d;color:#fff0d1}
+
+/* Dino Dominion 6.13.0a — Royal Observatory iPhone display hotfix.
+ * COMPLETE replacement for this CSS file; all 6.12.3d styles above are retained.
+ * These selectors affect Observatory presentation only; no game state, saves, or payments.
+ * Specific !important declarations override the 6.13 diagnostic styles embedded at
+ * the end of index.html. Do not edit or replace index.html for this hotfix.
+ */
+#dd613Panel{
+  padding:max(72px,calc(env(safe-area-inset-top) + 22px)) 14px calc(env(safe-area-inset-bottom) + 30px)!important;
+  overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch;
+  scroll-padding-top:80px;
+  line-height:1.4;
+  background:linear-gradient(175deg,#132d37 0%,#091b27 70%)!important;
+}
+/* Protect page text from the native iOS clock and battery bar during scrolling. */
+#dd613Panel::before{
+  content:"";
+  position:fixed;
+  left:0;right:0;top:0;
+  height:max(52px,env(safe-area-inset-top));
+  background:#132d37;
+  pointer-events:none;
+  z-index:9;
+}
+#dd613Panel .dd613Head{
+  position:relative!important;
+  top:auto!important;
+  z-index:10;
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  background:#152f39f5!important;
+  border:1px solid #6b705c;
+  border-radius:13px;
+  padding:10px!important;
+  margin:0 0 12px!important;
+  box-shadow:0 6px 18px #0005;
+  backdrop-filter:blur(9px);
+}
+#dd613Panel .dd613Head>div{min-width:0;flex:1}
+#dd613Panel .dd613Head h2{font-size:clamp(16px,4.5vw,19px)!important;line-height:1.2}
+#dd613Panel .dd613Head .dd613Sub{margin-top:3px;font-size:10px!important}
+#dd613Panel #dd613Close{
+  flex:0 0 auto;
+  min-height:39px;
+  padding:8px 10px!important;
+  background:#264750!important;
+  color:#f3ddb4!important;
+}
+#dd613Panel>p:first-of-type{
+  font-size:12px;
+  line-height:1.55;
+  margin:8px 2px 12px!important;
+  color:#c8d8d1!important;
+}
+#dd613Panel .dd613Status{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:8px!important;
+  margin:10px 0!important;
+}
+#dd613Panel .dd613Status>div{
+  min-width:0;
+  border-radius:12px!important;
+  padding:11px!important;
+  background:#203d47!important;
+  border:1px solid #45616a!important;
+  overflow-wrap:anywhere;
+}
+#dd613Panel .dd613Status>div:nth-child(3),
+#dd613Panel .dd613Status>div:nth-child(4){grid-column:1/-1}
+#dd613Panel .dd613Status>div:nth-child(3){border-color:#82714e!important;background:#203a42!important}
+#dd613Panel .dd613Status>div:nth-child(4){padding:8px 11px!important;background:#192f3a!important}
+#dd613Panel .dd613Status strong{
+  color:#f4dcaa!important;
+  font-size:12px!important;
+  line-height:1.35;
+}
+#dd613Panel .dd613Status span{
+  font-size:11px!important;
+  line-height:1.4;
+  color:#d2e6e0!important;
+}
+#dd613Panel .dd613Actions{margin:10px 0 13px!important}
+#dd613Panel .dd613Actions button{width:100%;min-height:44px!important;font-weight:800!important;touch-action:manipulation}
+#dd613Panel .dd613Actions button:first-child{background:#cba96d!important;color:#11252d!important}
+#dd613Panel h3{
+  margin:16px 0 7px!important;
+  font-size:13px!important;
+  letter-spacing:.1px;
+}
+#dd613Panel h3+.dd613Sub{font-size:11px!important;line-height:1.55;color:#b6c9c7!important}
+#dd613Panel label[for="dd613Reason"]{margin:9px 0 3px!important;font-weight:650}
+#dd613Panel #dd613Reason{
+  width:100%;min-height:46px!important;
+  margin:6px 0!important;
+  padding:9px 12px!important;
+  font-size:13px!important;
+  color:#f7e7c6!important;
+}
+#dd613Panel #dd613Feedback{
+  min-height:0!important;
+  padding:8px 10px!important;
+  margin:10px 0!important;
+  border-left:3px solid #be9b62;
+  border-radius:7px;
+  background:#203740;
+  color:#f2dda9!important;
+  overflow-wrap:anywhere;
+}
+#dd613Panel #dd613Feedback:empty{display:none!important}
+#dd613Panel h3:last-of-type{
+  margin-top:15px!important;
+  border-top:1px solid #4b6263;
+  padding-top:13px;
+}
+#dd613Panel h3:last-of-type+p{
+  font-size:11px!important;
+  line-height:1.55!important;
+  color:#c4d5ce!important;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #40585f;
+  background:#152b35;
+}
+@media(max-width:330px){
+  #dd613Panel{padding-left:10px!important;padding-right:10px!important}
+  #dd613Panel .dd613Head{gap:5px!important;padding:8px!important}
+  #dd613Panel #dd613Close{padding:8px!important;font-size:11px!important}
+  #dd613Panel .dd613Status{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){#dd613Panel .dd613Head{backdrop-filter:none}}
