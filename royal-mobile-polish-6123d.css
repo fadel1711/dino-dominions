@@ -162,3 +162,386 @@
   #dd613Panel .dd613Status{grid-template-columns:1fr!important}
 }
 @media(prefers-reduced-motion:reduce){#dd613Panel .dd613Head{backdrop-filter:none}}
+
+
+/* ========================================================================
+   DINO DOMINION 6.14.0 — ROYAL VISUAL RENAISSANCE / PHASE 1
+   Additive presentation layer: designed for the existing 6.12 dock +
+   6.13 Royal Observatory. No JavaScript, DB, save or economy changes.
+   Scoped to existing, already-interactive elements; no new controls.
+   ======================================================================== */
+
+/* Palette: volcanic obsidian, deep evergreen and antique champagne gold.
+   Restrict the theme to the game's main interface, not other overlays. */
+body.dd612Ready {
+  --dd614-obsidian:#08151b;
+  --dd614-midnight:#10242b;
+  --dd614-evergreen:#1d423d;
+  --dd614-gold:#e5c487;
+  --dd614-gold-bright:#fbe7ba;
+  --dd614-gold-line:#a38658;
+  --dd614-ivory:#f6f0e0;
+  --dd614-sage:#c2d6ce;
+}
+body.dd612Ready .app {
+  background:radial-gradient(ellipse 125% 490px at 50% 0%,#28463e 0%,#162d30 45%,#09171e 100%)!important;
+  color:var(--dd614-ivory);
+}
+
+/* Command crown: preserve the original profile, Royal Mail and native taps. */
+body.dd612Ready .royalTop {
+  position:sticky;
+  isolation:isolate;
+  gap:10px!important;
+  min-height:58px;
+  padding:calc(8px + env(safe-area-inset-top)) 12px 9px!important;
+  border-bottom:1px solid #a68654b3!important;
+  background:linear-gradient(115deg,#091b22fa,#19342ff7 54%,#33271dfa)!important;
+  box-shadow:0 5px 19px #02090bb3,inset 0 -1px #e8c98d25!important;
+}
+body.dd612Ready .royalTop::after {
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:auto 15% -1px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#f2cd76b3 50%,transparent);
+  pointer-events:none;
+}
+body.dd612Ready .royalTop .brand {
+  min-width:0;
+  font-family:Georgia,'Times New Roman',serif;
+  font-weight:800;
+  font-size:clamp(15px,4.25vw,21px)!important;
+  letter-spacing:.035em;
+  line-height:1.08;
+  color:#fff0ce!important;
+  text-shadow:0 2px 9px #000c,0 0 16px #c9963636!important;
+}
+body.dd612Ready .royalTop .brand small {
+  font-family:system-ui,-apple-system,sans-serif;
+  font-size:8px!important;
+  font-weight:750;
+  letter-spacing:.12em!important;
+  color:#d3bf99!important;
+  margin-top:4px;
+}
+body.dd612Ready .royalTop .royalTopIcon {
+  flex-shrink:0;
+  width:44px;
+  height:44px;
+  border:1px solid #b39665!important;
+  border-radius:13px!important;
+  background:linear-gradient(145deg,#263e3c,#13282c 65%,#1c2526)!important;
+  color:var(--dd614-gold-bright)!important;
+  box-shadow:inset 0 1px #f5dfac35,0 3px 11px #0007!important;
+  touch-action:manipulation;
+}
+body.dd612Ready .royalTop .royalTopIcon:active {filter:brightness(1.16);transform:scale(.97)}
+body.dd612Ready .royalTop .royalQuickLinks{gap:5px}
+
+/* Currency + resources remain under the existing Resource toggle, never duplicate. */
+body.dd612Ready .royalWallet {
+  min-width:0;
+  padding:7px 10px!important;
+  gap:7px!important;
+  border-bottom:1px solid #73634280;
+  background:linear-gradient(100deg,#0b1d22,#142a2a 62%,#132127)!important;
+}
+body.dd612Ready .royalWallet .pill {
+  min-width:0;
+  padding:7px 10px!important;
+  border:1px solid #8b754d!important;
+  border-radius:11px!important;
+  background:linear-gradient(145deg,#23332e,#121f24)!important;
+  box-shadow:inset 0 1px #ffdf8f2d,0 2px 7px #0006;
+  color:#e7d7b5;
+  font-variant-numeric:tabular-nums;
+}
+body.dd612Ready .royalWallet .pill strong {color:#ffe4a2}
+body.dd612Ready #dd612ResourceToggle {
+  min-height:44px;
+  padding:7px 10px!important;
+  border:1px solid #b9955f!important;
+  border-radius:11px!important;
+  background:linear-gradient(140deg,#28473c,#172c32)!important;
+  color:#fff0c9;
+  box-shadow:inset 0 1px #fff4d632;
+}
+body.dd612Ready #dd612ResourceToggle[aria-expanded="true"] {
+  background:linear-gradient(140deg,#6b4f30,#323b31)!important;
+  border-color:#e2c184!important;
+}
+body.dd612Ready .dd5161CompactHud {
+  border-bottom:1px solid #8d784862;
+  background:#0d2329;
+}
+body.dd612Ready .dd5161CompactHud .dd5161Resource {
+  border-color:#6e705475;
+  background:linear-gradient(155deg,#223b3a,#0f292f);
+  border-radius:12px;
+  box-shadow:inset 0 1px #fff4d62b;
+}
+
+/* Scene: a non-interactive cinematic vignette leaves all 3D controls live. */
+body.dd612Ready .hero:not(.exploring) {
+  isolation:isolate;
+  border-bottom:2px solid #bb995c!important;
+  background:#122f36;
+  box-shadow:0 9px 20px #0005;
+}
+body.dd612Ready .hero:not(.exploring)::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(180deg,#07171b52 0%,transparent 22%,transparent 59%,#07141f75 100%),linear-gradient(90deg,#00101935,transparent 14%,transparent 86%,#00101935);
+}
+body.dd612Ready .hero:not(.exploring) .heroTag {
+  z-index:5;
+  max-width:calc(100% - 110px);
+  padding:10px 13px!important;
+  border:1px solid #c1a270!important;
+  border-radius:10px!important;
+  background:linear-gradient(110deg,#091e25e8,#1a3437d9)!important;
+  box-shadow:0 6px 17px #0009,inset 0 1px #ffe7b240;
+}
+body.dd612Ready .heroTag .eyebrow {
+  font-size:9px!important;
+  letter-spacing:.18em!important;
+  color:#c4d7b7!important;
+}
+body.dd612Ready .heroTag b {
+  font:normal clamp(19px,5.2vw,26px)/1.2 Georgia,serif!important;
+  color:#ffe4b1!important;
+  text-shadow:0 2px 9px #000;
+}
+body.dd612Ready .hero:not(.exploring) .heroHint {
+  z-index:5;
+  font-size:10px;
+  max-width:calc(100% - 22px);
+  white-space:normal;
+  text-align:center;
+  padding:7px 12px;
+  color:#f7e9cb;
+  border:1px solid #d0a96b78;
+  border-radius:99px;
+  background:#071b22d9;
+}
+body.dd612Ready .hero:not(.exploring) .heroInfo{z-index:4}
+body.dd612Ready #dd612ViewToggle {
+  z-index:9;
+  min-height:44px;
+  border-color:#d3b77d;
+  background:linear-gradient(150deg,#2a403bdc,#081a21ef);
+  box-shadow:inset 0 1px #ffedcc3b,0 4px 15px #0008;
+}
+
+/* The real game sections and their existing action handlers are unchanged. */
+body.dd612Ready #content {
+  min-width:0;
+  gap:13px;
+  padding:16px 12px 18px;
+}
+body.dd612Ready #content .sectionHead {
+  align-items:center;
+  padding:5px 2px 1px;
+  border-bottom:1px solid #a889563d;
+  padding-bottom:9px;
+}
+body.dd612Ready #content .sectionHead h2 {
+  font:normal clamp(20px,5.4vw,27px)/1.17 Georgia,serif!important;
+  letter-spacing:.018em;
+  color:#ffe2aa!important;
+  text-shadow:0 3px 10px #0008;
+}
+body.dd612Ready #content .eyebrow {
+  font-weight:850;
+  letter-spacing:.15em;
+  color:#a8dbc4!important;
+}
+body.dd612Ready #content .panel,
+body.dd612Ready #content .card {
+  border:1px solid #826e4e!important;
+  background:linear-gradient(153deg,#263e3e 0%,#182d32 42%,#101f2a 100%)!important;
+  box-shadow:inset 0 1px #fff2d01d,0 8px 21px #01080b70!important;
+  border-radius:16px!important;
+}
+body.dd612Ready #content .panel {
+  padding:14px!important;
+}
+body.dd612Ready #content .panel h3 {
+  color:#ffe0ab;
+  line-height:1.22;
+  text-wrap:pretty;
+}
+body.dd612Ready #content .card {border-radius:13px!important}
+body.dd612Ready #content .muted,
+body.dd612Ready #content .small.muted {color:#bfccc3!important;line-height:1.5}
+body.dd612Ready #content .btn {
+  min-height:42px;
+  border-radius:11px!important;
+  font-weight:850;
+  letter-spacing:.005em;
+  box-shadow:inset 0 1px #fff8,0 3px 0 #286954!important;
+}
+body.dd612Ready #content .btn.alt {
+  color:#281f12;
+  border-color:#f9dc9a!important;
+  background:linear-gradient(145deg,#ffe2a1,#cf9b51)!important;
+  box-shadow:inset 0 1px #fff9,0 3px 0 #79532e!important;
+}
+body.dd612Ready #content .btn.ghost {
+  border-color:#779486!important;
+  background:#213c40!important;
+  color:#f4e4c3!important;
+  box-shadow:inset 0 1px #ffffff12!important;
+}
+body.dd612Ready #content .btn:active {filter:brightness(1.07)}
+body.dd612Ready #content .portrait {
+  border:1px solid #bca36c!important;
+  border-radius:12px;
+  background:radial-gradient(ellipse at 40% 20%,#496f5b,#1b3640 73%);
+  box-shadow:inset 0 0 26px #00131b8c;
+}
+body.dd612Ready #content .creatureCard,
+body.dd612Ready #content .rpgCreature,
+body.dd612Ready #content .tile {
+  border-color:#897753!important;
+  background:linear-gradient(145deg,#2e5144,#19303b)!important;
+  box-shadow:inset 0 1px #e9d49d25,0 4px 12px #0004!important;
+}
+body.dd612Ready #content .tile.claimed {
+  border-color:#d3af6c!important;
+  background:linear-gradient(145deg,#6c5935,#264740 70%)!important;
+}
+body.dd612Ready #content .rpgCreature,
+body.dd612Ready #content .creatureCard {min-width:0}
+
+/* Royal navigation: still five native category buttons, larger tap targets. */
+body.dd612Ready #dd612Dock {
+  border-top:1px solid #d4ae6fb3;
+  background:linear-gradient(180deg,#1b2c2cf7,#09161ffb)!important;
+  box-shadow:0 -10px 27px #0009,inset 0 1px #ffe6b42e;
+}
+body.dd612Ready #dd612Dock::before {
+  color:#fbe0a2;
+  background:#1c2a28;
+  border-color:#d2ab69;
+}
+body.dd612Ready #dd612Dock .dd612Categories {
+  gap:5px;
+  padding-top:9px;
+}
+body.dd612Ready #dd612Dock .dd612Categories button {
+  min-height:61px;
+  border:1px solid #6f735c;
+  border-radius:12px;
+  background:linear-gradient(155deg,#27413d 0%,#101f29 80%);
+  box-shadow:inset 0 1px #ffedb422;
+  color:#ebddc0;
+  touch-action:manipulation;
+}
+body.dd612Ready #dd612Dock .dd612Categories button.active {
+  border-color:#f4d392;
+  background:linear-gradient(155deg,#756038,#3c3e31 65%,#1a3031);
+  box-shadow:inset 0 1px #fff5d075,0 0 0 1px #dcae5942;
+  color:#fff3d9;
+}
+body.dd612Ready #dd612Dock .dd612Categories button>span {filter:drop-shadow(0 2px 2px #0008)}
+body.dd612Ready #dd612Dock .dd612Categories button>small {
+  font-size:clamp(9px,2.35vw,11px);
+  letter-spacing:.015em;
+  line-height:1.2;
+}
+body.dd612Ready #dd612Dock .dd612Pinned button {
+  min-height:34px;
+  background:linear-gradient(145deg,#2c463f,#1a2e32);
+  color:#ffe6bd;
+  border-color:#a99263;
+  padding-inline:10px;
+}
+
+/* Drawer: turn dense utilities into clearly separated destination tiles. */
+body.dd612Ready .dd612Drawer {
+  border-color:#cfa971;
+  border-radius:20px 20px 0 0;
+  background:radial-gradient(ellipse 125% 350px at 50% 0%,#355046,#162d33 55%,#0a1b26 100%);
+  box-shadow:0 -15px 43px #000c,inset 0 1px #ffe3ae59;
+}
+body.dd612Ready .dd612Drawer header {
+  border-bottom-color:#c8a96b59;
+}
+body.dd612Ready .dd612Drawer h2 {
+  font:normal clamp(22px,6vw,28px)/1.15 Georgia,serif;
+  color:#ffe6b6;
+}
+body.dd612Ready .dd612Drawer .dd612Tile {
+  border:1px solid #8c7957;
+  border-radius:14px;
+  background:linear-gradient(145deg,#2a4642,#142c36);
+  box-shadow:inset 0 1px #f9ebc023,0 4px 11px #0004;
+}
+body.dd612Ready .dd612Drawer .dd612Destination {
+  min-height:73px;
+  padding:12px 8px;
+  gap:8px;
+}
+body.dd612Ready .dd612Drawer .dd612TileWords strong {font-size:12px;color:#ffe9ca}
+body.dd612Ready .dd612Drawer .dd612TileWords small {color:#bdd0c8}
+body.dd612Ready .dd612Drawer .dd612Close {
+  min-width:44px;min-height:44px;
+  color:#ffedd0;
+  background:#25413f;
+  border-color:#c5a36e;
+}
+
+/* A unified finish for screens already reached through the drawer. */
+.ddFullScreen .ddFullHeader {
+  background:linear-gradient(115deg,#11272d,#263b33 58%,#35281e)!important;
+  border-bottom-color:#b99762!important;
+  box-shadow:0 6px 15px #0008;
+}
+.ddFullScreen .ddFullHeading b {
+  font-family:Georgia,'Times New Roman',serif;
+  font-weight:750;
+  color:#ffe1a9;
+}
+.dd510Overlay .dd510Header {
+  background:linear-gradient(115deg,#102930,#1b3835 56%,#34291e)!important;
+  border-bottom-color:#c09a61!important;
+}
+.dd510Overlay .dd510Header strong {
+  font-family:Georgia,'Times New Roman',serif;
+  color:#ffe0a9;
+  font-weight:700;
+}
+
+/* Tap access, safe areas and motion constraints. */
+body.dd612Ready #dd612Dock button:focus-visible,
+body.dd612Ready .royalTop button:focus-visible,
+body.dd612Ready .dd612Drawer button:focus-visible,
+body.dd612Ready #content button:focus-visible,
+body.dd612Ready #dd612ResourceToggle:focus-visible {
+  outline:2px solid #fff1bd!important;
+  outline-offset:2px;
+}
+@media(max-width:360px) {
+  body.dd612Ready .royalTop {padding-inline:8px!important;gap:5px!important}
+  body.dd612Ready .royalTop .royalTopIcon {width:44px;height:44px}
+  body.dd612Ready .royalTop .brand {font-size:13px!important;letter-spacing:0}
+  body.dd612Ready .royalTop .brand small {font-size:7px!important;letter-spacing:.04em!important}
+  body.dd612Ready .royalWallet {gap:4px!important;padding-inline:6px!important}
+  body.dd612Ready .royalWallet .pill {padding:6px!important}
+  body.dd612Ready #dd612ResourceToggle {font-size:10px;padding:6px!important}
+  body.dd612Ready #content {padding-inline:9px}
+  body.dd612Ready #dd612Dock .dd612Categories {gap:3px}
+  body.dd612Ready #dd612Dock .dd612Categories button {min-height:59px}
+  body.dd612Ready .dd612Drawer .dd612Destination {gap:4px;padding:10px 6px}
+}
+@media(prefers-reduced-motion:reduce) {
+  body.dd612Ready .royalTop .royalTopIcon,
+  body.dd612Ready #dd612Dock button,
+  body.dd612Ready #content .btn {animation:none!important;transition:none!important;transform:none!important}
+}
