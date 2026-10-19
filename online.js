@@ -153,8 +153,8 @@ const {data,error}=await q;if(error){notice='Chat: '+error.message;return}
 messages=(data||[]).filter(m=>target!=='private'||!recipient||((m.sender_id===session.user.id&&m.recipient_id===recipient)||(m.sender_id===recipient&&m.recipient_id===session.user.id))).reverse();
 const box=$('ddMessages');if(box)box.innerHTML=messageHTML(messages)}
 async function action(a,button){if(loading)return;loading=true;try{let result;if(a==='signin'||a==='signup'){let email=$('email')?.value.trim(),password=$('password')?.value;if(!email||!password)throw Error('Enter email and password');result=a==='signin'?await client.auth.signInWithPassword({email,password}):await client.auth.signUp({email,password});if(result.error)throw result.error;notice=a==='signup'?'Account created. Verify your email if required.':'Signed in';await loadSession();return}
-if(a==='signout'&&window.DDCloud?.hasPending()&&!confirm('Your latest kingdom changes are not yet uploaded. Sign out anyway? They will remain saved on this device.'))return;
-if(a?.startsWith('cloud')){if(!window.DDCloud)throw Error('Cloud feature unavailable');await window.DDCloud.action(a);return}
+if(a==='signout'&&window.DDCloud?.hasPending()&&!confirm((window.DDCloud?.t?.('Your latest kingdom changes are not yet uploaded. Sign out anyway? They will remain saved on this device.')||'Your latest kingdom changes are not yet uploaded. Sign out anyway? They will remain saved on this device.')))return;
+if(a?.startsWith('cloud')){if(!window.DDCloud)throw Error((window.DDCloud?.t?.('Cloud feature unavailable')||'Cloud feature unavailable'));await window.DDCloud.action(a);return}
 if(a==='signout'){closeReplay();peopleQuery='';peopleResults=null;result=await client.auth.signOut();if(result.error)throw result.error;session=null;notice='Signed out';lastWarResult=null;onlineSquad=[0,1,2];warTerritories=[];warReports=[];warReady=false;mailRows=[];mailCount=0;royalRanks=[];mailReady=false;updateMailBadge();draw();stop();return}
 if(a==='refreshRoyal'){await loadRoyalData();notice='Royal services refreshed';draw();return}
 if(a==='mailCompose'){mailCompose=true;mailSelected=null;page='mail';draw();return}

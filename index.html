@@ -800,7 +800,7 @@ function fight(special){if(!battle||battle.turn!=='p')return;let a=battle.p[batt
 function finish(win){battle=null;s.battles++;if(win){s.win++;if(window.DD515){const queued=window.DD515.deliver(s,{title:'⚔️ Practice Battle Victory',text:'Local PvE victory rewards. Demo gems only, not verified Royal Gems.',amounts:{gold:260,gems:8,xp:30}});notify(queued?'🏆 Victory! Claim loot from Royal Mail.':'📬 Your reward mailbox is full. Claim pending rewards.')}else{s.xp+=30;earn(260,8);if(s.xp>=s.level*100){s.xp=0;s.level++;notify('🏆 Victory! Commander level up!')}else notify('🏆 Victory! +260 gold +8 gems')}}else notify('Defeat — train your dinosaurs and try again');save();render();battleMoment(win?'🏆 VICTORY':'🛡️ DEFEAT',win?'Your kingdom earns honor and rewards.':'Return stronger to reclaim the arena.',true)}
 function modal(title,body,action){$('modal').classList.remove('hide');$('modal').innerHTML=`<div class="modal"><div class="big">🦖</div><h2>${title}</h2><p>${body}</p><div class="row" style="justify-content:center">${button('Close','close','ghost')}${action?button(action.label,action.id,'alt'):''}</div></div>`}
 let dd6123gExpeditionBusy=false;
-async function doAction(act){if(window.DDCloud?.isLocked()){notify('☁️ Resolve your cloud save before playing');return}
+async function doAction(act){if(window.DDCloud?.isLocked()){notify(window.DDCloud?.t?.('☁️ Resolve your cloud save before playing')||'☁️ Resolve your cloud save before playing');return}
 if(act==='toggleBattleFX'){battleFX=!battleFX;localStorage.setItem('dd-battle-fx',battleFX?'on':'off');render();notify('🎬 Battle effects '+(battleFX?'enabled':'disabled'));return;}
 if(act==='rider:train'||act==='rider:gear'){
  const i=s.selected,r=s.riders[i];if(!s.dinos[i].unlocked)return notify('Unlock this dinosaur before training its Rider');
@@ -861,7 +861,7 @@ if(window.DD513?.handleAction(act,s,livingContext))return;
   let starting=null;
   try{
    const unlimited=await (window.DDEnergyGift?.authorize?.()??Promise.resolve(false));
-   if(window.DDCloud?.isLocked())return notify('☁️ Resolve your cloud save before playing');
+   if(window.DDCloud?.isLocked())return notify(window.DDCloud?.t?.('☁️ Resolve your cloud save before playing')||'☁️ Resolve your cloud save before playing');
    starting=s.energy;
    if(unlimited)s.energy=(Number(starting)||0)+cost;
    if(act==='rpgScout')window.DDRPG?.handleAction?.(act,s,{save,render,notify,modal});
@@ -923,7 +923,7 @@ if(act.startsWith('building:')){
  try{
   // Ask the server afresh for every action; expired or offline gifts do NOT bypass costs.
   const unlimited=await (window.DDEnergyGift?.authorize?.()??Promise.resolve(false));
-  if(window.DDCloud?.isLocked())return notify('☁️ Resolve your cloud save before playing');
+  if(window.DDCloud?.isLocked())return notify(window.DDCloud?.t?.('☁️ Resolve your cloud save before playing')||'☁️ Resolve your cloud save before playing');
   if(!unlimited&&s.energy<cost)return notify('Not enough energy');
   if(!unlimited)s.energy-=cost;
  const chance=Math.min(.94,.7+totalPower()/12000-exploreZone*.1-(boss?.12:0)+(window.DD515?.legacyExpChance?.(s)||0));
@@ -952,7 +952,7 @@ $('content').addEventListener('pointerup',e=>{
  doAction('builder:tile:'+target.dataset.col+':'+target.dataset.row);
 });
 $('content').addEventListener('pointercancel',()=>buildDrag=null);
-$('content').addEventListener('click',e=>{if(window.DDCloud?.isLocked())return notify('☁️ Cloud save needs attention');let el=e.target.closest('[data-action]');if(el&&el.dataset.action.startsWith('builder:tile:')&&Date.now()<buildDragBlockedUntil)return;if(el)return doAction(el.dataset.action);el=e.target.closest('[data-zone]');if(el){exploreZone=+el.dataset.zone;render();return}el=e.target.closest('[data-dino]');if(el){s.selected=+el.dataset.dino;save();render();return}el=e.target.closest('[data-region]');if(el){let i=+el.dataset.region;selectedRegion=i;if(s.lands.includes(i))return modal(REG[i][0],'👑 Your alliance controls this territory.');let neighbors=[i-3,i+3,...(i%3>0?[i-1]:[]),...(i%3<2?[i+1]:[])];if(!neighbors.some(x=>s.lands.includes(x)))return notify('Conquer an adjacent territory first');modal(REG[i][0],`Territory difficulty: ${fmt(450+REG[i][2]*450)} power. Capture costs 1 battle victory and requires at least ${fmt(450+REG[i][2]*450)} total power.`,{label:'Conquer ⚔️',id:'conquer'});return}el=e.target.closest('[data-fighter]');if(el&&battle){let [side,idx]=el.dataset.fighter.split(':');if(battle[side][+idx].hp>0){battle[side+'Target']=+idx;render()}return}el=e.target.closest('[data-chat]');if(el){chatMode=el.dataset.chat;render()}});$('modal').addEventListener('click',e=>{let el=e.target.closest('[data-action]');if(!el)return;if(el.dataset.action==='conquer'){if(totalPower()<450+REG[selectedRegion][2]*450)return notify('Power too low — train dinosaurs!');if(!s.lands.includes(selectedRegion)){s.lands.push(selectedRegion);earn(300,15);notify('👑 Territory captured!')}doAction('close');render();return}doAction(el.dataset.action)});$('content').addEventListener('submit',e=>{if(e.target.id!=='chatForm')return;e.preventDefault();let input=$('chatInput'),value=input.value.trim();if(!value)return;s.chat.push({mode:chatMode,text:value.slice(0,160)});s.chat=s.chat.slice(-60);save();render()});
+$('content').addEventListener('click',e=>{if(window.DDCloud?.isLocked())return notify(window.DDCloud?.t?.('☁️ Cloud save needs attention')||'☁️ Cloud save needs attention');let el=e.target.closest('[data-action]');if(el&&el.dataset.action.startsWith('builder:tile:')&&Date.now()<buildDragBlockedUntil)return;if(el)return doAction(el.dataset.action);el=e.target.closest('[data-zone]');if(el){exploreZone=+el.dataset.zone;render();return}el=e.target.closest('[data-dino]');if(el){s.selected=+el.dataset.dino;save();render();return}el=e.target.closest('[data-region]');if(el){let i=+el.dataset.region;selectedRegion=i;if(s.lands.includes(i))return modal(REG[i][0],'👑 Your alliance controls this territory.');let neighbors=[i-3,i+3,...(i%3>0?[i-1]:[]),...(i%3<2?[i+1]:[])];if(!neighbors.some(x=>s.lands.includes(x)))return notify('Conquer an adjacent territory first');modal(REG[i][0],`Territory difficulty: ${fmt(450+REG[i][2]*450)} power. Capture costs 1 battle victory and requires at least ${fmt(450+REG[i][2]*450)} total power.`,{label:'Conquer ⚔️',id:'conquer'});return}el=e.target.closest('[data-fighter]');if(el&&battle){let [side,idx]=el.dataset.fighter.split(':');if(battle[side][+idx].hp>0){battle[side+'Target']=+idx;render()}return}el=e.target.closest('[data-chat]');if(el){chatMode=el.dataset.chat;render()}});$('modal').addEventListener('click',e=>{let el=e.target.closest('[data-action]');if(!el)return;if(el.dataset.action==='conquer'){if(totalPower()<450+REG[selectedRegion][2]*450)return notify('Power too low — train dinosaurs!');if(!s.lands.includes(selectedRegion)){s.lands.push(selectedRegion);earn(300,15);notify('👑 Territory captured!')}doAction('close');render();return}doAction(el.dataset.action)});$('content').addEventListener('submit',e=>{if(e.target.id!=='chatForm')return;e.preventDefault();let input=$('chatInput'),value=input.value.trim();if(!value)return;s.chat.push({mode:chatMode,text:value.slice(0,160)});s.chat=s.chat.slice(-60);save();render()});
 // Procedural 3D scene. All meshes are generated in-browser; no asset downloads besides Three.js.
 
 // V1.0 Build 5.7: Mounted Warfare — animated Riders, mounted squads, cinematic PvE visual strikes.
@@ -1791,7 +1791,7 @@ window.DD515Game={apply:(op,val)=>window.DD515?.apply?.(op,val,s,{save,render,no
 setup3D();royalResolveConstruction();render();})();
 </script><div class="onlineLayer hide" id="onlineLayer"><div class="onlineInner"><div class="onlineRow" style="justify-content:space-between"><h2>🛡️ Alliance Wars</h2><button class="secondary" id="onlineClose">✕ Close</button></div><div id="onlineApp"></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script src="config.js?v=0904"></script><script src="online.js?v=1054-kingdombuilder"></script><script src="cloud.js?v=6173"></script><script>
+<script src="config.js?v=0904"></script><script src="online.js?v=6178c"></script><script src="cloud.js?v=6178c"></script><script>
 (function(){'use strict';
 const $=id=>document.getElementById(id),overlay=$('ddFullScreen'),mount=$('ddFullMount'),panel=$('onlineLayer'),app=$('onlineApp');
 const titles={profile:['Commander Profile','👤'],alliance:['Alliance Headquarters','🛡️'],chat:['Direct Messages & Chat','✉️'],friends:['Friends & Commanders','👥'],rank:['Dominion Rankings','🏆'],war:['Alliance Warfront','⚔️'],challenge:['Friendly Challenges','🥊'],mail:['Royal Mail','✉️'],commander:['Commander Record','👤']};
