@@ -10,7 +10,7 @@
 'use strict';
 
 const OWN_CACHE_PREFIX = 'dd-worldwide-';
-const OFFLINE_CACHE = 'dd-worldwide-offline-1100';
+const OFFLINE_CACHE = 'dd-worldwide-offline-6178';
 const OFFLINE_URL = new URL('./offline.html', self.registration.scope).href;
 const SCOPE_URL = new URL(self.registration.scope);
 

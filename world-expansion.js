@@ -67,7 +67,7 @@ let observer,scheduled=false;
 function scheduleTranslate(){if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{
  scheduled=false;if(observer)observer.disconnect();translateRoots();if(observer)observer.observe(document.body,{childList:true,subtree:true,characterData:true});
 })}
-function refreshLocale(){document.documentElement.lang=language;document.documentElement.dir=language==='ar'?'rtl':'ltr';document.body.classList.toggle('dd59RTL',language==='ar');scheduleTranslate()}
+function refreshLocale(){document.documentElement.lang=language;document.documentElement.dir=language==='ar'?'rtl':'ltr';document.body.classList.toggle('dd59RTL',language==='ar');if(window.DDGameLocale)window.DDGameLocale.setLanguage(language);else scheduleTranslate()}
 
 let overlay=null,body=null,launch=null,lastFocus=null,shown=false,hubTab='settings',tourStep=Number(stored('dd59-tour-step','0'))||0;
 if(tourStep<0||tourStep>6)tourStep=0;
@@ -142,7 +142,7 @@ function init(){
  window.addEventListener('online',()=>document.getElementById('dd59Offline')?.remove());
  window.addEventListener('offline',()=>{if(document.getElementById('dd59Offline'))return;const warn=document.createElement('div');warn.id='dd59Offline';warn.className='dd59Offline';warn.textContent=t('offline');document.body.appendChild(warn)});
  // Observe game-rendered UI, without touching private messages or saved data.
- observer=new MutationObserver(scheduleTranslate);observer.observe(document.body,{childList:true,subtree:true,characterData:true});
+ if(!window.DDGameLocale){observer=new MutationObserver(scheduleTranslate);observer.observe(document.body,{childList:true,subtree:true,characterData:true});}
  refreshLocale();syncAuth();
  let retries=0;const connect=()=>{if(client()){client().auth?.onAuthStateChange(()=>setTimeout(syncAuth,0));syncAuth();return}if(retries++<8)setTimeout(connect,1200)};connect();
  // Display the tour offer once; never force gameplay controls to change.
